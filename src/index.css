@@ -370,15 +370,16 @@ body {
   :root { --nav-h: 72px; }
   .container-x { max-width: 1240px; }
   .source-hero {
-    height: 100svh;
-    min-height: 720px !important;
-    max-height: 780px;
+    height: auto;
+    min-height: 0 !important;
+    max-height: none;
   }
-  .source-hero-content { padding-top: 5.25rem; padding-bottom: 2rem; }
+  .source-hero-content { padding-top: 5.25rem; padding-bottom: 0; }
   .source-hero-content h1 { font-size: clamp(2.8rem, 4.35vw, 3.8rem); }
   .source-hero-content > span { margin-bottom: 1rem; }
   .source-hero-content > p { margin-top: 1rem; line-height: 1.65; }
   .source-hero-content > div { margin-top: 1.25rem; margin-bottom: 1.25rem; }
+  .source-hero-content > div:last-child { margin-bottom: 0; }
   .connected-hub { min-height: 560px; }
   .service-detail-hero { min-height: 540px !important; }
   .service-hero .container-x { min-height: min(78svh, 610px); }
@@ -389,21 +390,34 @@ body {
 /* More compact hero depth for common 15–16 inch laptop panels. */
 @media (min-width: 1450px) and (max-width: 1920px) and (max-height: 1100px) {
   .source-hero {
-    height: calc(100svh - var(--nav-h));
-    min-height: calc(100svh - var(--nav-h)) !important;
+    height: 100svh;
+    min-height: 100svh !important;
     max-height: none;
+    align-items: flex-start;
+  }
+  .source-hero-content {
+    padding-top: calc(var(--nav-h) + 1rem);
+    padding-bottom: 1rem;
   }
   .source-hero-content h1 {
-    max-width: 660px;
-    font-size: clamp(4.6rem, 5vw, 5rem);
+    max-width: 690px;
+    font-size: clamp(4.15rem, 4.55vw, 4.75rem);
+    line-height: 1.02;
   }
-  .source-hero-content > p { max-width: 680px; }
+  .source-hero-content > span { margin-bottom: .8rem; }
+  .source-hero-content > p {
+    max-width: 720px;
+    margin-top: 1rem;
+    line-height: 1.55;
+  }
+  .source-hero-content > div { margin-top: 1rem; margin-bottom: 1rem; }
+  .source-hero-content > div:last-child { margin-bottom: 0; }
 }
 
 /* Extra depth for wider 16-inch laptop displays. */
 @media (min-width: 1680px) and (max-width: 1920px) and (max-height: 1200px) {
   .source-hero {
-    min-height: calc(100svh - var(--nav-h)) !important;
+    min-height: 100svh !important;
     max-height: none;
   }
 }
