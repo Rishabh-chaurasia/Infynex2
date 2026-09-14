@@ -240,7 +240,7 @@ export const services: Service[] = [
       'When your organisation needs a dedicated fleet, we procure new vehicles in the required quantity and provide them under a clear commercial agreement. Whether you need 10 cars or 100, our team coordinates vehicle selection, purchase, registration, delivery and ongoing account support while you pay through the agreed service plan.',
     icon: Car,
     accent: '#6fd3ee',
-    hero: images.vvFleet,
+    hero: images.vvHero,
     gallery: [images.vvFleet, images.vvRoad, images.vvCar],
     highlights: ['New vehicle procurement', 'Small and large fleet requirements', 'Vehicle selection support', 'Registration and delivery coordination', 'Dedicated account management', 'Clear commercial billing'],
     capabilities: [

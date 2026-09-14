@@ -20,11 +20,14 @@ import helpdeskTeam from '../assets/generated-services/helpdesk-team.webp'
 import supportOnsite from '../assets/generated-services/support-onsite.webp'
 import supportResident from '../assets/generated-services/support-resident.webp'
 import teleAgentNew from '../assets/generated-services/tele-agent.webp'
+import teleServicesTeam from '../assets/generated-services/tele-services-team-v2.webp'
 import teleManager from '../assets/generated-services/tele-manager.webp'
 import infraAssess from '../assets/generated-services/infra-assess.webp'
+import infraNetworkTeam from '../assets/generated-services/infra-network-team-v2.webp'
 import cloudArchitecture from '../assets/generated-services/cloud-architecture.webp'
 import cloudStorage from '../assets/generated-services/cloud-storage.webp'
 import ductRobotNew from '../assets/generated-services/duct-robot.webp'
+import ductCleaningTeam from '../assets/generated-services/duct-cleaning-team-v2.webp'
 import ductOperator from '../assets/generated-services/duct-operator.webp'
 import ductCamera from '../assets/generated-services/duct-camera.webp'
 import solarSurvey from '../assets/generated-services/solar-survey.webp'
@@ -39,7 +42,7 @@ import amcMaintainNew from '../assets/generated-services/amc-maintain.webp'
 import amcRackNew from '../assets/generated-services/amc-rack.webp'
 import amcAuditNew from '../assets/generated-services/amc-audit.webp'
 import amcReportNew from '../assets/generated-services/amc-report.webp'
-import vehicleEvFleet from '../assets/generated-services/vehicle-ev-fleet.webp'
+import vehicleSupplyHero from '../assets/generated-services/vehicle-supply-hero-v2.webp'
 import vehicleOps from '../assets/generated-services/vehicle-ops.webp'
 import vehicleHandover from '../assets/generated-services/vehicle-handover.webp'
 import vehicleShuttle from '../assets/generated-services/vehicle-shuttle.webp'
@@ -94,7 +97,7 @@ export const images = {
 
   // IT infrastructure
   infraHero: infraAssess,
-  infraRack: infraAssess,
+  infraRack: infraNetworkTeam,
   infraDc: cloudArchitecture,
   infraCables: hwCabling,
 
@@ -105,14 +108,14 @@ export const images = {
   cloudCode: cloudArchitecture,
 
   // Tele services
-  teleHero: teleAgentNew,
+  teleHero: teleServicesTeam,
   teleAgent: teleAgentNew,
   teleTeam: teleManager,
   teleAntenna: helpdeskTeam,
 
   // Robotic duct cleaning
   ductHero: ductRobotNew,
-  ductRobot: ductRobotNew,
+  ductRobot: ductCleaningTeam,
   ductIndustrial: ductOperator,
   ductInspection: ductCamera,
   ductPipes: duct,
@@ -130,7 +133,7 @@ export const images = {
   hdScreen: teleManager,
 
   // Vehicle vendor
-  vvHero: vehicleEvFleet,
+  vvHero: vehicleSupplyHero,
   vvCar: vehicleHandover,
   vvRoad: vehicleOps,
   vvFleet: vehicleShuttle,

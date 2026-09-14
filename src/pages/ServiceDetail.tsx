@@ -27,14 +27,14 @@ export default function ServiceDetail() {
 
   return (
     <>
-      <section className="service-detail-hero relative flex min-h-[520px] items-end overflow-hidden bg-navy-950 pt-24 text-white md:min-h-[620px]">
-        <SmartImage src={service.hero} alt={service.title} className="absolute inset-0 h-full w-full object-cover opacity-65" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/80 to-navy-950/20" />
-        <div className="container-x relative pb-14 md:pb-20">
-          <nav className="mb-6 flex flex-wrap items-center gap-2 text-xs text-white/65" aria-label="Breadcrumb">
-            <Link to="/">Home</Link><ChevronRight className="h-3 w-3" />
-            <Link to="/services">Services</Link><ChevronRight className="h-3 w-3" />
-            <span className="text-white">{service.navTitle}</span>
+      <section className="service-detail-hero relative flex min-h-[520px] items-end overflow-hidden bg-navy-950 pt-24 text-white md:min-h-[620px]" style={{ '--service-accent': service.accent } as React.CSSProperties}>
+        <SmartImage src={service.hero} alt={service.title} className="service-detail-hero-image absolute inset-0 h-full w-full object-cover opacity-65" />
+        <div className="service-detail-hero-overlay absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-950/55 to-navy-950/5" />
+        <div className="service-detail-hero-content container-x relative pb-14 md:pb-20">
+          <nav className="service-detail-breadcrumb mb-6 flex flex-wrap items-center gap-2 text-sm font-semibold sm:gap-3 sm:text-base" aria-label="Breadcrumb">
+            <Link to="/">Home</Link><ChevronRight className="h-4 w-4" />
+            <Link to="/services">Services</Link><ChevronRight className="h-4 w-4" />
+            <span>{service.navTitle}</span>
           </nav>
           <p className="service-detail-eyebrow eyebrow" style={{ '--service-accent': service.accent } as React.CSSProperties}>{service.eyebrow}</p>
           <h1 className="mt-4 max-w-4xl text-balance font-display text-4xl font-semibold leading-[1.04] sm:text-5xl md:text-6xl">{service.title}</h1>

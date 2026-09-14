@@ -56,7 +56,7 @@ export default function Services() {
       <section className="container-x py-20 md:py-28">
         {groups.map((g, gi) => (
           <div key={g.title} className={gi ? 'mt-16 md:mt-20' : ''}>
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: EASE }} className="mb-10 flex items-center gap-4">
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: EASE }} className="service-group-heading mb-10 flex items-center gap-4">
               <span className="font-display text-xs tracking-[0.3em] text-teal-600">0{gi + 1}</span>
               <span className="h-px flex-1 bg-navy-800/10" />
               <h2 className="font-display text-2xl font-semibold text-navy-900 md:text-3xl">{g.title}</h2>
