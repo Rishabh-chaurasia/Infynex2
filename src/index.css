@@ -390,16 +390,21 @@ body {
 @media (min-width: 1450px) and (max-width: 1920px) and (max-height: 1100px) {
   .source-hero {
     height: calc(100svh - var(--nav-h));
-    min-height: 760px !important;
-    max-height: 810px;
+    min-height: calc(100svh - var(--nav-h)) !important;
+    max-height: none;
   }
+  .source-hero-content h1 {
+    max-width: 660px;
+    font-size: clamp(4.6rem, 5vw, 5rem);
+  }
+  .source-hero-content > p { max-width: 680px; }
 }
 
 /* Extra depth for wider 16-inch laptop displays. */
 @media (min-width: 1680px) and (max-width: 1920px) and (max-height: 1200px) {
   .source-hero {
-    min-height: 820px !important;
-    max-height: 880px;
+    min-height: calc(100svh - var(--nav-h)) !important;
+    max-height: none;
   }
 }
 
