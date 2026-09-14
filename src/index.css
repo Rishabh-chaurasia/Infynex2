@@ -371,8 +371,8 @@ body {
   .container-x { max-width: 1240px; }
   .source-hero {
     height: calc(100svh - 68px);
-    min-height: 700px !important;
-    max-height: 760px;
+    min-height: 670px !important;
+    max-height: 730px;
   }
   .source-hero-content { padding-top: 5.25rem; padding-bottom: 2rem; }
   .source-hero-content h1 { font-size: clamp(2.8rem, 4.35vw, 3.8rem); }
@@ -386,9 +386,13 @@ body {
   .site-light section[class*="md:py-32"] { padding-top: 3.5rem; padding-bottom: 3.5rem; }
 }
 
-/* Taller homepage presentation for common 14-inch 1536px laptop panels. */
-@media (min-width: 1450px) and (max-width: 1600px) and (max-height: 850px) {
-  .source-hero { min-height: 740px !important; }
+/* More compact hero depth for common 15–16 inch laptop panels. */
+@media (min-width: 1450px) and (max-width: 1920px) and (max-height: 1100px) {
+  .source-hero {
+    height: calc(100svh - var(--nav-h));
+    min-height: 680px !important;
+    max-height: 720px;
+  }
 }
 
 h1, h2, h3, h4, .font-display {
