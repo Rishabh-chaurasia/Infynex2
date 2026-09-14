@@ -366,14 +366,25 @@ body {
 
 /* Compact laptop screens (common 13–14 inch viewports). */
 @media (min-width: 1024px) and (max-width: 1440px) and (max-height: 850px) {
-  .source-hero { min-height: max(620px, calc(100svh - 68px)); }
-  .source-hero-content { padding-top: 7rem; padding-bottom: 1.25rem; }
+  html { font-size: 90%; }
+  :root { --nav-h: 72px; }
+  .container-x { max-width: 1240px; }
+  .source-hero {
+    height: calc(100svh - 68px);
+    min-height: 520px !important;
+    max-height: 570px;
+  }
+  .source-hero-content { padding-top: 4.75rem; padding-bottom: .75rem; }
+  .source-hero-content h1 { font-size: clamp(2.8rem, 4.35vw, 3.8rem); }
   .source-hero-content > span { margin-bottom: 1rem; }
   .source-hero-content > p { margin-top: 1rem; line-height: 1.65; }
   .source-hero-content > div { margin-top: 1.25rem; margin-bottom: 1.25rem; }
-  .connected-hub { min-height: 620px; }
+  .connected-hub { min-height: 560px; }
+  .service-detail-hero { min-height: 540px !important; }
+  .service-hero .container-x { min-height: min(78svh, 610px); }
+  .site-light [class*="min-h-[82svh]"] { min-height: 68svh; }
   .site-light section[class*="py-24"],
-  .site-light section[class*="md:py-32"] { padding-top: 4rem; padding-bottom: 4rem; }
+  .site-light section[class*="md:py-32"] { padding-top: 3.5rem; padding-bottom: 3.5rem; }
 }
 
 h1, h2, h3, h4, .font-display {
