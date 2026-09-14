@@ -472,6 +472,7 @@ body {
   .about-page-hero-title { font-size: 4.75rem !important; }
   .about-page-hero-media { min-height: 470px !important; }
   .contact-page-layout { padding-top: 7rem !important; }
+  .contact-social-actions { margin-top: 1.75rem !important; }
   .connected-hub { min-height: 560px; }
   .service-detail-hero { min-height: 540px !important; }
   .service-hero .container-x { min-height: min(78svh, 610px); }

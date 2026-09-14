@@ -84,7 +84,7 @@ export default function Contact() {
               ))}
             </motion.ul>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.5, duration: 0.8, ease: EASE }} className="mt-12 flex flex-wrap gap-4">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.5, duration: 0.8, ease: EASE }} className="contact-social-actions mt-12 flex flex-wrap gap-4">
               <MagneticButton href={site.social.whatsapp} variant="dark" icon={false} className="!bg-[#25D366] hover:!bg-[#1eaa52]"><span className="flex items-center gap-2"><MessageCircle className="h-4 w-4" /> WhatsApp</span></MagneticButton>
               <MagneticButton href={site.social.linkedin} variant="ghost" className="!border-[#0A66C2] !bg-[#0A66C2] !text-white hover:!bg-[#084f96]">LinkedIn</MagneticButton>
             </motion.div>

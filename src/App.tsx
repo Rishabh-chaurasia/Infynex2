@@ -1,17 +1,37 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, type ComponentType } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 import Home from './pages/Home'
 
-const Services = lazy(() => import('./pages/Services'))
-const About = lazy(() => import('./pages/About'))
-const Industries = lazy(() => import('./pages/Industries'))
-const Blog = lazy(() => import('./pages/Blog'))
-const BlogPost = lazy(() => import('./pages/BlogPost'))
-const Contact = lazy(() => import('./pages/Contact'))
-const NotFound = lazy(() => import('./pages/NotFound'))
+const CHUNK_RELOAD_KEY = 'infynex-chunk-reload'
 
-const ServiceDetail = lazy(() => import('./pages/ServiceDetail'))
+function lazyWithRetry<T extends ComponentType<object>>(factory: () => Promise<{ default: T }>) {
+  return lazy(async () => {
+    try {
+      const module = await factory()
+      sessionStorage.removeItem(CHUNK_RELOAD_KEY)
+      return module
+    } catch (error) {
+      if (!sessionStorage.getItem(CHUNK_RELOAD_KEY)) {
+        sessionStorage.setItem(CHUNK_RELOAD_KEY, '1')
+        window.location.reload()
+        return new Promise<never>(() => undefined)
+      }
+      sessionStorage.removeItem(CHUNK_RELOAD_KEY)
+      throw error
+    }
+  })
+}
+
+const Services = lazyWithRetry(() => import('./pages/Services'))
+const About = lazyWithRetry(() => import('./pages/About'))
+const Industries = lazyWithRetry(() => import('./pages/Industries'))
+const Blog = lazyWithRetry(() => import('./pages/Blog'))
+const BlogPost = lazyWithRetry(() => import('./pages/BlogPost'))
+const Contact = lazyWithRetry(() => import('./pages/Contact'))
+const NotFound = lazyWithRetry(() => import('./pages/NotFound'))
+
+const ServiceDetail = lazyWithRetry(() => import('./pages/ServiceDetail'))
 
 function Fallback() {
   return <div className="min-h-screen bg-navy-900" aria-hidden />
