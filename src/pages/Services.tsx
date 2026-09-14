@@ -53,7 +53,7 @@ export default function Services() {
         <ScrollIndicator />
       </section>
 
-      <section className="container-x py-20 md:py-28">
+      <section className="container-x pb-12 pt-12 md:pb-16 md:pt-16">
         {groups.map((g, gi) => (
           <div key={g.title} className={gi ? 'mt-16 md:mt-20' : ''}>
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: EASE }} className="service-group-heading mb-10 flex items-center gap-4">

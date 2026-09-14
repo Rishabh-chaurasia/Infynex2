@@ -17,20 +17,20 @@ export default function Footer() {
       <div aria-hidden className="absolute -right-40 -top-40 h-[30rem] w-[30rem] rounded-full bg-teal-400/10 blur-[120px]" />
 
       <motion.div
-        className="container-x relative grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:py-20"
+        className="container-x relative grid gap-8 py-10 sm:grid-cols-2 sm:gap-12 sm:py-14 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:py-14"
         initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-10% 0px' }}
         variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }}
       >
         <motion.div variants={col} whileHover={{ y: -4 }} transition={{ duration: 0.3 }}>
-          <motion.img src={site.logo} alt={site.name} className="h-12 w-auto" whileHover={{ scale: 1.06 }} />
-          <p className="mt-6 max-w-sm text-ink-600">{site.tagline}</p>
-          <div className="mt-8 flex gap-3">
+          <motion.img src={site.logo} alt={site.name} className="h-10 w-auto sm:h-12" whileHover={{ scale: 1.06 }} />
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-600 sm:mt-6 sm:text-base">{site.tagline}</p>
+          <div className="mt-5 flex gap-3 sm:mt-8">
             <Social href={site.social.linkedin} label="LinkedIn" brand="linkedin"><LinkedInIcon /></Social>
             <Social href={site.social.whatsapp} label="WhatsApp" brand="whatsapp"><WhatsAppIcon /></Social>
           </div>
         </motion.div>
 
-        <motion.div variants={col} whileHover={{ x: 4 }} transition={{ duration: 0.3 }}>
+        <motion.div variants={col} whileHover={{ x: 4 }} transition={{ duration: 0.3 }} className="hidden sm:block">
           <h4 className="eyebrow text-navy-900">Services</h4>
           <ul className="mt-6 space-y-2.5">
             {services.map((s) => (
@@ -41,7 +41,7 @@ export default function Footer() {
           </ul>
         </motion.div>
 
-        <motion.div variants={col} whileHover={{ x: 4 }} transition={{ duration: 0.3 }}>
+        <motion.div variants={col} whileHover={{ x: 4 }} transition={{ duration: 0.3 }} className="hidden sm:block">
           <h4 className="eyebrow text-navy-900">Navigation</h4>
           <ul className="mt-6 space-y-2.5">
             {navLinks.map((l) => (
@@ -50,7 +50,7 @@ export default function Footer() {
           </ul>
         </motion.div>
 
-        <motion.div id="footer-contact" variants={col} whileHover={{ y: -4 }} transition={{ duration: 0.3 }} className="scroll-mt-28">
+        <motion.div id="footer-contact" variants={col} whileHover={{ y: -4 }} transition={{ duration: 0.3 }} className="order-2 scroll-mt-28 rounded-2xl border border-navy-800/10 bg-white/70 p-5 shadow-sm sm:order-none sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none">
           <h4 className="eyebrow text-navy-900">Contact</h4>
           <ul className="mt-6 space-y-4 text-sm text-ink-600">
             <li className="flex gap-3 transition-transform duration-300 hover:translate-x-1"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-teal-600" /><a href={`mailto:${site.contact.email}`} className="hover:text-navy-900">{site.contact.email}</a></li>
@@ -61,10 +61,29 @@ export default function Footer() {
             Send an enquiry <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </motion.div>
+
+        <motion.div variants={col} className="order-3 grid gap-3 sm:hidden">
+          <details className="group rounded-2xl border border-navy-800/10 bg-white/70 px-5 py-4">
+            <summary className="flex cursor-pointer list-none items-center justify-between font-display font-semibold text-navy-900">
+              Services <span className="text-xl font-light text-teal-600 transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-navy-800/10 pt-4">
+              {services.map((s) => <li key={s.slug}><FooterLink to={s.path}>{s.navTitle}</FooterLink></li>)}
+            </ul>
+          </details>
+          <details className="group rounded-2xl border border-navy-800/10 bg-white/70 px-5 py-4">
+            <summary className="flex cursor-pointer list-none items-center justify-between font-display font-semibold text-navy-900">
+              Quick links <span className="text-xl font-light text-teal-600 transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <ul className="mt-4 grid grid-cols-2 gap-3 border-t border-navy-800/10 pt-4">
+              {navLinks.map((l) => <li key={l.to}><FooterLink to={l.to}>{l.label}</FooterLink></li>)}
+            </ul>
+          </details>
+        </motion.div>
       </motion.div>
 
       <div className="relative border-t border-navy-800/10">
-        <div className="container-x flex flex-col items-start justify-between gap-3 py-6 text-xs text-ink-400 md:flex-row md:items-center">
+        <div className="container-x flex flex-col items-start justify-between gap-3 py-4 text-[.7rem] text-ink-400 md:flex-row md:items-center md:text-xs">
           <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
         </div>
       </div>
