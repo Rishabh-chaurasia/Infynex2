@@ -98,9 +98,9 @@ export function B2BHighlight() {
   const Icon = content.icon
 
   return (
-    <section className="container-x pb-14 pt-0 md:pb-20 md:pt-0">
+    <section className="container-x pb-12 pt-0 md:pb-14 md:pt-0">
       <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
-        <SectionHeading className="[&_.eyebrow]:!text-sm md:[&_.eyebrow]:!text-base" eyebrow="B2B & B2C" title="Helpful services for businesses and customers." />
+        <SectionHeading className="[&_.eyebrow]:!text-sm md:[&_.eyebrow]:!text-base" eyebrow="B2B & B2C" title="Tailored service solutions for businesses and individuals." />
         <div className="relative flex rounded-full border border-navy-800/15 bg-white p-1" role="tablist">
           {(['b2b', 'b2c'] as const).map((m) => (
             <button
@@ -114,24 +114,24 @@ export function B2BHighlight() {
         </div>
       </div>
 
-      <motion.div layout className={`mt-12 grid items-center gap-10 overflow-hidden rounded-[2rem] p-6 transition-colors duration-700 md:grid-cols-2 md:p-10 ${mode === 'b2b' ? 'bg-navy-900 text-white' : 'bg-ivory-100 text-navy-900'}`}>
+      <motion.div layout className={`mt-7 grid items-center gap-5 overflow-hidden rounded-[1.6rem] p-4 transition-colors duration-700 md:grid-cols-[1.05fr_.95fr] md:p-5 ${mode === 'b2b' ? 'bg-navy-900 text-white' : 'bg-ivory-100 text-navy-900'}`}>
         <AnimatePresence mode="wait">
           <motion.div key={mode} initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 30 }} transition={{ duration: 0.5, ease: EASE }}>
-            <span className={`flex h-12 w-12 items-center justify-center rounded-2xl ${mode === 'b2b' ? 'bg-teal-500 text-white' : 'bg-navy-900 text-white'}`}><Icon className="h-5 w-5" /></span>
-            <h3 className="mt-6 font-display text-3xl font-semibold">{content.title}</h3>
-            <p className={`mt-4 text-lg ${mode === 'b2b' ? 'text-white/70' : 'text-ink-600'}`}>{content.text}</p>
-            <ul className="mt-6 flex flex-wrap gap-2">
+            <span className={`flex h-9 w-9 items-center justify-center rounded-xl ${mode === 'b2b' ? 'bg-teal-500 text-white' : 'bg-navy-900 text-white'}`}><Icon className="h-4 w-4" /></span>
+            <h3 className="mt-3 font-display text-xl font-semibold">{content.title}</h3>
+            <p className={`mt-2 text-sm leading-relaxed ${mode === 'b2b' ? 'text-white/70' : 'text-ink-600'}`}>{content.text}</p>
+            <ul className="mt-3 flex flex-wrap gap-1.5">
               {content.points.map((p, i) => (
-                <motion.li key={p} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 + i * 0.08 }} className={`rounded-full px-4 py-2 text-sm ${mode === 'b2b' ? 'bg-white/10' : 'bg-white'}`}>{p}</motion.li>
+                <motion.li key={p} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 + i * 0.08 }} className={`rounded-full px-2.5 py-1 text-[.68rem] ${mode === 'b2b' ? 'bg-white/10' : 'bg-white'}`}>{p}</motion.li>
               ))}
             </ul>
-            <Link to="/services/b2b-b2c" className="group mt-8 inline-flex items-center gap-2 font-display text-sm font-semibold">
+            <Link to="/services/b2b-b2c" className="group mt-4 inline-flex items-center gap-2 font-display text-xs font-semibold">
               Explore the B2B / B2C experience <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
             </Link>
           </motion.div>
         </AnimatePresence>
         <AnimatePresence mode="wait">
-          <motion.div key={mode} initial={{ opacity: 0, scale: 1.1, clipPath: 'inset(0 0 0 100%)' }} animate={{ opacity: 1, scale: 1, clipPath: 'inset(0 0 0 0)' }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.7, ease: EASE }} className="aspect-[4/3] overflow-hidden rounded-3xl">
+          <motion.div key={mode} initial={{ opacity: 0, scale: 1.1, clipPath: 'inset(0 0 0 100%)' }} animate={{ opacity: 1, scale: 1, clipPath: 'inset(0 0 0 0)' }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.7, ease: EASE }} className="h-56 overflow-hidden rounded-2xl sm:h-64 lg:h-60">
             <SmartImage src={content.image} alt="" className="h-full w-full object-cover" />
           </motion.div>
         </AnimatePresence>

@@ -2,13 +2,10 @@ import { useState, type FormEvent } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Clock, MessageCircle, CheckCircle2, Loader2 } from 'lucide-react'
 import AnimatedText from '../components/ui/AnimatedText'
-import ParallaxImage from '../components/ui/ParallaxImage'
 import MagneticButton from '../components/ui/MagneticButton'
-import NetworkVisual from '../components/visuals/NetworkVisual'
 import { site } from '../data/site'
 import { services } from '../data/services'
-import { images } from '../data/images'
-import { EASE, fadeUp, viewportOnce } from '../utils/motion'
+import { EASE, fadeUp } from '../utils/motion'
 import usePageTitle from '../hooks/usePageTitle'
 
 type Fields = { name: string; email: string; phone: string; company: string; service: string; message: string }
@@ -65,7 +62,7 @@ export default function Contact() {
             <motion.p initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="eyebrow mb-6 flex items-center gap-3 text-teal-600">
               <span className="h-px w-10 bg-teal-500" /> Contact
             </motion.p>
-            <h1 className="font-display text-5xl font-semibold leading-[1.02] text-navy-900 md:text-6xl lg:text-7xl">
+            <h1 className="font-display text-4xl font-semibold leading-[1.04] text-navy-900 sm:text-5xl lg:text-6xl">
               <AnimatedText text="Helpful support" trigger="mount" delay={0.4} /><br />
               <span className="text-teal-600"><AnimatedText text="for your business." trigger="mount" delay={0.6} /></span>
             </h1>
@@ -89,11 +86,7 @@ export default function Contact() {
 
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.5, duration: 0.8, ease: EASE }} className="mt-12 flex flex-wrap gap-4">
               <MagneticButton href={site.social.whatsapp} variant="dark" icon={false} className="!bg-[#25D366] hover:!bg-[#1eaa52]"><span className="flex items-center gap-2"><MessageCircle className="h-4 w-4" /> WhatsApp</span></MagneticButton>
-              <MagneticButton href={site.social.linkedin} variant="ghost">LinkedIn</MagneticButton>
-            </motion.div>
-
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.8, duration: 1 }} className="relative mt-14 hidden aspect-[16/9] overflow-hidden rounded-3xl bg-navy-950 lg:block">
-              <NetworkVisual seed={5} nodes={12} />
+              <MagneticButton href={site.social.linkedin} variant="ghost" className="!border-[#0A66C2] !bg-[#0A66C2] !text-white hover:!bg-[#084f96]">LinkedIn</MagneticButton>
             </motion.div>
           </div>
 
@@ -137,15 +130,6 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Location band */}
-      <section className="container-x pb-24">
-        <ParallaxImage src={images.building} alt="Office building" className="aspect-[21/9] rounded-[2rem]" reveal="up" strength={60} overlay="bg-gradient-to-r from-navy-950/80 to-transparent">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportOnce} className="absolute bottom-8 left-8 text-white md:bottom-12 md:left-12">
-            <p className="eyebrow text-teal-300">Visit us</p>
-            <p className="mt-2 max-w-md font-display text-2xl font-semibold">{site.contact.address}</p>
-          </motion.div>
-        </ParallaxImage>
-      </section>
     </>
   )
 }

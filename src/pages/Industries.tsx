@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, Building2, Factory, BriefcaseBusiness } from 'lucide-react'
 import CTASection from '../components/ui/CTASection'
 import { industries } from '../data/industries'
 import { services } from '../data/services'
@@ -22,6 +22,9 @@ export default function Industries() {
         </motion.h1>
         <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.3, ease: EASE }} className="source-industries-header-bottom">
           <p>We adjust our services for your workplace, people and schedule.</p>
+        </motion.div>
+        <motion.div initial={{ opacity: 0, scale: .85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .8, delay: .45, ease: EASE }} className="source-industries-icons" aria-hidden="true">
+          <Building2 /><Factory /><BriefcaseBusiness />
         </motion.div>
       </header>
 

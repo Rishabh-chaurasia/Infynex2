@@ -25,16 +25,16 @@ export default function ConnectedHub() {
       <div aria-hidden className="absolute inset-0 grid-lines-dark opacity-50" />
       <div className="container-x relative">
         <header className="mx-auto max-w-[760px] text-center">
-          <span className="eyebrow text-[#74dfeb]">Infynex Technologies</span>
+          <span className="eyebrow text-[#74dfeb]">Infynex Technologies Services</span>
           <h2 className="mt-2 font-display text-[clamp(1.75rem,2.8vw,2.65rem)] font-semibold tracking-[-.045em]">
-            Business services made easier. <span className="text-[#75e3a9]">Our team is always here to help.</span>
+            We deliver tailored solutions for <span className="text-[#75e3a9]">seamless business operations.</span>
           </h2>
         </header>
 
         <div className="relative mx-auto my-6 grid max-w-[700px] grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 lg:my-2 lg:block lg:h-[330px]">
           <svg className="absolute inset-0 hidden h-full w-full overflow-visible lg:block" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
             {points.map(([x, y], index) => (
-              <line key={index} x1="50" y1="48" x2={x} y2={y} stroke={active === index ? accents[index] : '#45cce0aa'} strokeWidth={active === index ? 3 : 1.5} strokeDasharray={active === index ? undefined : '4 3'} vectorEffect="non-scaling-stroke" className="transition-all duration-300" />
+              <line key={index} x1="50" y1="48" x2={50 + (x - 50) * .88} y2={48 + (y - 48) * .88} stroke={active === index ? accents[index] : '#45cce0aa'} strokeWidth={active === index ? 3 : 1.5} strokeDasharray={active === index ? undefined : '4 3'} vectorEffect="non-scaling-stroke" className="transition-all duration-300" />
             ))}
           </svg>
 

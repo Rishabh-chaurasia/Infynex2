@@ -55,17 +55,19 @@ export function ServiceShowcase() {
   const featured = services
   const headingColors = ['#ff6464', '#ffad32', '#4ee09a', '#a978ff', '#ff63ad', '#21d4c2', '#b9e83d', '#ffd43b', '#ff8647']
   const trackRef = useRef<HTMLDivElement>(null)
+  const animationRef = useRef<Animation | null>(null)
 
   useEffect(() => {
     const animation = trackRef.current?.animate(
       [{ transform: 'translateX(0)' }, { transform: 'translateX(-50%)' }],
       { duration: 56000, iterations: Infinity, easing: 'linear' },
     )
+    animationRef.current = animation ?? null
     return () => animation?.cancel()
   }, [])
 
   return (
-    <section className="relative overflow-hidden bg-navy-950 pb-6 pt-16 text-white md:pb-8 md:pt-20">
+    <section className="relative overflow-hidden bg-navy-950 pb-12 pt-16 text-white md:pb-14 md:pt-20">
       <div aria-hidden className="absolute inset-0 grid-lines-dark opacity-60" />
       <div className="container-x relative mb-10">
         <div className="flex items-end justify-between gap-6">
@@ -73,7 +75,7 @@ export function ServiceShowcase() {
         </div>
       </div>
 
-      <div className="relative h-[52vh] min-h-[420px] max-h-[540px]">
+      <div className="relative h-[52vh] min-h-[420px] max-h-[540px]" onPointerDown={() => animationRef.current?.pause()} onPointerUp={() => animationRef.current?.play()} onPointerCancel={() => animationRef.current?.play()} onPointerLeave={() => animationRef.current?.play()}>
         <div ref={trackRef} className="absolute inset-y-0 left-0 flex w-max will-change-transform">
           {[0, 1].map((copy) => (
             <div key={copy} className="flex shrink-0 gap-6 pr-6" aria-hidden={copy === 1 ? 'true' : undefined}>
@@ -84,9 +86,8 @@ export function ServiceShowcase() {
                 <SmartImage src={service.hero} alt="" className="absolute inset-0 h-full w-full object-cover opacity-75 transition-transform duration-[1600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent" />
                 <div className="absolute inset-0 flex flex-col justify-between p-7 sm:p-9">
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-start">
                     <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 bg-white/10 backdrop-blur"><Icon className="h-5 w-5" /></span>
-                    <span className="font-display text-sm tracking-[0.3em] text-white/60">{String(index + 1).padStart(2, '0')} / {String(featured.length).padStart(2, '0')}</span>
                   </div>
                   <div className="flex min-h-[16.5rem] flex-col justify-end">
                     <p className="eyebrow inline-flex w-fit rounded-full px-3 py-1 font-bold text-navy-950" style={{ backgroundColor: headingColors[index] }}>{service.eyebrow}</p>

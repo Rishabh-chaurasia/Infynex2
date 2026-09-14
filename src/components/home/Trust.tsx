@@ -13,10 +13,10 @@ import { EASE, fadeUp, viewportOnce } from '../../utils/motion'
 import { useMotionLevel } from '../../hooks/useMedia'
 
 const reasons = [
-  { icon: ShieldCheck, title: 'One accountable partner', text: 'Maintenance, hardware, infrastructure, support and facilities services from a single team — no vendor hand-offs.' },
-  { icon: Headphones, title: 'Engineers on site and remote', text: 'A helpdesk for fast remote resolution, and engineers at your premises when hands-on work is needed.' },
-  { icon: ClipboardCheck, title: 'Documented delivery', text: 'Audits, reports and records accompany every service so you always know what was done and why.' },
-  { icon: Layers3, title: 'Flexible service plans', text: 'Choose one service or combine several services under one clear plan.' },
+  { icon: ShieldCheck, title: 'End-to-End Service Ownership', text: 'Our dedicated team manages your maintenance, hardware, infrastructure and support requirements through a single point of accountability—ensuring seamless coordination from planning to delivery.' },
+  { icon: Headphones, title: 'Expert Support, On Demand', text: 'Our specialists provide prompt remote resolution and coordinated on-site assistance to minimise disruption and ensure business continuity.' },
+  { icon: ClipboardCheck, title: 'Documented Service Assurance', text: 'Structured audits, detailed reports and comprehensive service records ensure complete visibility, traceability and confidence at every stage.' },
+  { icon: Layers3, title: 'Scalable Service Frameworks', text: 'Choose standalone or integrated services through flexible solutions designed to adapt and scale with your evolving operational needs.' },
 ]
 
 /** Compact reasons section designed to fit in one desktop viewport. */
@@ -25,12 +25,12 @@ export function WhyInfynex() {
     <section className="relative overflow-hidden bg-ivory-50 pb-12 pt-0 md:pb-16 md:pt-0">
       <div aria-hidden className="absolute inset-0 grid-lines opacity-35" />
       <div className="container-x relative">
-        <SectionHeading eyebrow="Why Infynex" title="We are here to make things easier." size="md" className="mb-8 [&_.eyebrow]:!text-base md:[&_.eyebrow]:!text-lg" />
+        <SectionHeading eyebrow="Why Infynex" title="Integrated Services. Dependable Business Operations." size="md" className="mb-8 [&_.eyebrow]:!text-base md:[&_.eyebrow]:!text-lg" />
         <div className="grid overflow-hidden rounded-3xl bg-navy-950 text-white shadow-[0_20px_60px_rgba(10,27,61,0.12)] md:grid-cols-[0.8fr_1.2fr]">
           <ImageReveal src={images.meeting} alt="Infynex team working with a client" className="h-52 md:h-full md:min-h-56" direction="left" />
           <div className="flex flex-col justify-center px-7 py-8 md:px-10">
-            <p className="font-display text-sm font-bold uppercase tracking-[0.22em] text-teal-300">Here to help</p>
-            <h3 className="mt-4 max-w-2xl font-display text-3xl font-semibold leading-tight md:text-4xl">Simple support, whenever you need it.</h3>
+            <p className="font-display text-sm font-bold uppercase tracking-[0.22em] text-teal-300">Dedicated Service Support</p>
+            <h3 className="mt-4 max-w-2xl font-display text-3xl font-semibold leading-tight md:text-4xl">Reliable Support. Whenever You Need It.</h3>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-white/70">Please tell us what you need. Our team will listen, explain the options clearly and help you at every step.</p>
           </div>
         </div>
@@ -109,12 +109,14 @@ const blogColours = ['#e65a47', '#8156d9', '#d69a10', '#158f77', '#3976d9', '#d4
 /** Compact, continuously moving insights slideshow. */
 export function BlogPreview() {
   const trackRef = useRef<HTMLDivElement>(null)
+  const animationRef = useRef<Animation | null>(null)
 
   useEffect(() => {
     const animation = trackRef.current?.animate(
       [{ transform: 'translateX(0)' }, { transform: 'translateX(-50%)' }],
       { duration: 36000, iterations: Infinity, easing: 'linear' },
     )
+    animationRef.current = animation ?? null
     return () => animation?.cancel()
   }, [])
 
@@ -125,7 +127,7 @@ export function BlogPreview() {
         <SectionHeading className="[&_.eyebrow]:!text-sm md:[&_.eyebrow]:!text-base" eyebrow="Our Blogs & News" title="Useful tips for your business." dark size="md" />
         <Link to="/blog" className="hidden items-center gap-2 font-display text-sm font-semibold text-teal-300 sm:inline-flex">All articles <ArrowUpRight className="h-4 w-4" /></Link>
       </div>
-      <div className="relative mt-8 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
+      <div className="relative mt-8 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]" onPointerDown={() => animationRef.current?.pause()} onPointerUp={() => animationRef.current?.play()} onPointerCancel={() => animationRef.current?.play()} onPointerLeave={() => animationRef.current?.play()}>
         <div ref={trackRef} className="flex w-max will-change-transform">
           {[0, 1].map((copy) => (
             <div key={copy} className="flex shrink-0 gap-5 pr-5" aria-hidden={copy === 1 ? 'true' : undefined}>

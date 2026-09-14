@@ -120,8 +120,8 @@ export default function Navbar() {
                 <div className="container-x grid grid-cols-[1.2fr_3fr] gap-10 py-10">
                   <div className="border-r border-navy-800/10 pr-10">
                     <p className="eyebrow text-teal-600">Services</p>
-                    <h3 className="mt-4 font-display text-2xl font-semibold leading-tight text-navy-900">Complete services from one team.</h3>
-                    <p className="mt-3 text-sm text-ink-600">Choose a service to see what we provide and how it works.</p>
+                    <h3 className="mt-4 font-display text-2xl font-semibold leading-tight text-navy-900">Integrated services for dependable business operations.</h3>
+                    <p className="mt-3 text-sm text-ink-600">Explore professionally managed solutions designed around your infrastructure, support and operational requirements.</p>
                     <Link to="/services" className="mt-6 inline-flex items-center gap-2 font-display text-sm font-semibold text-navy-900">
                       View all services <ArrowUpRight className="h-4 w-4" />
                     </Link>

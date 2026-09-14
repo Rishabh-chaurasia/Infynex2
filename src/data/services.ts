@@ -97,17 +97,17 @@ export const services: Service[] = [
     tagline: 'Networks and systems that work together.',
     short: 'We design, install and manage the networks and systems that connect your business.',
     overview:
-      'We plan and build networks, servers, storage and security for new and existing offices. We also document the setup and help you manage it.',
+      'We design and deploy secure, resilient networks, servers and storage for new and existing workplaces. Every environment is fully documented and supported for dependable day-to-day management and future growth.',
     icon: Server,
     accent: '#6fd3ee',
     hero: images.infraHero,
     gallery: [images.infraRack, images.infraDc, images.infraCables],
     highlights: ['LAN / WAN design and implementation', 'Server and storage deployment', 'Structured cabling', 'Firewall and network security', 'Wireless coverage', 'Monitoring and management'],
     capabilities: [
-      { title: 'Design', text: 'Architecture that reflects how your teams and applications actually communicate.' },
-      { title: 'Installation', text: 'Our engineers install racks, cables and equipment and make sure it works.' },
-      { title: 'Security', text: 'Segmentation, firewalls and access controls built in from the start.' },
-      { title: 'Managed services', text: 'Ongoing monitoring, patching and administration of the environment.' },
+      { title: 'Design', text: 'Purpose-built architecture aligned with your users, applications, performance requirements and future growth.' },
+      { title: 'Installation', text: 'Professional installation of racks, structured cabling and equipment, followed by complete testing and commissioning.' },
+      { title: 'Security', text: 'Network segmentation, firewalls and access controls integrated from the outset to protect critical systems and data.' },
+      { title: 'Managed services', text: 'Proactive monitoring, patching and administration that keeps your infrastructure secure, stable and performing reliably.' },
     ],
     process: [
       { title: 'Assess', text: 'Review the current state and future requirements.' },

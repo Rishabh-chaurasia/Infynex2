@@ -12,10 +12,10 @@ import usePageTitle from '../hooks/usePageTitle'
 import { useMotionLevel } from '../hooks/useMedia'
 
 const values = [
-  { title: 'Responsibility', text: 'One team takes responsibility for the service.' },
-  { title: 'Clear records', text: 'You receive a simple report of the work we complete.' },
-  { title: 'Practical advice', text: 'We suggest options that fit your needs and budget.' },
-  { title: 'Good support', text: 'Every customer receives helpful and respectful service.' },
+  { title: 'Responsibility', text: 'A dedicated team owns every stage of your service, coordinating the work and keeping delivery on track from start to finish.' },
+  { title: 'Clear records', text: 'You receive clear, timely reports that document completed work, current progress and the next steps requiring your attention.' },
+  { title: 'Practical advice', text: 'We recommend practical solutions shaped around your priorities, operating requirements and budget, with every option explained clearly.' },
+  { title: 'Good support', text: 'You receive responsive, respectful support from people who listen carefully, communicate clearly and remain accountable until the work is complete.' },
 ]
 
 /**
@@ -37,23 +37,23 @@ export default function About() {
   return (
     <>
       {/* Hero */}
-      <section ref={heroRef} className="relative min-h-[82svh] overflow-hidden bg-ivory-50">
+      <section ref={heroRef} className="relative min-h-[100svh] overflow-hidden bg-ivory-50">
         <div aria-hidden className="absolute inset-0 grid-lines" />
-        <div className="container-x relative grid min-h-[82svh] items-center gap-8 pb-10 pt-24 lg:grid-cols-[1.05fr_.95fr] lg:gap-14 lg:pt-28">
+        <div className="container-x relative grid min-h-[100svh] items-center gap-10 pb-16 pt-28 lg:grid-cols-[1.05fr_.95fr] lg:gap-16 lg:pb-20 lg:pt-32">
           <div>
             <motion.p initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="eyebrow mb-6 flex items-center gap-3 text-teal-600">
               <span className="h-px w-10 bg-teal-500" /> About {site.shortName}
             </motion.p>
             <motion.h1 style={{ scale: titleScale, opacity: fade }} className="origin-left font-display text-[3rem] font-semibold leading-[0.98] text-navy-900 sm:text-6xl lg:text-[5.4rem]">
-              <AnimatedText text="Here to help" trigger="mount" delay={0.4} /><br />
+              <AnimatedText text="We are here to help" trigger="mount" delay={0.4} /><br />
               <AnimatedText text="your business" trigger="mount" delay={0.55} /><br />
               <span className="text-teal-600"><AnimatedText text="with care." trigger="mount" delay={0.7} /></span>
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2, duration: 0.9, ease: EASE }} className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-600">
-              Please tell us what you need. Our team will listen carefully and make the process simple for you.
+              Tell us what your business needs, and our team will understand your requirements and guide you through a simple, seamless process.
             </motion.p>
           </div>
-          <div className="relative min-h-[390px] sm:min-h-[460px]">
+          <div className="relative min-h-[430px] sm:min-h-[500px] lg:min-h-[540px]">
             <motion.div style={{ x: leftX, y: imgY }} initial={{ opacity: 0, y: 60 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 1.2, ease: EASE }} className="absolute left-0 top-4 w-[72%]">
               <ImageReveal src={images.aboutHeroTeam} alt="Indian technology leadership team in discussion" className="aspect-[4/3] rounded-3xl shadow-2xl" direction="left" delay={0.6} />
             </motion.div>
@@ -70,12 +70,12 @@ export default function About() {
         <div aria-hidden className="absolute inset-0 grid-lines-dark opacity-40" />
         <div className="container-x relative">
           <motion.p variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportOnce} className="eyebrow inline-flex rounded-full bg-teal-500 px-4 py-2 font-bold text-white">What we believe</motion.p>
-          <AnimatedText as="h2" text="We make everyday business services simple and easy to manage." className="mt-6 max-w-5xl font-display text-3xl font-semibold leading-[1.1] md:text-5xl lg:text-6xl" stagger={0.03} />
+          <AnimatedText as="h2" text="Simplifying Essential Business Services for Seamless Operations." className="mt-6 max-w-5xl font-display text-3xl font-semibold leading-[1.1] md:text-5xl lg:text-6xl" stagger={0.03} />
           <div className="mt-16 grid gap-10 md:grid-cols-3">
             {[
-              'Our team can manage several services and make coordination easier for you.',
-              'We are available remotely and can also visit your site whenever needed.',
-              'We share simple updates so you always understand the work completed.',
+              'Our team manages multiple business services through a single point of coordination, saving you time and effort.',
+              'We provide reliable remote assistance and on-site support whenever required.',
+              'We share timely, easy-to-understand updates, keeping you informed about progress and completed work.',
             ].map((t, i) => (
               <motion.p key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ delay: 0.3 + i * 0.15, duration: 0.9, ease: EASE }} className="border-t border-white/15 pt-6 text-white/70">{t}</motion.p>
             ))}
@@ -93,9 +93,9 @@ export default function About() {
           </div>
           <ol className="grid gap-3 sm:grid-cols-2">
             {values.map((v, i) => (
-              <motion.li key={v.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.7, ease: EASE }} className="group rounded-2xl border border-navy-800/10 bg-ivory-50 p-6" data-cursor="hover">
+              <motion.li key={v.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.7, ease: EASE }} className="group flex min-h-[260px] flex-col rounded-2xl border border-navy-800/10 bg-ivory-50 p-7 lg:min-h-[280px] lg:p-8" data-cursor="hover">
                 <span className="font-display text-3xl font-light text-teal-500">0{i + 1}</span>
-                <div><h3 className="mt-5 font-display text-xl font-semibold text-navy-900">{v.title}</h3><p className="mt-2 text-sm leading-relaxed text-ink-600">{v.text}</p></div>
+                <div className="mt-auto"><h3 className="font-display text-xl font-semibold text-navy-900 lg:text-2xl">{v.title}</h3><p className="mt-3 text-base leading-relaxed text-ink-600">{v.text}</p></div>
               </motion.li>
             ))}
           </ol>

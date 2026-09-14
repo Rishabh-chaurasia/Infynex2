@@ -17,8 +17,8 @@ interface Props {
  * Shared closing CTA with a scroll-scaled background image and glow.
  */
 export default function CTASection({
-  title = 'We are here to support your business.',
-  text = 'Share your requirements with us and our team will help you find a practical solution.',
+  title = 'Solutions designed around your business.',
+  text = 'Share your operational requirements and our team will recommend a reliable, practical path forward.',
   image,
   compact = false,
 }: Props) {
@@ -28,7 +28,7 @@ export default function CTASection({
   const y = useTransform(scrollYProgress, [0, 1], ['-8%', '8%'])
 
   return (
-    <section ref={ref} className={`container-x ${compact ? 'py-16' : 'py-24 md:py-32'}`}>
+    <section ref={ref} className={`container-x ${compact ? 'py-12 md:py-14' : 'py-16 md:py-20'}`}>
       <div className="relative overflow-hidden rounded-[2rem] bg-navy-900 text-white">
         {image && (
           <motion.div style={{ scale, y }} className="absolute inset-0">
@@ -39,9 +39,9 @@ export default function CTASection({
         <div aria-hidden className="absolute -left-20 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-teal-500/30 blur-3xl animate-float" />
         <div aria-hidden className="absolute inset-0 grid-lines-dark opacity-60" />
 
-        <div className="relative grid gap-10 px-8 py-16 md:grid-cols-[1.4fr_1fr] md:items-center md:px-16 md:py-24">
+        <div className="relative grid gap-8 px-7 py-10 md:grid-cols-[1.4fr_1fr] md:items-center md:px-12 md:py-14">
           <div>
-            <AnimatedText as="h2" text={title} className="text-balance font-display text-4xl font-semibold leading-[1.05] md:text-5xl lg:text-6xl" />
+            <AnimatedText as="h2" text={title} className="text-balance font-display text-3xl font-semibold leading-[1.05] md:text-4xl lg:text-5xl" />
             <motion.p variants={fadeUp} custom={3} initial="hidden" whileInView="visible" viewport={viewportOnce} className="mt-6 max-w-xl text-lg text-white/70">
               {text}
             </motion.p>

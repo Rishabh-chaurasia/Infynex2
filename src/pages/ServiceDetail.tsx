@@ -50,7 +50,7 @@ export default function ServiceDetail() {
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_.9fr]">
           <div>
             <p className="eyebrow text-teal-600">How we help</p>
-            <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold text-navy-900 md:text-4xl">Practical support for your business.</h2>
+            <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold text-navy-900 md:text-4xl">{service.slug === 'it-infra' ? 'Infrastructure engineered for performance and growth.' : 'Practical support for your business.'}</h2>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-600 md:text-lg">{service.overview}</p>
             <ul className="mt-7 grid gap-3 sm:grid-cols-2">
               {service.highlights.map((item) => <li key={item} className="flex gap-3 rounded-xl bg-ivory-100 p-3 text-sm text-navy-900"><Check className="mt-0.5 h-4 w-4 shrink-0 text-teal-600" />{item}</li>)}
