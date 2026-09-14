@@ -124,7 +124,7 @@ export default function TechnicalSupport() {
         </div>
       </section>
 
-      <CTASection title="Need engineers at your premises?" text="Tell us your sites, hours and typical issues; we will propose resident, scheduled or on-call coverage." image={s.gallery[0]} />
+      <CTASection title="Skilled technical support, on site and remote." text="Share your locations and working hours and we will suggest suitable coverage." image={s.gallery[0]} />
     </>
   )
 }

@@ -61,7 +61,7 @@ function LayeredNetwork({ active, setActive }: { active: number; setActive: (i: 
         </g>
       )))}
       {layers.map((l, i) => (
-        <text key={l.name} x="5" y={l.y - 5.5} fontSize="2.3" fontFamily="Sora, sans-serif" fill="#ffffff" fillOpacity={active === i ? 0.95 : 0.45}>{l.name.toUpperCase()}</text>
+        <text key={l.name} x="5" y={l.y - 5.5} fontSize="2.6" fontWeight="700" fontFamily="Sora, sans-serif" fill="#0b1533" fillOpacity={active === i ? 1 : 0.72}>{l.name.toUpperCase()}</text>
       ))}
     </svg>
   )
@@ -153,7 +153,7 @@ export default function ITInfra() {
         </div>
       </section>
 
-      <CTASection title="Planning a new office or modernising an existing one?" text="Tell us about your sites and applications; we will propose an architecture and phased plan." image={s.gallery[1]} />
+      <CTASection title="Infrastructure designed for the way your team works." text="Share your sites and applications and we will propose a clear, phased plan." image={s.gallery[1]} />
     </>
   )
 }

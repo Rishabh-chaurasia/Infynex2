@@ -1,13 +1,11 @@
-import { useRef } from 'react'
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+import { useEffect, useRef, type CSSProperties } from 'react'
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import SectionHeading from '../ui/SectionHeading'
-import ServiceCard from '../ui/ServiceCard'
 import SmartImage from '../ui/SmartImage'
 import MagneticButton from '../ui/MagneticButton'
 import { services } from '../../data/services'
-import { useIsDesktop } from '../../hooks/useMedia'
 import { EASE, fadeUp, viewportOnce } from '../../utils/motion'
 
 /** Section 2: services introduction — editorial split with a list that highlights on hover. */
@@ -18,7 +16,7 @@ export function ServicesIntro() {
         <div>
           <SectionHeading
             eyebrow="What we do"
-            title="Eleven services. One partner accountable for all of them."
+            title="Complete services. One accountable partner."
             text="Most organisations juggle a maintenance vendor, a hardware supplier, a network integrator, a support desk and a facilities contractor. Infynex brings these under one relationship so that ownership is never in question."
           />
           <motion.div variants={fadeUp} custom={5} initial="hidden" whileInView="visible" viewport={viewportOnce} className="mt-10">
@@ -52,75 +50,66 @@ export function ServicesIntro() {
   )
 }
 
-/**
- * Section 3: horizontal storytelling. The section pins while a strip of large
- * service panels moves sideways with scroll. On mobile / tablet it becomes a grid.
- */
+/** Autoplaying service slideshow with optional manual navigation. */
 export function ServiceShowcase() {
-  const desktop = useIsDesktop()
-  const ref = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] })
-  const xRaw = useTransform(scrollYProgress, [0, 1], ['0%', '-72%'])
-  const x = useSpring(xRaw, { stiffness: 80, damping: 25, mass: 0.5 })
-  const featured = services.filter((s) => ['robotic-duct-cleaning', 'it-infra', 'amc', 'solar', 'cloud-server', 'helpdesk'].includes(s.slug))
+  const featured = services
+  const headingColors = ['#ff6464', '#ffad32', '#4ee09a', '#a978ff', '#ff63ad', '#21d4c2', '#b9e83d', '#ffd43b', '#ff8647']
+  const trackRef = useRef<HTMLDivElement>(null)
 
-  if (!desktop) {
-    return (
-      <section className="bg-navy-950 py-24 text-white">
-        <div className="container-x">
-          <SectionHeading dark eyebrow="Service showcase" title="A closer look at what we deliver." />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2">
-            {featured.map((s, i) => <ServiceCard key={s.slug} service={s} index={i} />)}
-          </div>
-        </div>
-      </section>
+  useEffect(() => {
+    const animation = trackRef.current?.animate(
+      [{ transform: 'translateX(0)' }, { transform: 'translateX(-50%)' }],
+      { duration: 56000, iterations: Infinity, easing: 'linear' },
     )
-  }
+    return () => animation?.cancel()
+  }, [])
 
   return (
-    <section ref={ref} className="relative h-[380vh] bg-navy-950 text-white">
-      <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
-        <div aria-hidden className="absolute inset-0 grid-lines-dark opacity-60" />
-        <div className="container-x relative mb-10 flex items-end justify-between">
-          <SectionHeading dark eyebrow="Service showcase" title="A closer look at what we deliver." size="md" />
-          <p className="hidden text-sm text-white/50 lg:block">Scroll to explore →</p>
+    <section className="relative overflow-hidden bg-navy-950 pb-6 pt-16 text-white md:pb-8 md:pt-20">
+      <div aria-hidden className="absolute inset-0 grid-lines-dark opacity-60" />
+      <div className="container-x relative mb-10">
+        <div className="flex items-end justify-between gap-6">
+          <SectionHeading className="service-showcase-heading" dark eyebrow="Service showcase" title="A closer look at what we deliver." size="md" />
         </div>
-        <motion.div style={{ x }} className="flex gap-6 pl-[clamp(1.25rem,4vw,3rem)] will-change-transform">
-          {featured.map((s, i) => {
-            const Icon = s.icon
-            return (
-              <Link
-                key={s.slug}
-                to={s.path}
-                className="group relative h-[58vh] w-[46vw] shrink-0 overflow-hidden rounded-[2rem] bg-navy-900 xl:w-[38vw]"
-                data-cursor="hover"
-              >
-                <SmartImage src={s.hero} alt="" className="absolute inset-0 h-full w-full object-cover opacity-75 transition-transform duration-[1600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110" />
+      </div>
+
+      <div className="relative h-[52vh] min-h-[420px] max-h-[540px]">
+        <div ref={trackRef} className="absolute inset-y-0 left-0 flex w-max will-change-transform">
+          {[0, 1].map((copy) => (
+            <div key={copy} className="flex shrink-0 gap-6 pr-6" aria-hidden={copy === 1 ? 'true' : undefined}>
+              {featured.map((service, index) => {
+                const Icon = service.icon
+                return (
+              <Link key={`${copy}-${service.slug}`} to={service.path} tabIndex={copy === 1 ? -1 : undefined} className="group relative h-full w-[82vw] max-w-[690px] shrink-0 overflow-hidden rounded-[2rem] bg-navy-900 sm:w-[62vw] lg:w-[38vw] xl:w-[36vw]" data-cursor="hover">
+                <SmartImage src={service.hero} alt="" className="absolute inset-0 h-full w-full object-cover opacity-75 transition-transform duration-[1600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent" />
-                <div className="absolute inset-0 flex flex-col justify-between p-8">
+                <div className="absolute inset-0 flex flex-col justify-between p-7 sm:p-9">
                   <div className="flex items-center justify-between">
                     <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 bg-white/10 backdrop-blur"><Icon className="h-5 w-5" /></span>
-                    <span className="font-display text-sm tracking-[0.3em] text-white/50">{String(i + 1).padStart(2, '0')} / {String(featured.length).padStart(2, '0')}</span>
+                    <span className="font-display text-sm tracking-[0.3em] text-white/60">{String(index + 1).padStart(2, '0')} / {String(featured.length).padStart(2, '0')}</span>
                   </div>
-                  <div>
-                    <p className="eyebrow text-teal-300" style={{ color: s.accent }}>{s.eyebrow}</p>
-                    <h3 className="mt-2 font-display text-3xl font-semibold leading-tight xl:text-4xl">{s.title}</h3>
-                    <p className="mt-3 max-w-md text-white/70">{s.short}</p>
-                    <span className="mt-6 inline-flex items-center gap-2 font-display text-sm font-semibold">
+                  <div className="flex min-h-[16.5rem] flex-col justify-end">
+                    <p className="eyebrow inline-flex w-fit rounded-full px-3 py-1 font-bold text-navy-950" style={{ backgroundColor: headingColors[index] }}>{service.eyebrow}</p>
+                    <h3 className="service-card-heading mt-2 flex min-h-[5.5rem] items-end font-display text-3xl font-semibold leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,.55)] xl:text-4xl" style={{ '--service-heading-color': headingColors[index] } as CSSProperties}>{service.title}</h3>
+                    <p className="mt-3 min-h-[4.5rem] max-w-md text-sm leading-relaxed text-white/70 sm:text-base">{service.short}</p>
+                    <span className="mt-auto inline-flex items-center gap-2 pt-5 font-display text-sm font-semibold">
                       View service
                       <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition-all duration-500 group-hover:rotate-45 group-hover:bg-teal-500"><ArrowUpRight className="h-4 w-4" /></span>
                     </span>
                   </div>
                 </div>
               </Link>
-            )
-          })}
-          <Link to="/services" className="group flex h-[58vh] w-[30vw] shrink-0 flex-col items-center justify-center rounded-[2rem] border border-white/15 bg-white/[0.03] text-center" data-cursor="hover">
-            <span className="flex h-20 w-20 items-center justify-center rounded-full bg-teal-500 transition-transform duration-700 group-hover:rotate-45 group-hover:scale-110"><ArrowUpRight className="h-8 w-8" /></span>
-            <p className="mt-6 font-display text-2xl font-semibold">All eleven services</p>
-            <p className="mt-2 text-white/60">Dedicated pages for each</p>
-          </Link>
-        </motion.div>
+                )
+              })}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="container-x relative">
+        <div className="mt-6 flex justify-end">
+          <Link to="/services" className="inline-flex items-center gap-2 rounded-full bg-teal-500 px-5 py-3 font-display text-base font-bold text-white shadow-[0_12px_28px_rgba(26,157,195,.3)] transition-all hover:-translate-y-1 hover:bg-[#ff7a45]">All services <ArrowUpRight className="h-5 w-5" /></Link>
+        </div>
       </div>
     </section>
   )

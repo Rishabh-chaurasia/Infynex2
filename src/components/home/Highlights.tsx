@@ -55,7 +55,7 @@ export function SolarHighlight() {
   const smallY = useTransform(scrollYProgress, [0, 1], [90 * level, -90 * level])
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-[#fff8ec] py-24 md:py-32">
+    <section ref={ref} className="relative overflow-hidden bg-[#fff8ec] py-14 md:py-20">
       <motion.div aria-hidden style={{ left: sunX, top: sunY }} className="pointer-events-none absolute h-[36rem] w-[36rem] rounded-full bg-[#f5b544]/30 blur-[120px]" />
       <div className="container-x grid items-center gap-14 lg:grid-cols-[1fr_1.2fr]">
         <div className="order-2 lg:order-1">
@@ -87,20 +87,20 @@ export function B2BHighlight() {
     b2b: {
       icon: Building2, title: 'For businesses', image: images.b2bMeeting,
       text: 'Contract-based services, multi-site coverage and a dedicated account contact for organisations of every size.',
-      points: ['Service agreements', 'Multi-site support', 'Account management'],
+      points: ['Service agreements', 'Multi-site support', 'Account management', 'Priority response', 'Scheduled maintenance', 'Single-point billing'],
     },
     b2c: {
-      icon: User, title: 'For individuals', image: images.b2cPeople,
+      icon: User, title: 'For Customers', image: images.b2cPeople,
       text: 'Accessible technology, energy and support services for homes and personal needs, delivered with the same care.',
-      points: ['Home installations', 'Personal device support', 'Straightforward pricing'],
+      points: ['Home installations', 'Personal device support', 'Straightforward pricing', 'Remote assistance', 'Service follow-ups'],
     },
   }[mode]
   const Icon = content.icon
 
   return (
-    <section className="container-x py-24 md:py-32">
+    <section className="container-x pb-14 pt-0 md:pb-20 md:pt-0">
       <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
-        <SectionHeading eyebrow="B2B & B2C" title="Built for organisations. Available to everyone." />
+        <SectionHeading className="[&_.eyebrow]:!text-sm md:[&_.eyebrow]:!text-base" eyebrow="B2B & B2C" title="Helpful services for businesses and customers." />
         <div className="relative flex rounded-full border border-navy-800/15 bg-white p-1" role="tablist">
           {(['b2b', 'b2c'] as const).map((m) => (
             <button

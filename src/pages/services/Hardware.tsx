@@ -14,16 +14,17 @@ import { getService } from '../../data/services'
 import { EASE, fadeUp, viewportOnce } from '../../utils/motion'
 import usePageTitle from '../../hooks/usePageTitle'
 import { useMotionLevel } from '../../hooks/useMedia'
+import { images } from '../../data/images'
 
 const s = getService('hardware')!
 
 const categories = [
-  { icon: Monitor, title: 'Desktops & laptops', text: 'User devices specified for the role, deployed and configured.', img: s.gallery[2] },
-  { icon: Server, title: 'Servers & storage', text: 'Rack and tower servers, storage arrays and backup devices.', img: s.gallery[0] },
-  { icon: Network, title: 'Networking', text: 'Switches, routers, firewalls and wireless access points.', img: s.gallery[3] },
-  { icon: Printer, title: 'Peripherals', text: 'Monitors, printers, scanners and workspace accessories.', img: s.gallery[1] },
-  { icon: MemoryStick, title: 'Upgrades', text: 'Memory, storage and component upgrades for existing systems.', img: s.gallery[0] },
-  { icon: Cable, title: 'Cabling accessories', text: 'Patch panels, cable management and structured cabling parts.', img: s.gallery[3] },
+  { icon: Monitor, title: 'Desktops & laptops', text: 'User devices specified for the role, deployed and configured.', img: images.hwDesktops },
+  { icon: Server, title: 'Servers & storage', text: 'Rack and tower servers, storage arrays and backup devices.', img: images.hwServers },
+  { icon: Network, title: 'Networking', text: 'Switches, routers, firewalls and wireless access points.', img: images.hwNetwork },
+  { icon: Printer, title: 'Peripherals', text: 'Monitors, printers, scanners and workspace accessories.', img: images.hwPeripherals },
+  { icon: MemoryStick, title: 'Upgrades', text: 'Memory, storage and component upgrades for existing systems.', img: images.hwUpgrades },
+  { icon: Cable, title: 'Cabling accessories', text: 'Patch panels, cable management and structured cabling parts.', img: images.hwCabling },
 ]
 
 /** Floating component chips that drift at different depths over the hero photo. */
@@ -151,7 +152,7 @@ export default function Hardware() {
         </div>
       </section>
 
-      <CTASection title="Need equipment specified, supplied or repaired?" text="Send us your requirement or your current inventory and we will respond with options." image={s.gallery[1]} />
+      <CTASection title="Hardware support shaped around your workplace." text="Share your requirement or current inventory and we will respond with suitable options." image={s.gallery[1]} />
     </>
   )
 }

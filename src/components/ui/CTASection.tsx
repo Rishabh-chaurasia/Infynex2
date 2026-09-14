@@ -17,8 +17,8 @@ interface Props {
  * Shared closing CTA with a scroll-scaled background image and glow.
  */
 export default function CTASection({
-  title = 'Let’s talk about what your organisation needs.',
-  text = 'Tell us about your site, your systems or your customers. We will come back with a clear proposal.',
+  title = 'We are here to support your business.',
+  text = 'Share your requirements with us and our team will help you find a practical solution.',
   image,
   compact = false,
 }: Props) {
@@ -48,7 +48,7 @@ export default function CTASection({
           </div>
           <motion.div variants={fadeUp} custom={5} initial="hidden" whileInView="visible" viewport={viewportOnce} className="flex flex-wrap gap-4 md:justify-end">
             <MagneticButton to="/contact" variant="dark">Send an enquiry</MagneticButton>
-            <MagneticButton href={site.social.whatsapp} variant="light" icon={false}>WhatsApp us</MagneticButton>
+            <MagneticButton href={site.social.whatsapp} variant="light" icon={false} className="!bg-[#25D366] !text-white hover:!bg-[#1eaa52]">WhatsApp us</MagneticButton>
           </motion.div>
         </div>
       </div>

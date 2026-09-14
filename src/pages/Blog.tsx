@@ -22,15 +22,15 @@ export default function Blog() {
           <span className="h-px w-10 bg-teal-500" /> Insights
         </motion.p>
         <h1 className="max-w-4xl font-display text-5xl font-semibold leading-[1.02] text-navy-900 md:text-7xl">
-          <AnimatedText text="Notes from the work." trigger="mount" delay={0.4} />
+          <AnimatedText text="Helpful ideas for your business." trigger="mount" delay={0.4} />
         </h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 0.8, ease: EASE }} className="mt-6 max-w-xl text-lg text-ink-600">
-          Service insights, technology articles and company updates. Client reviews and project images can be published here as they become available.
+          Read simple articles about our services and technology. We also share useful updates and real stories from our work.
         </motion.p>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1, duration: 0.8, ease: EASE }} className="mt-10 flex flex-wrap gap-2">
           {categories.map((c) => (
-            <button key={c} onClick={() => setCat(c)} className={`relative rounded-full px-4 py-2 font-display text-sm font-semibold transition-colors ${cat === c ? 'text-white' : 'text-navy-900 hover:bg-ivory-200'}`}>
-              {cat === c && <motion.span layoutId="blog-cat" className="absolute inset-0 -z-10 rounded-full bg-navy-900" transition={{ type: 'spring', stiffness: 300, damping: 30 }} />}
+            <button key={c} onClick={() => setCat(c)} className={`relative isolate overflow-hidden rounded-full border px-5 py-2.5 font-display text-sm font-bold transition-all ${cat === c ? 'border-teal-500 text-white shadow-[0_8px_22px_rgba(26,157,195,.3)]' : 'border-navy-800/15 bg-white text-navy-900 hover:border-teal-500 hover:text-teal-700'}`}>
+              {cat === c && <motion.span layoutId="blog-cat" className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-teal-600 to-[#4e6fe8]" transition={{ type: 'spring', stiffness: 300, damping: 30 }} />}
               {c}
             </button>
           ))}
@@ -52,7 +52,7 @@ export default function Blog() {
         </AnimatePresence>
       </section>
 
-      <CTASection title="Have a question about any of these topics?" text="We are happy to talk through how they apply to your organisation." image={images.desk} compact />
+      <CTASection title="Our team is ready to help." text="Connect with us for clear and practical guidance for your business." image={images.desk} compact />
     </>
   )
 }

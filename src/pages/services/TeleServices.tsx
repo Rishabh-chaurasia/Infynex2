@@ -54,7 +54,7 @@ function Workflow() {
             animate={{ left: ['2%', '98%'], opacity: [0, 1, 1, 0] }} transition={{ duration: 5, repeat: Infinity, delay: i * 1.7, ease: 'easeInOut' }} />
         ))}
       </div>
-      <div className="grid gap-8 md:grid-cols-4">
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {steps.map((st, i) => {
           const Icon = st.icon
           return (

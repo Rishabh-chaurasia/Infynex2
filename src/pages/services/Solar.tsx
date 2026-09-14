@@ -112,7 +112,7 @@ export default function Solar() {
       <section className="bg-[#fff8ec] py-24 md:py-32">
         <div className="container-x">
           <SectionHeading eyebrow="Capabilities" title="Everything between the sun and your switchboard." align="center" />
-          <div className="mt-14 grid gap-6 md:grid-cols-4">
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {s.capabilities.map((c, i) => (
               <motion.div key={c.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ delay: i * 0.1, duration: 0.9, ease: EASE }} className="rounded-3xl border border-[#f5b544]/40 bg-white p-7">
                 <span className="block h-1 w-10 rounded-full" style={{ background: gold }} />
@@ -124,7 +124,7 @@ export default function Solar() {
         </div>
       </section>
 
-      <CTASection title="Thinking about solar for your site?" text="Share the location and roof or land details; we will arrange a survey and proposal." image={s.gallery[0]} />
+      <CTASection title="A practical start to cleaner energy." text="Share your location and site details and we will arrange a survey and proposal." image={s.gallery[0]} />
     </>
   )
 }

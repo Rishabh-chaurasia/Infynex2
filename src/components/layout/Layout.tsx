@@ -9,7 +9,7 @@ export default function Layout() {
   const location = useLocation()
   const outlet = useOutlet()
   return (
-    <div className="cursor-none-desktop">
+    <div className="site-light cursor-none-desktop">
       <Cursor />
       <Navbar />
       <AnimatePresence

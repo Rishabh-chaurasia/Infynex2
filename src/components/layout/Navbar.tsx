@@ -7,6 +7,18 @@ import { services } from '../../data/services'
 import { EASE } from '../../utils/motion'
 import MagneticButton from '../ui/MagneticButton'
 
+const navServices = [
+  { slug: 'it-infra', label: 'IT Infra & Services' },
+  { slug: 'cloud-server', label: 'Cloud Server' },
+  { slug: 'hardware', label: 'Hardware' },
+  { slug: 'amc', label: 'AMC' },
+  { slug: 'technical-support', label: 'Technical & Helpdesk Support' },
+  { slug: 'tele-services', label: 'Tele Services' },
+  { slug: 'robotic-duct-cleaning', label: 'Robotic Duct Cleaning' },
+  { slug: 'solar', label: 'Solar System Services' },
+  { slug: 'vehicle-vendor', label: 'Business Vehicle Supply' },
+].map(({ slug, label }) => ({ service: services.find((item) => item.slug === slug)!, label }))
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mega, setMega] = useState(false)
@@ -18,7 +30,7 @@ export default function Navbar() {
   useMotionValueEvent(scrollY, 'change', (v) => setScrolled(v > 24))
   // Service pages open on dark photographic heroes; a light glass keeps the
   // navy logo legible there from the first frame instead of waiting for scroll.
-  const darkHero = location.pathname.startsWith('/services')
+  const darkHero = location.pathname === '/' || location.pathname.startsWith('/services') || location.pathname === '/industries'
   const solid = scrolled || mega || darkHero
   useEffect(() => { setOpen(false); setMega(false) }, [location.pathname])
   useEffect(() => {
@@ -26,8 +38,13 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [open])
 
+  const openFooterContact = () => {
+    setOpen(false)
+    window.requestAnimationFrame(() => document.getElementById('footer-contact')?.scrollIntoView({ behavior: 'smooth', block: 'center' }))
+  }
+
   const linkCls = ({ isActive }: { isActive: boolean }) =>
-    `relative py-2 font-display text-sm font-medium transition-colors duration-300 ${isActive ? 'text-navy-900' : 'text-ink-600 hover:text-navy-900'}`
+    `group/nav relative rounded-full px-3.5 py-2 font-display text-sm font-semibold transition-all duration-300 ${isActive ? 'bg-teal-500/10 text-teal-700' : 'text-ink-600 hover:-translate-y-0.5 hover:bg-[#edf9fc] hover:text-teal-700'}`
 
   return (
     <>
@@ -35,7 +52,7 @@ export default function Navbar() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, ease: EASE, delay: 0.2 }}
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${solid ? 'glass' : 'bg-transparent'} ${scrolled || mega ? 'shadow-[0_10px_40px_-20px_rgba(11,21,51,0.25)]' : ''}`}
+        className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-500 ${solid ? 'border-teal-500/15 bg-white/90 backdrop-blur-2xl' : 'border-transparent bg-transparent'} ${scrolled || mega ? 'shadow-[0_14px_45px_-22px_rgba(11,21,51,0.3)]' : ''}`}
         onMouseLeave={() => setMega(false)}
       >
         <div className={`container-x flex items-center justify-between transition-all duration-500 ${scrolled ? 'h-[68px]' : 'h-[88px]'}`}>
@@ -72,7 +89,7 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden lg:block">
-            <MagneticButton to="/contact" className="!px-6 !py-3">Get in touch</MagneticButton>
+            <MagneticButton onClick={openFooterContact} variant="dark" className="!bg-gradient-to-r !from-teal-600 !to-[#526ee8] !px-6 !py-3 shadow-[0_10px_26px_rgba(26,157,195,.32)] hover:!from-[#ff7a45] hover:!to-[#ef5d8d]">Get in touch</MagneticButton>
           </div>
 
           <button
@@ -103,8 +120,8 @@ export default function Navbar() {
                 <div className="container-x grid grid-cols-[1.2fr_3fr] gap-10 py-10">
                   <div className="border-r border-navy-800/10 pr-10">
                     <p className="eyebrow text-teal-600">Services</p>
-                    <h3 className="mt-4 font-display text-2xl font-semibold leading-tight text-navy-900">Eleven services, one accountable partner.</h3>
-                    <p className="mt-3 text-sm text-ink-600">From maintenance contracts to solar systems, every service has a dedicated page with scope, approach and capabilities.</p>
+                    <h3 className="mt-4 font-display text-2xl font-semibold leading-tight text-navy-900">Complete services from one team.</h3>
+                    <p className="mt-3 text-sm text-ink-600">Choose a service to see what we provide and how it works.</p>
                     <Link to="/services" className="mt-6 inline-flex items-center gap-2 font-display text-sm font-semibold text-navy-900">
                       View all services <ArrowUpRight className="h-4 w-4" />
                     </Link>
@@ -114,7 +131,7 @@ export default function Navbar() {
                     initial="hidden" animate="visible"
                     variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.035, delayChildren: 0.1 } } }}
                   >
-                    {services.map((s) => {
+                    {navServices.map(({ service: s, label }) => {
                       const Icon = s.icon
                       return (
                         <motion.li key={s.slug} variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } } }}>
@@ -124,11 +141,11 @@ export default function Navbar() {
                               `group flex items-start gap-3 rounded-2xl p-3 transition-colors duration-300 hover:bg-navy-900/[0.04] ${isActive ? 'bg-navy-900/[0.05]' : ''}`
                             }
                           >
-                            <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-navy-900 text-white transition-all duration-500 group-hover:bg-teal-500 group-hover:rotate-[-6deg]">
+                            <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-navy-900 text-white transition-all duration-500 group-hover:bg-teal-500 group-hover:rotate-[-6deg]">
                               <Icon className="h-4 w-4" />
                             </span>
                             <span>
-                              <span className="block font-display text-sm font-semibold text-navy-900">{s.navTitle}</span>
+                              <span className="block whitespace-nowrap font-display text-[.78rem] font-semibold text-navy-900 xl:text-sm">{label}</span>
                               <span className="mt-0.5 block text-xs leading-snug text-ink-600">{s.tagline}</span>
                             </span>
                           </NavLink>
@@ -181,8 +198,8 @@ export default function Navbar() {
                             className="overflow-hidden pb-4"
                           >
                             <li><Link to="/services" className="block py-2 text-teal-300">All services</Link></li>
-                            {services.map((s) => (
-                              <li key={s.slug}><Link to={s.path} className="block py-2 text-white/75">{s.navTitle}</Link></li>
+                            {navServices.map(({ service: s, label }) => (
+                              <li key={s.slug}><Link to={s.path} className="block py-2 text-white/75">{label}</Link></li>
                             ))}
                           </motion.ul>
                         )}
@@ -196,7 +213,7 @@ export default function Navbar() {
                 </motion.div>
               ))}
               <motion.div variants={{ closed: { opacity: 0, y: 20 }, open: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } } }} className="mt-auto pt-10">
-                <MagneticButton to="/contact" variant="dark" className="w-full">Get in touch</MagneticButton>
+                <MagneticButton onClick={openFooterContact} variant="dark" className="w-full">Get in touch</MagneticButton>
                 <div className="mt-6 flex gap-6 text-sm text-white/60">
                   <a href={site.social.whatsapp} target="_blank" rel="noreferrer" className="hover:text-white">WhatsApp</a>
                   <a href={site.social.linkedin} target="_blank" rel="noreferrer" className="hover:text-white">LinkedIn</a>

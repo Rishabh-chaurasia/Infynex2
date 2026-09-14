@@ -59,14 +59,14 @@ function ScrollProcess() {
   }
 
   return (
-    <section ref={ref} className="relative h-[320vh] bg-navy-950 text-white">
+    <section ref={ref} className="robotic-process relative h-[320vh] bg-navy-950 text-white">
       <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
         <div aria-hidden className="absolute inset-0 grid-lines-dark opacity-40" />
         <div className="container-x relative">
           <SectionHeading dark eyebrow="Process" title="Four stages, documented on camera." text="Scroll to move the robot through the duct." size="md" />
 
           {/* Duct track */}
-          <div className="relative mt-14 h-40 rounded-3xl border border-teal-300/20 bg-navy-900/60">
+          <div className="robotic-track relative mt-14 h-40 rounded-3xl border-2 border-teal-500 bg-white/90 shadow-[0_18px_55px_rgba(26,157,195,.2)]">
             <div className="absolute inset-x-8 top-1/2 h-px bg-white/10" />
             <motion.div style={{ width: lineW }} className="absolute left-8 top-1/2 h-px max-w-[calc(100%-4rem)] bg-teal-400 shadow-[0_0_16px_#2ab7dd]" />
             {Array.from({ length: 9 }, (_, i) => (
@@ -143,13 +143,13 @@ export default function RoboticDuctCleaning() {
   return (
     <>
       {/* Custom hero */}
-      <section ref={heroRef} className="relative min-h-[100svh] overflow-hidden bg-navy-950 text-white">
-        <motion.div style={{ scale: sceneScale, y: sceneY }} className="absolute inset-0">
-          <SmartImage src={s.hero} alt="" className="h-full w-full object-cover opacity-40" />
+      <section ref={heroRef} className="robot-light-hero relative min-h-[100svh] overflow-hidden bg-navy-950 text-white">
+        <motion.div style={{ scale: sceneScale, y: sceneY }} className="robot-light-visual absolute inset-0">
+          <SmartImage src={s.hero} alt="Robotic HVAC duct cleaning machine operating inside a duct" className="h-full w-full object-cover opacity-90" />
           <div className="absolute inset-0"><DuctScene /></div>
         </motion.div>
         <Particles count={50} />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/30 to-navy-950/40" />
+        <div className="robot-light-overlay absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/30 to-navy-950/40" />
         <motion.div style={{ y: copyY, opacity: fade }} className="container-x relative flex min-h-[100svh] flex-col justify-end pb-28 pt-40">
           <nav className="mb-8 flex items-center gap-2 text-xs text-white/60" aria-label="Breadcrumb">
             <Link to="/" className="hover:text-teal-300">Home</Link><ChevronRight className="h-3 w-3" />
@@ -229,7 +229,7 @@ export default function RoboticDuctCleaning() {
       </section>
 
       {/* Benefits */}
-      <section className="relative overflow-hidden bg-navy-950 py-24 text-white md:py-32">
+      <section className="robotic-benefits relative overflow-hidden bg-navy-950 py-24 text-white md:py-32">
         <ParallaxImage src={s.gallery[1]} alt="" className="absolute inset-0 opacity-20" reveal="none" strength={40} />
         <div className="container-x relative">
           <SectionHeading dark eyebrow="Benefits" title="What you get from a robotic clean." />
@@ -239,7 +239,7 @@ export default function RoboticDuctCleaning() {
               ['Reach', 'Long duct runs and tight sections are cleaned without dismantling.'],
               ['Low disruption', 'Work happens inside the duct network with small access points.'],
             ].map(([t, d], i) => (
-              <motion.div key={t} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ delay: i * 0.12, duration: 0.9, ease: EASE }} className="glass-dark rounded-3xl border border-white/10 p-8">
+              <motion.div key={t} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ delay: i * 0.12, duration: 0.9, ease: EASE }} className="robotic-benefit-card rounded-3xl border-2 border-teal-500/30 bg-white/95 p-8 shadow-[0_18px_50px_rgba(11,21,51,.12)]">
                 <span className="font-display text-3xl font-light text-teal-300">0{i + 1}</span>
                 <h4 className="mt-4 font-display text-xl font-semibold">{t}</h4>
                 <p className="mt-2 text-white/65">{d}</p>

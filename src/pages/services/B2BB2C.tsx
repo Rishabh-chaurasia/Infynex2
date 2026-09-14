@@ -29,12 +29,12 @@ const content: Record<Mode, {
       { icon: MapPinned, title: 'Multi-site coverage', text: 'Consistent service across offices and facilities.' },
       { icon: UserCog, title: 'Account management', text: 'A named contact for planning, escalation and reviews.' },
     ],
-    services: ['AMC', 'IT Infrastructure', 'Cloud Server', 'Helpdesk', 'On-site Support', 'Robotic Duct Cleaning', 'Solar', 'Vehicle Vendor', 'Tele Services'],
+    services: ['AMC', 'IT Infrastructure', 'Cloud Server', 'Helpdesk', 'On-site Support', 'Robotic Duct Cleaning', 'Solar', 'Vehicle Automation', 'Tele Services'],
   },
   b2c: {
     icon: User, label: 'B2C', title: 'For individuals',
     text: 'Accessible services for homes and personal needs — from device support to solar installations — delivered with the same care and documentation we bring to business clients.',
-    hero: images.b2cHero, gallery: [images.b2cStore, images.b2cPeople],
+    hero: images.b2cHero, gallery: [images.b2cPeople, images.aboutLeadership],
     cards: [
       { icon: Home, title: 'Home installations', text: 'Solar, networking and equipment set up at home.' },
       { icon: Smartphone, title: 'Personal device support', text: 'Help with laptops, desktops and peripherals.' },
@@ -72,7 +72,7 @@ export default function B2BB2C() {
           <div className="container-x relative">
             {/* Toggle */}
             <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
-              <SectionHeading dark={dark} eyebrow="Choose your experience" title="Who are we working with today?" />
+              <SectionHeading dark={dark} eyebrow="Choose your experience" title="Choose the support that fits you." />
               <div className={`relative flex rounded-full border p-1 ${dark ? 'border-white/15 bg-white/5' : 'border-navy-800/15 bg-white'}`} role="tablist" aria-label="Business or individual">
                 {(['b2b', 'b2c'] as Mode[]).map((m) => {
                   const MIcon = content[m].icon
@@ -111,7 +111,7 @@ export default function B2BB2C() {
                 </AnimatePresence>
                 <AnimatePresence mode="wait">
                   <motion.div key={mode + '-sm'} initial={{ opacity: 0, y: 40, rotate: -4 }} animate={{ opacity: 1, y: 0, rotate: -3 }} exit={{ opacity: 0, y: 20 }} transition={{ duration: 0.7, ease: EASE, delay: 0.2 }} className={`absolute -bottom-8 -left-6 hidden w-[42%] overflow-hidden rounded-3xl border-4 shadow-2xl md:block ${dark ? 'border-navy-900' : 'border-ivory-100'}`}>
-                    <SmartImage src={c.gallery[0]} alt="" className="aspect-square h-full w-full object-cover" />
+                    <SmartImage src={c.gallery[1]} alt="" className="aspect-square h-full w-full object-cover" />
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -148,3 +148,4 @@ export default function B2BB2C() {
     </>
   )
 }
+

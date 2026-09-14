@@ -13,13 +13,13 @@ import { useMotionLevel } from '../hooks/useMedia'
 
 const groups = [
   { title: 'Infrastructure & hardware', slugs: ['it-infra', 'cloud-server', 'hardware', 'amc'] },
-  { title: 'Support & communication', slugs: ['helpdesk', 'technical-support', 'tele-services'] },
-  { title: 'Facilities, energy & mobility', slugs: ['robotic-duct-cleaning', 'solar', 'vehicle-vendor', 'b2b-b2c'] },
+  { title: 'Support & communication', slugs: ['technical-support', 'tele-services'] },
+  { title: 'Facilities, energy & mobility', slugs: ['robotic-duct-cleaning', 'solar', 'vehicle-vendor'] },
 ]
 
 /**
  * Service directory: a typographic hero with a live network backdrop, then
- * all eleven services in grouped, interactive 3D cards.
+ * all services in grouped, interactive 3D cards.
  */
 export default function Services() {
   usePageTitle('Services — Infynex Technologies')
@@ -31,21 +31,23 @@ export default function Services() {
 
   return (
     <>
-      <section ref={ref} className="relative overflow-hidden bg-navy-950 text-white">
-        <motion.div style={{ y: bgY }} className="absolute inset-0 opacity-40">
+      <section ref={ref} className="services-directory-hero relative overflow-hidden text-navy-950">
+        <div aria-hidden className="services-directory-orb services-directory-orb-a" />
+        <div aria-hidden className="services-directory-orb services-directory-orb-b" />
+        <motion.div style={{ y: bgY }} className="services-directory-network absolute inset-0 opacity-75">
           <NetworkVisual seed={3} nodes={22} />
         </motion.div>
-        <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-transparent via-navy-950/30 to-navy-950" />
-        <motion.div style={{ opacity: fade }} className="container-x relative flex min-h-[80vh] flex-col justify-center pb-24 pt-40">
-          <motion.p initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="eyebrow mb-6 flex items-center gap-3 text-teal-300">
-            <span className="h-px w-10 bg-teal-400" /> Service directory
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-white/5 via-white/20 to-[#eef8fb]/95" />
+        <motion.div style={{ opacity: fade }} className="container-x relative flex min-h-[520px] flex-col justify-center pb-16 pt-32 md:min-h-[620px] md:pb-20 md:pt-36">
+          <motion.p initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="eyebrow mb-6 flex w-fit items-center gap-3 rounded-full bg-gradient-to-r from-teal-600 to-[#526ee8] px-4 py-2 text-white shadow-[0_10px_28px_rgba(26,157,195,.28)]">
+            <span className="h-px w-8 bg-white/80" /> Service directory
           </motion.p>
           <h1 className="max-w-4xl font-display text-5xl font-semibold leading-[1.02] md:text-7xl">
-            <AnimatedText text="Eleven services." trigger="mount" delay={0.4} /><br />
-            <span className="text-white/50"><AnimatedText text="Each with a page of its own." trigger="mount" delay={0.7} /></span>
+            <AnimatedText text="Services for your" trigger="mount" delay={0.4} /><br />
+            <span className="text-teal-700"><AnimatedText text="business and workplace." trigger="mount" delay={0.7} /></span>
           </h1>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1, duration: 0.8, ease: EASE }} className="mt-8 max-w-xl text-lg text-white/70">
-            Explore what each service covers, how we approach it and where it fits. Select any card to open its dedicated page.
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1, duration: 0.8, ease: EASE }} className="mt-8 max-w-xl rounded-2xl border border-teal-500/20 bg-white/75 p-5 text-lg font-semibold leading-relaxed text-navy-700 shadow-sm backdrop-blur">
+            Choose a service to see what we provide and how our team works.
           </motion.p>
         </motion.div>
         <ScrollIndicator />
@@ -53,7 +55,7 @@ export default function Services() {
 
       <section className="container-x py-20 md:py-28">
         {groups.map((g, gi) => (
-          <div key={g.title} className={gi ? 'mt-24' : ''}>
+          <div key={g.title} className={gi ? 'mt-16 md:mt-20' : ''}>
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: EASE }} className="mb-10 flex items-center gap-4">
               <span className="font-display text-xs tracking-[0.3em] text-teal-600">0{gi + 1}</span>
               <span className="h-px flex-1 bg-navy-800/10" />
@@ -70,7 +72,7 @@ export default function Services() {
         ))}
       </section>
 
-      <CTASection title="Not sure which service you need?" text="Describe the problem and we will map it to the right combination of services." image={images.workspace} />
+      <CTASection title="Find the right service for your business." text="Share what you are looking for and our team will guide you to a suitable option." image={images.workspace} />
     </>
   )
 }

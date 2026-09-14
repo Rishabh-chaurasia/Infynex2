@@ -59,18 +59,18 @@ export default function Contact() {
     <>
       <section className="relative overflow-hidden bg-ivory-50">
         <div aria-hidden className="absolute inset-0 grid-lines" />
-        <div className="container-x relative grid gap-16 pb-24 pt-40 lg:grid-cols-[1fr_1.15fr] lg:gap-24">
+        <div className="container-x relative grid gap-16 pb-20 pt-28 lg:grid-cols-[1fr_1.15fr] lg:gap-24 lg:pt-32">
           {/* Left */}
           <div>
             <motion.p initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="eyebrow mb-6 flex items-center gap-3 text-teal-600">
               <span className="h-px w-10 bg-teal-500" /> Contact
             </motion.p>
             <h1 className="font-display text-5xl font-semibold leading-[1.02] text-navy-900 md:text-6xl lg:text-7xl">
-              <AnimatedText text="Let’s start" trigger="mount" delay={0.4} /><br />
-              <span className="text-teal-600"><AnimatedText text="a conversation." trigger="mount" delay={0.6} /></span>
+              <AnimatedText text="Helpful support" trigger="mount" delay={0.4} /><br />
+              <span className="text-teal-600"><AnimatedText text="for your business." trigger="mount" delay={0.6} /></span>
             </h1>
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 0.8, ease: EASE }} className="mt-6 max-w-md text-lg text-ink-600">
-              Tell us about your site, your systems or your customers. We will come back with a clear next step.
+              Please share what you need. Our team will listen carefully and guide you through the next step.
             </motion.p>
 
             <motion.ul initial="hidden" animate="visible" variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 1 } } }} className="mt-12 space-y-5">
@@ -88,10 +88,9 @@ export default function Contact() {
             </motion.ul>
 
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.5, duration: 0.8, ease: EASE }} className="mt-12 flex flex-wrap gap-4">
-              <MagneticButton href={site.social.whatsapp} variant="dark" icon={false}><span className="flex items-center gap-2"><MessageCircle className="h-4 w-4" /> WhatsApp</span></MagneticButton>
+              <MagneticButton href={site.social.whatsapp} variant="dark" icon={false} className="!bg-[#25D366] hover:!bg-[#1eaa52]"><span className="flex items-center gap-2"><MessageCircle className="h-4 w-4" /> WhatsApp</span></MagneticButton>
               <MagneticButton href={site.social.linkedin} variant="ghost">LinkedIn</MagneticButton>
             </motion.div>
-            <p className="mt-4 text-xs text-ink-400">Links are placeholders — set real URLs in <code className="rounded bg-ivory-100 px-1">src/data/site.ts</code>.</p>
 
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.8, duration: 1 }} className="relative mt-14 hidden aspect-[16/9] overflow-hidden rounded-3xl bg-navy-950 lg:block">
               <NetworkVisual seed={5} nodes={12} />
@@ -130,7 +129,6 @@ export default function Contact() {
                         {status === 'loading' ? <span className="flex items-center gap-2"><Loader2 className="h-4 w-4 animate-spin" /> Sending…</span> : 'Send Enquiry'}
                       </MagneticButton>
                     </motion.div>
-                    <motion.p variants={fadeUp} className="pt-2 text-xs text-ink-400">Submission is simulated until connected to your email or CRM endpoint.</motion.p>
                   </motion.form>
                 )}
               </AnimatePresence>

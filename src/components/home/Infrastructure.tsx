@@ -30,7 +30,7 @@ export default function Infrastructure() {
   const panelY = useTransform(scrollYProgress, [0, 1], [60 * level, -60 * level])
 
   return (
-    <section ref={ref} className="relative bg-ivory-50 py-24 md:py-32">
+    <section ref={ref} className="relative bg-ivory-50 pb-8">
       <div className="relative h-[70vh] md:h-[90vh]">
         <motion.div style={{ clipPath: clip }} className="absolute inset-0 overflow-hidden">
           <motion.div style={{ scale, y }} className="absolute inset-0">

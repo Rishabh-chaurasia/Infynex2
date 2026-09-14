@@ -12,7 +12,7 @@ import CTASection from '../../components/ui/CTASection'
 import { getService } from '../../data/services'
 import { EASE, fadeUp, viewportOnce } from '../../utils/motion'
 import usePageTitle from '../../hooks/usePageTitle'
-import { useMotionLevel, useIsDesktop } from '../../hooks/useMedia'
+import { useIsDesktop } from '../../hooks/useMedia'
 
 const s = getService('cloud-server')!
 
@@ -117,11 +117,11 @@ function Plane({ index, progress, label }: { index: number; progress: ReturnType
   const z = useTransform(progress, [0, 1], [index * 6, index * 90 - 130])
   const opacity = useTransform(progress, [0, 0.15], [0.5, 1])
   return (
-    <motion.div style={{ translateZ: z, opacity }} className="absolute h-64 w-80 rounded-2xl border border-teal-300/40 bg-teal-500/10 backdrop-blur-sm shadow-[0_0_60px_-10px_rgba(111,211,238,0.35)]">
+    <motion.div style={{ translateZ: z, opacity }} className="cloud-plane absolute h-64 w-80 rounded-2xl border-2 border-teal-500 bg-white/90 backdrop-blur-sm shadow-[0_18px_60px_-18px_rgba(26,157,195,0.5)]">
       <div className="absolute inset-0 grid-lines-dark opacity-60 rounded-2xl" />
-      <span className="absolute left-4 top-3 font-display text-[0.65rem] tracking-[0.3em] text-teal-200">{label.toUpperCase()}</span>
+      <span className="absolute left-4 top-3 font-display text-xs font-bold tracking-[0.2em] text-teal-700">{label.toUpperCase()}</span>
       {Array.from({ length: 6 }, (_, i) => (
-        <motion.span key={i} className="absolute h-1.5 w-1.5 rounded-full bg-white" style={{ left: `${15 + i * 13}%`, top: `${30 + (i % 3) * 20}%` }}
+        <motion.span key={i} className="absolute h-2 w-2 rounded-full bg-teal-600" style={{ left: `${15 + i * 13}%`, top: `${30 + (i % 3) * 20}%` }}
           animate={{ opacity: [0.2, 1, 0.2], scale: [1, 1.6, 1] }} transition={{ duration: 2 + i * 0.3, repeat: Infinity, delay: index * 0.2 + i * 0.15 }} />
       ))}
     </motion.div>
@@ -134,10 +134,6 @@ function Plane({ index, progress, label }: { index: number; progress: ReturnType
  */
 export default function CloudServer() {
   usePageTitle(`${s.title} — Infynex Technologies`)
-  const level = useMotionLevel()
-  const bandRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({ target: bandRef, offset: ['start end', 'end start'] })
-  const textX = useTransform(scrollYProgress, [0, 1], [-60 * level, 60 * level])
 
   return (
     <>
@@ -164,15 +160,9 @@ export default function CloudServer() {
 
       <CloudStack />
 
-      {/* Capabilities — full-width band + cards */}
+      {/* Capabilities */}
       <section className="py-24 md:py-32">
-        <div ref={bandRef} className="relative h-[50vh] overflow-hidden">
-          <ParallaxImage src={s.gallery[1]} alt="Server rack" className="absolute inset-0" reveal="none" strength={60} zoom={[1.2, 1]} overlay="bg-navy-950/60" />
-          <motion.div style={{ x: textX }} className="container-x relative flex h-full items-center">
-            <p className="whitespace-nowrap font-display text-[12vw] font-semibold leading-none text-white/90">Provision · Migrate · Secure · Manage</p>
-          </motion.div>
-        </div>
-        <div className="container-x mt-20">
+        <div className="container-x">
           <SectionHeading eyebrow="Capabilities" title="What we take care of." align="center" />
           <div className="mt-14"><CapabilityGrid items={s.capabilities} accent={s.accent} layout="row" /></div>
         </div>
@@ -186,7 +176,7 @@ export default function CloudServer() {
         </div>
       </section>
 
-      <CTASection title="Considering cloud servers for your applications?" text="Share your current setup and we will outline a migration and management approach." image={s.gallery[0]} />
+      <CTASection title="A clear path to reliable cloud services." text="Share your current setup and we will outline a simple migration and management approach." image={s.gallery[0]} />
     </>
   )
 }

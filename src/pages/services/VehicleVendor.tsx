@@ -55,7 +55,7 @@ function TripCard({ from, to, when, i }: { from: string; to: string; when: strin
 }
 
 /**
- * Vehicle Vendor — movement narrative. Full hero with drawn route lines,
+ * Vehicle Automation — movement narrative. Full hero with drawn route lines,
  * a horizontal-drift image band, tilt trip cards, and a vendor approach timeline.
  */
 export default function VehicleVendor() {
@@ -111,18 +111,19 @@ export default function VehicleVendor() {
         <div className="mt-12"><FeatureList items={s.highlights} columns={3} accent={s.accent} /></div>
       </section>
 
-      {/* Vendor approach */}
+      {/* Automation approach */}
       <section className="bg-ivory-100 py-24 md:py-32">
         <div className="container-x grid gap-14 lg:grid-cols-2 lg:items-center">
           <div>
-            <SectionHeading eyebrow="Vendor approach" title="Requirement, plan, operate, review." />
+            <SectionHeading eyebrow="Automation approach" title="Requirement, plan, operate, review." />
             <div className="mt-12"><ProcessTimeline steps={s.process} orientation="vertical" accent={s.accent} /></div>
           </div>
           <ParallaxImage src={s.gallery[1]} alt="Road" className="aspect-[4/5] rounded-[2rem]" reveal="right" strength={90} />
         </div>
       </section>
 
-      <CTASection title="Need reliable vehicles for your organisation?" text="Tell us your routes, timings and vehicle needs; we will propose a plan." image={s.gallery[2]} />
+      <CTASection title="Reliable transport, organised around your schedule." text="Share your routes, timings and vehicle requirements and we will propose a suitable plan." image={s.gallery[2]} />
     </>
   )
 }
+

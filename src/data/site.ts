@@ -8,13 +8,13 @@ export const site = {
   tagline: 'Technology, infrastructure and services — delivered end to end.',
   logo: '/logo.png',
   contact: {
-    email: 'info@infynex.example', // EDIT
-    phone: '+91 00000 00000', // EDIT
-    address: 'Address line, City, State — PIN', // EDIT
+    email: 'info@infyxcorp.com',
+    phone: '+91 96899 00056',
+    address: '601 & 625, 6th Floor, Eros Square, Sector 49–50, Gurugram, Haryana 122018, India',
     hours: 'Mon – Sat, 9:00 – 18:00', // EDIT
   },
   social: {
-    whatsapp: 'https://wa.me/910000000000', // EDIT
+    whatsapp: 'https://wa.me/919689900056',
     linkedin: 'https://www.linkedin.com/company/infynex', // EDIT
   },
 }
@@ -25,14 +25,15 @@ export const site = {
  * When `logo` is undefined the name renders as an elegant wordmark — no fake logos are generated.
  */
 export const clients: { name: string; logo?: string }[] = [
-  { name: 'HiringTag' },
-  { name: 'Sandha and Company' },
-  { name: 'Locus' },
+  { name: 'HiringTag', logo: '/clients/hiringtag.png' },
+  { name: 'Sandha and Company', logo: '/clients/sandha-company.png' },
+  { name: 'Locus', logo: '/clients/locus.png' },
 ]
 
 export const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'Services', to: '/services' },
+  { label: 'Industries', to: '/industries' },
   { label: 'About', to: '/about' },
   { label: 'Blog', to: '/blog' },
   { label: 'Contact', to: '/contact' },

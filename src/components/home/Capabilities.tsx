@@ -28,7 +28,7 @@ export default function Capabilities() {
   const rise = useTransform(scrollYProgress, [0, 1], [80 * level, -80 * level])
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-navy-950 py-24 text-white md:py-36">
+    <section ref={ref} className="relative overflow-hidden bg-navy-950 py-14 text-white md:py-20">
       <div aria-hidden className="absolute inset-0 grid-lines-dark opacity-40" />
       <div aria-hidden className="absolute right-0 top-0 h-[40rem] w-[40rem] translate-x-1/3 -translate-y-1/3 rounded-full bg-teal-500/20 blur-[160px]" />
 
@@ -74,11 +74,11 @@ export default function Capabilities() {
             </div>
             <motion.div
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.8, duration: 0.8 }}
-              className="glass-dark absolute bottom-6 left-6 rounded-2xl border border-white/10 p-4"
+              className="absolute bottom-6 left-6 rounded-2xl border border-teal-500/40 bg-white/95 p-4 text-navy-950 shadow-[0_16px_40px_rgba(11,21,51,.28)] backdrop-blur"
               style={{ transform: 'translateZ(60px)' }}
             >
-              <p className="eyebrow text-[0.6rem] text-teal-300">Live topology</p>
-              <p className="mt-1 font-display text-sm font-semibold">Sites · Network · Cloud · Support</p>
+              <p className="eyebrow text-[0.6rem] text-teal-700">Live topology</p>
+              <p className="mt-1 font-display text-sm font-semibold text-navy-950">Sites · Network · Cloud · Support</p>
             </motion.div>
           </motion.div>
         </motion.div>

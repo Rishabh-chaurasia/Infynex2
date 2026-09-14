@@ -51,9 +51,9 @@ export default function ProcessTimeline({ steps, dark = false, orientation = 'ho
 
   return (
     <div ref={ref} className="relative">
-      <div className={`absolute left-0 right-0 top-6 hidden h-px md:block ${dark ? 'bg-white/10' : 'bg-navy-800/10'}`} />
-      <motion.div className="absolute left-0 top-6 hidden h-px origin-left md:block" style={{ scaleX: progress, width: '100%', background: accent }} />
-      <ol className="grid gap-10 md:grid-cols-4">
+      <div className={`absolute left-0 right-0 top-6 hidden h-px lg:block ${dark ? 'bg-white/10' : 'bg-navy-800/10'}`} />
+      <motion.div className="absolute left-0 top-6 hidden h-px origin-left lg:block" style={{ scaleX: progress, width: '100%', background: accent }} />
+      <ol className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         {steps.map((s, i) => (
           <motion.li
             key={s.title}
@@ -64,8 +64,8 @@ export default function ProcessTimeline({ steps, dark = false, orientation = 'ho
             className="relative"
           >
             <span
-              className={`relative z-10 flex h-12 w-12 items-center justify-center rounded-full font-display text-sm font-semibold ${dark ? 'bg-navy-800 text-white' : 'bg-white text-navy-900'}`}
-              style={{ boxShadow: `0 0 0 2px ${accent}, 0 12px 30px -10px ${accent}80` }}
+              className={`process-step-number relative z-10 flex h-12 w-12 items-center justify-center rounded-full font-display text-sm font-bold ${dark ? 'process-step-number-dark text-white' : 'bg-white text-navy-900'}`}
+              style={{ boxShadow: `0 0 0 2px ${accent}, 0 12px 30px -10px ${accent}80`, ...(dark ? { background: accent } : {}) }}
             >
               {String(i + 1).padStart(2, '0')}
             </span>

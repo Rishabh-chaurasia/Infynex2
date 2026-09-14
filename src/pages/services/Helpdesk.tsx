@@ -57,10 +57,10 @@ function TicketBoard() {
   }, [toast])
 
   return (
-    <div className="relative rounded-[2rem] border border-navy-800/10 bg-white p-4 shadow-[0_40px_100px_-40px_rgba(11,21,51,0.3)] md:p-6">
+    <div className="relative rounded-[2rem] border-2 border-teal-500/35 bg-[linear-gradient(135deg,#ffffff,#eaf9fc)] p-4 shadow-[0_30px_80px_-30px_rgba(26,157,195,.45)] md:p-6">
       <div className="mb-4 flex items-center justify-between">
         <div className="flex gap-1.5"><span className="h-2.5 w-2.5 rounded-full bg-red-400" /><span className="h-2.5 w-2.5 rounded-full bg-amber-400" /><span className="h-2.5 w-2.5 rounded-full bg-green-400" /></div>
-        <span className="eyebrow text-[0.6rem] text-ink-400">Ticket board · illustrative</span>
+        <span className="eyebrow rounded-full bg-teal-500 px-3 py-1 text-[0.6rem] text-white">Live ticket board</span>
       </div>
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
         {columns.map((c, ci) => (
@@ -98,12 +98,12 @@ function TicketBoard() {
 function IntakeVisual() {
   const ch = [{ icon: Phone, l: 'Phone' }, { icon: Mail, l: 'Email' }, { icon: Globe, l: 'Portal' }]
   return (
-    <div className="relative flex items-center justify-between gap-4 md:gap-10">
+    <div className="helpdesk-intake relative flex items-center justify-between gap-4 rounded-[2rem] border-2 border-teal-500/30 bg-white/90 p-5 shadow-[0_20px_55px_rgba(26,157,195,.18)] md:gap-10">
       <div className="flex flex-col gap-4">
         {ch.map((c, i) => {
           const Icon = c.icon
           return (
-            <motion.div key={c.l} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={viewportOnce} transition={{ delay: i * 0.15, duration: 0.8, ease: EASE }} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.05] px-4 py-3">
+            <motion.div key={c.l} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={viewportOnce} transition={{ delay: i * 0.15, duration: 0.8, ease: EASE }} className="flex items-center gap-3 rounded-2xl border border-teal-500/25 bg-[#edf9fc] px-4 py-3 text-navy-950 shadow-sm">
               <Icon className="h-4 w-4 text-teal-300" /><span className="font-display text-sm font-semibold">{c.l}</span>
             </motion.div>
           )
@@ -117,7 +117,7 @@ function IntakeVisual() {
           </g>
         ))}
       </svg>
-      <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={viewportOnce} transition={{ delay: 0.6, duration: 0.8, ease: EASE }} className="flex h-28 w-28 flex-col items-center justify-center rounded-3xl bg-teal-500 text-center text-white shadow-[0_0_60px_-10px_#2ab7dd]">
+      <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={viewportOnce} transition={{ delay: 0.6, duration: 0.8, ease: EASE }} className="helpdesk-intake-core flex h-28 w-28 flex-col items-center justify-center rounded-3xl bg-gradient-to-br from-teal-500 to-[#526ee8] text-center text-white shadow-[0_0_60px_-10px_#2ab7dd]">
         <span className="font-display text-sm font-semibold">Helpdesk</span><span className="text-[0.65rem] text-white/80">single queue</span>
       </motion.div>
     </div>

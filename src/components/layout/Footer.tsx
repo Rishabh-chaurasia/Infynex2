@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { MessageCircle, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react'
+import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react'
 import { site, navLinks } from '../../data/site'
 import { services } from '../../data/services'
 import { EASE } from '../../utils/motion'
@@ -17,20 +17,20 @@ export default function Footer() {
       <div aria-hidden className="absolute -right-40 -top-40 h-[30rem] w-[30rem] rounded-full bg-teal-400/10 blur-[120px]" />
 
       <motion.div
-        className="container-x relative grid gap-12 py-20 md:grid-cols-[1.4fr_1fr_1fr_1.2fr]"
+        className="container-x relative grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:py-20"
         initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-10% 0px' }}
         variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }}
       >
-        <motion.div variants={col}>
-          <img src={site.logo} alt={site.name} className="h-12 w-auto" />
+        <motion.div variants={col} whileHover={{ y: -4 }} transition={{ duration: 0.3 }}>
+          <motion.img src={site.logo} alt={site.name} className="h-12 w-auto" whileHover={{ scale: 1.06 }} />
           <p className="mt-6 max-w-sm text-ink-600">{site.tagline}</p>
           <div className="mt-8 flex gap-3">
-            <Social href={site.social.linkedin} label="LinkedIn"><LinkedInIcon /></Social>
-            <Social href={site.social.whatsapp} label="WhatsApp"><MessageCircle className="h-4 w-4" /></Social>
+            <Social href={site.social.linkedin} label="LinkedIn" brand="linkedin"><LinkedInIcon /></Social>
+            <Social href={site.social.whatsapp} label="WhatsApp" brand="whatsapp"><WhatsAppIcon /></Social>
           </div>
         </motion.div>
 
-        <motion.div variants={col}>
+        <motion.div variants={col} whileHover={{ x: 4 }} transition={{ duration: 0.3 }}>
           <h4 className="eyebrow text-navy-900">Services</h4>
           <ul className="mt-6 space-y-2.5">
             {services.map((s) => (
@@ -41,7 +41,7 @@ export default function Footer() {
           </ul>
         </motion.div>
 
-        <motion.div variants={col}>
+        <motion.div variants={col} whileHover={{ x: 4 }} transition={{ duration: 0.3 }}>
           <h4 className="eyebrow text-navy-900">Navigation</h4>
           <ul className="mt-6 space-y-2.5">
             {navLinks.map((l) => (
@@ -50,12 +50,12 @@ export default function Footer() {
           </ul>
         </motion.div>
 
-        <motion.div variants={col}>
+        <motion.div id="footer-contact" variants={col} whileHover={{ y: -4 }} transition={{ duration: 0.3 }} className="scroll-mt-28">
           <h4 className="eyebrow text-navy-900">Contact</h4>
           <ul className="mt-6 space-y-4 text-sm text-ink-600">
-            <li className="flex gap-3"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-teal-600" /><a href={`mailto:${site.contact.email}`} className="hover:text-navy-900">{site.contact.email}</a></li>
-            <li className="flex gap-3"><Phone className="mt-0.5 h-4 w-4 shrink-0 text-teal-600" /><a href={`tel:${site.contact.phone}`} className="hover:text-navy-900">{site.contact.phone}</a></li>
-            <li className="flex gap-3"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-teal-600" /><span>{site.contact.address}</span></li>
+            <li className="flex gap-3 transition-transform duration-300 hover:translate-x-1"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-teal-600" /><a href={`mailto:${site.contact.email}`} className="hover:text-navy-900">{site.contact.email}</a></li>
+            <li className="flex gap-3 transition-transform duration-300 hover:translate-x-1"><Phone className="mt-0.5 h-4 w-4 shrink-0 text-teal-600" /><a href={`tel:${site.contact.phone}`} className="hover:text-navy-900">{site.contact.phone}</a></li>
+            <li className="flex gap-3 transition-transform duration-300 hover:translate-x-1"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-teal-600" /><span>{site.contact.address}</span></li>
           </ul>
           <Link to="/contact" className="group mt-8 inline-flex items-center gap-2 rounded-full bg-navy-900 px-5 py-3 font-display text-sm font-semibold text-white transition-colors hover:bg-teal-600">
             Send an enquiry <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -66,7 +66,6 @@ export default function Footer() {
       <div className="relative border-t border-navy-800/10">
         <div className="container-x flex flex-col items-start justify-between gap-3 py-6 text-xs text-ink-400 md:flex-row md:items-center">
           <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
-          <p>Imagery is illustrative and does not depict Infynex projects or clients.</p>
         </div>
       </div>
     </footer>
@@ -82,11 +81,15 @@ function FooterLink({ to, children }: { to: string; children: React.ReactNode })
   )
 }
 
-function Social({ href, label, children }: { href: string; label: string; children: React.ReactNode }) {
+function Social({ href, label, brand, children }: { href: string; label: string; brand: 'linkedin' | 'whatsapp'; children: React.ReactNode }) {
+  const brandClass = brand === 'linkedin'
+    ? 'border-[#0A66C2] bg-[#0A66C2] text-white shadow-[0_8px_20px_rgba(10,102,194,.24)] hover:bg-[#084f96]'
+    : 'border-[#25D366] bg-[#25D366] text-white shadow-[0_8px_20px_rgba(37,211,102,.24)] hover:bg-[#1eaa52]'
+
   return (
     <a
       href={href} target="_blank" rel="noreferrer" aria-label={label} data-cursor="hover"
-      className="flex h-10 w-10 items-center justify-center rounded-full border border-navy-800/15 text-navy-900 transition-all duration-500 hover:-translate-y-1 hover:border-teal-500 hover:bg-teal-500 hover:text-white"
+      className={`flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-500 hover:-translate-y-1 ${brandClass}`}
     >
       {children}
     </a>
@@ -97,6 +100,14 @@ function LinkedInIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden>
       <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
+    </svg>
+  )
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="currentColor" aria-hidden>
+      <path d="M12.04 2a9.83 9.83 0 0 0-8.45 14.86L2 22l5.28-1.55A9.96 9.96 0 1 0 12.04 2Zm0 17.98a8.05 8.05 0 0 1-4.1-1.12l-.3-.18-3.13.92.94-3.05-.2-.31a7.92 7.92 0 1 1 6.79 3.74Zm4.43-5.94c-.24-.12-1.44-.7-1.66-.78-.22-.08-.38-.12-.55.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.37-1.94-1.19a7.27 7.27 0 0 1-1.34-1.66c-.14-.24-.02-.37.1-.49.11-.11.24-.28.37-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.31-.75-1.8-.2-.47-.4-.4-.55-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.57 4.09 3.6.57.25 1.02.39 1.36.5.57.18 1.09.16 1.5.1.46-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z" />
     </svg>
   )
 }
