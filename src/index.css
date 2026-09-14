@@ -72,6 +72,36 @@ body {
   box-shadow: 0 22px 55px rgba(18,71,120,.2);
 }
 
+.blog-hero-emoji {
+  position: absolute;
+  right: clamp(3rem, 10vw, 10rem);
+  top: 46%;
+  z-index: 0;
+  display: grid;
+  width: clamp(9rem, 15vw, 13rem);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(59, 130, 246, .18);
+  border-radius: 38% 62% 55% 45% / 48% 42% 58% 52%;
+  background: linear-gradient(145deg, rgba(207, 250, 254, .9), rgba(224, 231, 255, .78));
+  box-shadow: 0 25px 65px rgba(37, 99, 235, .17), inset 0 1px 0 rgba(255,255,255,.9);
+  transform: translateY(-50%);
+}
+.blog-hero-emoji::before,
+.blog-hero-emoji::after {
+  content: '✦';
+  position: absolute;
+  color: #18b8d3;
+  font-size: 1.6rem;
+}
+.blog-hero-emoji::before { left: -1.2rem; top: 18%; }
+.blog-hero-emoji::after { right: -.7rem; bottom: 14%; color: #596fe8; font-size: 1.15rem; }
+.blog-hero-emoji > span {
+  font-size: clamp(5.5rem, 9vw, 8rem);
+  filter: drop-shadow(0 14px 18px rgba(30, 64, 175, .18));
+}
+.blog-page-hero > :not(.blog-hero-emoji) { position: relative; z-index: 1; }
+
 /* Site-wide light, vibrant surface system. Dark cards/buttons remain as contrast accents. */
 .site-light main {
   background:
@@ -251,6 +281,15 @@ body {
   .site-light section[class*="md:py-40"] { padding-top: 4rem; padding-bottom: 4rem; }
 }
 @media (max-width: 767px) {
+  .blog-hero-emoji {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: 7rem;
+    margin: 0 0 1.5rem auto;
+    transform: none;
+  }
+  .blog-hero-emoji > span { font-size: 4.5rem; }
   .about-page-hero-inner {
     gap: 1.75rem;
     padding-top: calc(var(--nav-h) + 2.25rem);

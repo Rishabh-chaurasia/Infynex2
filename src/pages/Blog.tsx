@@ -17,7 +17,16 @@ export default function Blog() {
 
   return (
     <>
-      <section className="container-x pb-16 pt-40">
+      <section className="blog-page-hero container-x relative overflow-hidden pb-16 pt-40">
+        <motion.div
+          aria-hidden="true"
+          initial={{ opacity: 0, scale: .72, rotate: -12 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0, y: [0, -10, 0] }}
+          transition={{ opacity: { duration: .7, delay: .55 }, scale: { duration: .8, delay: .55, ease: EASE }, rotate: { duration: .8, delay: .55, ease: EASE }, y: { duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1.3 } }}
+          className="blog-hero-emoji"
+        >
+          <span>💡</span>
+        </motion.div>
         <motion.p initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="eyebrow mb-6 flex items-center gap-3 text-teal-600">
           <span className="h-px w-10 bg-teal-500" /> Insights
         </motion.p>
