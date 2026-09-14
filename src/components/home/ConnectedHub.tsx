@@ -27,7 +27,7 @@ export default function ConnectedHub() {
         <header className="mx-auto max-w-[760px] text-center">
           <span className="eyebrow text-[#74dfeb]">Infynex Technologies Services</span>
           <h2 className="mt-2 font-display text-[clamp(1.75rem,2.8vw,2.65rem)] font-semibold tracking-[-.045em]">
-            We deliver tailored solutions for <span className="text-[#75e3a9]">seamless business operations.</span>
+            Simplifying Business Services. <span className="text-[#75e3a9]">Strengthening Your Operations.</span>
           </h2>
         </header>
 

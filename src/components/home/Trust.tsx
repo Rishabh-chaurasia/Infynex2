@@ -25,7 +25,7 @@ export function WhyInfynex() {
     <section className="relative overflow-hidden bg-ivory-50 pb-12 pt-0 md:pb-16 md:pt-0">
       <div aria-hidden className="absolute inset-0 grid-lines opacity-35" />
       <div className="container-x relative">
-        <SectionHeading eyebrow="Why Infynex" title="Integrated Services. Dependable Business Operations." size="md" className="mb-8 [&_.eyebrow]:!text-base md:[&_.eyebrow]:!text-lg" />
+        <SectionHeading eyebrow="Why Infynex" title="Your Trusted Partner for Seamless Business Operations" size="md" className="mb-8 [&_.eyebrow]:!text-base md:[&_.eyebrow]:!text-lg" />
         <div className="grid overflow-hidden rounded-3xl bg-navy-950 text-white shadow-[0_20px_60px_rgba(10,27,61,0.12)] md:grid-cols-[0.8fr_1.2fr]">
           <ImageReveal src={images.meeting} alt="Infynex team working with a client" className="h-52 md:h-full md:min-h-56" direction="left" />
           <div className="flex flex-col justify-center px-7 py-8 md:px-10">
@@ -111,6 +111,13 @@ export function BlogPreview() {
   const trackRef = useRef<HTMLDivElement>(null)
   const animationRef = useRef<Animation | null>(null)
 
+  const toggleSlideshow = () => {
+    const animation = animationRef.current
+    if (!animation) return
+    if (animation.playState === 'paused') animation.play()
+    else animation.pause()
+  }
+
   useEffect(() => {
     const animation = trackRef.current?.animate(
       [{ transform: 'translateX(0)' }, { transform: 'translateX(-50%)' }],
@@ -127,19 +134,19 @@ export function BlogPreview() {
         <SectionHeading className="[&_.eyebrow]:!text-sm md:[&_.eyebrow]:!text-base" eyebrow="Our Blogs & News" title="Useful tips for your business." dark size="md" />
         <Link to="/blog" className="hidden items-center gap-2 font-display text-sm font-semibold text-teal-300 sm:inline-flex">All articles <ArrowUpRight className="h-4 w-4" /></Link>
       </div>
-      <div className="relative mt-8 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]" onPointerDown={() => animationRef.current?.pause()} onPointerUp={() => animationRef.current?.play()} onPointerCancel={() => animationRef.current?.play()} onPointerLeave={() => animationRef.current?.play()}>
+      <div className="relative mt-8 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
         <div ref={trackRef} className="flex w-max will-change-transform">
           {[0, 1].map((copy) => (
             <div key={copy} className="flex shrink-0 gap-5 pr-5" aria-hidden={copy === 1 ? 'true' : undefined}>
               {posts.map((post, i) => (
-                <Link key={`${copy}-${post.slug}`} to={`/blog/${post.slug}`} className="group grid w-[20rem] shrink-0 grid-cols-[6.5rem_1fr] overflow-hidden rounded-2xl bg-white text-navy-950 shadow-xl sm:w-[24rem] sm:grid-cols-[8rem_1fr]">
+                <article key={`${copy}-${post.slug}`} onClick={toggleSlideshow} className="group grid w-[20rem] shrink-0 cursor-pointer grid-cols-[6.5rem_1fr] overflow-hidden rounded-2xl bg-white text-navy-950 shadow-xl sm:w-[24rem] sm:grid-cols-[8rem_1fr]" aria-hidden={copy === 1 ? 'true' : undefined}>
                   <img src={post.image} alt="" className="h-full min-h-44 w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="flex min-w-0 flex-col p-5">
                     <span className="w-fit rounded-full px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.16em] text-white" style={{ backgroundColor: blogColours[i % blogColours.length] }}>{post.category}</span>
                     <h3 className="mt-4 line-clamp-3 font-display text-lg font-semibold leading-tight">{post.title}</h3>
-                    <span className="mt-auto inline-flex items-center gap-1 pt-4 text-xs font-semibold" style={{ color: blogColours[i % blogColours.length] }}>Read article <ArrowUpRight className="h-3.5 w-3.5" /></span>
+                    <Link to={`/blog/${post.slug}`} tabIndex={copy === 1 ? -1 : undefined} onClick={(event) => event.stopPropagation()} className="mt-auto inline-flex w-fit items-center gap-1 pt-4 text-xs font-semibold" style={{ color: blogColours[i % blogColours.length] }}>Read article <ArrowUpRight className="h-3.5 w-3.5" /></Link>
                   </div>
-                </Link>
+                </article>
               ))}
             </div>
           ))}
@@ -170,9 +177,9 @@ export function AboutPreview() {
         </div>
         <motion.div style={{ y: y2 }}>
           <motion.p variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportOnce} className="eyebrow mb-5 text-teal-300">About Infynex</motion.p>
-          <AnimatedText as="h2" text="A technology and services company built around accountability." className="text-balance font-display text-4xl font-semibold leading-[1.05] md:text-5xl" />
+          <AnimatedText as="h2" text="Empowering Businesses Through Technology and Service Excellence" className="text-balance font-display text-4xl font-semibold leading-[1.05] md:text-5xl" />
           <motion.p variants={fadeUp} custom={3} initial="hidden" whileInView="visible" viewport={viewportOnce} className="mt-6 text-lg text-white/70">
-            Infynex Technologies brings together IT, infrastructure, support, facilities and energy services so that organisations can rely on one partner across all of them.
+            Infynex Technologies unites IT infrastructure, technical support, integrated operational services and solar system services under one accountable team—helping businesses operate securely, efficiently and with confidence.
           </motion.p>
           <motion.div variants={fadeUp} custom={5} initial="hidden" whileInView="visible" viewport={viewportOnce} className="mt-10">
             <Link to="/about" className="group inline-flex items-center gap-3 font-display text-sm font-semibold">

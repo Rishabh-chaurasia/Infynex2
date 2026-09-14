@@ -57,6 +57,13 @@ export function ServiceShowcase() {
   const trackRef = useRef<HTMLDivElement>(null)
   const animationRef = useRef<Animation | null>(null)
 
+  const toggleSlideshow = () => {
+    const animation = animationRef.current
+    if (!animation) return
+    if (animation.playState === 'paused') animation.play()
+    else animation.pause()
+  }
+
   useEffect(() => {
     const animation = trackRef.current?.animate(
       [{ transform: 'translateX(0)' }, { transform: 'translateX(-50%)' }],
@@ -75,14 +82,14 @@ export function ServiceShowcase() {
         </div>
       </div>
 
-      <div className="relative h-[52vh] min-h-[420px] max-h-[540px]" onPointerDown={() => animationRef.current?.pause()} onPointerUp={() => animationRef.current?.play()} onPointerCancel={() => animationRef.current?.play()} onPointerLeave={() => animationRef.current?.play()}>
+      <div className="relative h-[52vh] min-h-[420px] max-h-[540px]">
         <div ref={trackRef} className="absolute inset-y-0 left-0 flex w-max will-change-transform">
           {[0, 1].map((copy) => (
             <div key={copy} className="flex shrink-0 gap-6 pr-6" aria-hidden={copy === 1 ? 'true' : undefined}>
               {featured.map((service, index) => {
                 const Icon = service.icon
                 return (
-              <Link key={`${copy}-${service.slug}`} to={service.path} tabIndex={copy === 1 ? -1 : undefined} className="group relative h-full w-[82vw] max-w-[690px] shrink-0 overflow-hidden rounded-[2rem] bg-navy-900 sm:w-[62vw] lg:w-[38vw] xl:w-[36vw]" data-cursor="hover">
+              <article key={`${copy}-${service.slug}`} onClick={toggleSlideshow} className="group relative h-full w-[82vw] max-w-[690px] shrink-0 cursor-pointer overflow-hidden rounded-[2rem] bg-navy-900 sm:w-[62vw] lg:w-[38vw] xl:w-[36vw]" data-cursor="hover" aria-hidden={copy === 1 ? 'true' : undefined}>
                 <SmartImage src={service.hero} alt="" className="absolute inset-0 h-full w-full object-cover opacity-75 transition-transform duration-[1600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent" />
                 <div className="absolute inset-0 flex flex-col justify-between p-7 sm:p-9">
@@ -93,13 +100,13 @@ export function ServiceShowcase() {
                     <p className="eyebrow inline-flex w-fit rounded-full px-3 py-1 font-bold text-navy-950" style={{ backgroundColor: headingColors[index] }}>{service.eyebrow}</p>
                     <h3 className="service-card-heading mt-2 flex min-h-[5.5rem] items-end font-display text-3xl font-semibold leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,.55)] xl:text-4xl" style={{ '--service-heading-color': headingColors[index] } as CSSProperties}>{service.title}</h3>
                     <p className="mt-3 min-h-[4.5rem] max-w-md text-sm leading-relaxed text-white/70 sm:text-base">{service.short}</p>
-                    <span className="mt-auto inline-flex items-center gap-2 pt-5 font-display text-sm font-semibold">
+                    <Link to={service.path} tabIndex={copy === 1 ? -1 : undefined} onClick={(event) => event.stopPropagation()} className="mt-auto inline-flex w-fit items-center gap-2 pt-5 font-display text-sm font-semibold text-white">
                       View service
                       <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition-all duration-500 group-hover:rotate-45 group-hover:bg-teal-500"><ArrowUpRight className="h-4 w-4" /></span>
-                    </span>
+                    </Link>
                   </div>
                 </div>
-              </Link>
+              </article>
                 )
               })}
             </div>

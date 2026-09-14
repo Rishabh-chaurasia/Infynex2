@@ -374,7 +374,7 @@ body {
     min-height: 0 !important;
     max-height: none;
   }
-  .source-hero-content { padding-top: 5.25rem; padding-bottom: 0; }
+  .source-hero-content { padding-top: 6.75rem; padding-bottom: 0; }
   .source-hero-content h1 { font-size: clamp(2.8rem, 4.35vw, 3.8rem); }
   .source-hero-content > span { margin-bottom: 1rem; }
   .source-hero-content > p { margin-top: 1rem; line-height: 1.65; }
