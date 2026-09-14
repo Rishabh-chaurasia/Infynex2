@@ -371,8 +371,8 @@ body {
   .container-x { max-width: 1240px; }
   .source-hero {
     height: calc(100svh - 68px);
-    min-height: 520px !important;
-    max-height: 570px;
+    min-height: 540px !important;
+    max-height: 595px;
   }
   .source-hero-content { padding-top: 4.75rem; padding-bottom: .75rem; }
   .source-hero-content h1 { font-size: clamp(2.8rem, 4.35vw, 3.8rem); }

@@ -17,12 +17,12 @@ export default function Footer() {
       <div aria-hidden className="absolute -right-40 -top-40 h-[30rem] w-[30rem] rounded-full bg-teal-400/10 blur-[120px]" />
 
       <motion.div
-        className="container-x relative grid gap-8 py-10 sm:grid-cols-2 sm:gap-12 sm:py-14 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:py-14"
+        className="container-x relative grid gap-8 py-10 sm:grid-cols-2 sm:gap-12 sm:py-14 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:py-14 2xl:gap-14 2xl:py-20"
         initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-10% 0px' }}
         variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }}
       >
         <motion.div variants={col} whileHover={{ y: -4 }} transition={{ duration: 0.3 }}>
-          <motion.img src={site.logo} alt={site.name} className="h-10 w-auto sm:h-12" whileHover={{ scale: 1.06 }} />
+          <motion.img src={site.logo} alt={site.name} className="h-10 w-auto sm:h-12 2xl:h-14" whileHover={{ scale: 1.06 }} />
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-600 sm:mt-6 sm:text-base">{site.tagline}</p>
           <div className="mt-5 flex gap-3 sm:mt-8">
             <Social href={site.social.linkedin} label="LinkedIn" brand="linkedin"><LinkedInIcon /></Social>
@@ -83,7 +83,7 @@ export default function Footer() {
       </motion.div>
 
       <div className="relative border-t border-navy-800/10">
-        <div className="container-x flex flex-col items-start justify-between gap-3 py-4 text-[.7rem] text-ink-400 md:flex-row md:items-center md:text-xs">
+        <div className="container-x flex flex-col items-start justify-between gap-3 py-4 text-[.7rem] text-ink-400 md:flex-row md:items-center md:text-xs 2xl:py-6">
           <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
         </div>
       </div>
