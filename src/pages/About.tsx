@@ -37,14 +37,14 @@ export default function About() {
   return (
     <>
       {/* Hero */}
-      <section ref={heroRef} className="relative min-h-[100svh] overflow-hidden bg-ivory-50">
+      <section ref={heroRef} className="about-page-hero relative min-h-[100svh] overflow-hidden bg-ivory-50">
         <div aria-hidden className="absolute inset-0 grid-lines" />
-        <div className="container-x relative grid min-h-[100svh] items-center gap-10 pb-16 pt-28 lg:grid-cols-[1.05fr_.95fr] lg:gap-16 lg:pb-20 lg:pt-32">
+        <div className="about-page-hero-inner container-x relative grid min-h-[100svh] items-center gap-10 pb-16 pt-28 lg:grid-cols-[1.05fr_.95fr] lg:gap-16 lg:pb-20 lg:pt-32">
           <div>
             <motion.p initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="eyebrow mb-6 flex items-center gap-3 text-teal-600">
               <span className="h-px w-10 bg-teal-500" /> About {site.shortName}
             </motion.p>
-            <motion.h1 style={{ scale: titleScale, opacity: fade }} className="origin-left font-display text-[3rem] font-semibold leading-[0.98] text-navy-900 sm:text-6xl lg:text-[5.4rem]">
+            <motion.h1 style={{ scale: titleScale, opacity: fade }} className="about-page-hero-title origin-left font-display text-[3rem] font-semibold leading-[0.98] text-navy-900 sm:text-6xl lg:text-[5.4rem]">
               <AnimatedText text="We are here to help" trigger="mount" delay={0.4} /><br />
               <AnimatedText text="your business" trigger="mount" delay={0.55} /><br />
               <span className="text-teal-600"><AnimatedText text="with care." trigger="mount" delay={0.7} /></span>
@@ -53,7 +53,7 @@ export default function About() {
               Tell us what your business needs, and our team will understand your requirements and guide you through a simple, seamless process.
             </motion.p>
           </div>
-          <div className="relative min-h-[430px] sm:min-h-[500px] lg:min-h-[540px]">
+          <div className="about-page-hero-media relative min-h-[430px] sm:min-h-[500px] lg:min-h-[540px]">
             <motion.div style={{ x: leftX, y: imgY }} initial={{ opacity: 0, y: 60 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 1.2, ease: EASE }} className="absolute left-0 top-4 w-[72%]">
               <ImageReveal src={images.aboutHeroTeam} alt="Indian technology leadership team in discussion" className="aspect-[4/3] rounded-3xl shadow-2xl" direction="left" delay={0.6} />
             </motion.div>

@@ -374,12 +374,21 @@ body {
     min-height: 0 !important;
     max-height: none;
   }
-  .source-hero-content { padding-top: 10.75rem; padding-bottom: 0; }
+  .source-hero-content { padding-top: 9.25rem; padding-bottom: 0; }
   .source-hero-content h1 { font-size: clamp(2.8rem, 4.35vw, 3.8rem); }
   .source-hero-content > span { margin-bottom: 1rem; }
   .source-hero-content > p { margin-top: 1rem; line-height: 1.65; }
   .source-hero-content > div { margin-top: 1.25rem; margin-bottom: 1.25rem; }
   .source-hero-content > div:last-child { margin-bottom: 0; }
+  .about-page-hero,
+  .about-page-hero-inner { min-height: 90svh !important; }
+  .about-page-hero-inner {
+    gap: 2.5rem;
+    padding-top: 6.5rem;
+    padding-bottom: 2.5rem;
+  }
+  .about-page-hero-title { font-size: 4.75rem !important; }
+  .about-page-hero-media { min-height: 470px !important; }
   .connected-hub { min-height: 560px; }
   .service-detail-hero { min-height: 540px !important; }
   .service-hero .container-x { min-height: min(78svh, 610px); }
