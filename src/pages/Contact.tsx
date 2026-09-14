@@ -56,7 +56,7 @@ export default function Contact() {
     <>
       <section className="relative overflow-hidden bg-ivory-50">
         <div aria-hidden className="absolute inset-0 grid-lines" />
-        <div className="container-x relative grid gap-16 pb-20 pt-28 lg:grid-cols-[1fr_1.15fr] lg:gap-24 lg:pt-32">
+        <div className="contact-page-layout container-x relative grid gap-16 pb-20 pt-28 lg:grid-cols-[1fr_1.15fr] lg:gap-24 lg:pt-32">
           {/* Left */}
           <div>
             <motion.p initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="eyebrow mb-6 flex items-center gap-3 text-teal-600">
