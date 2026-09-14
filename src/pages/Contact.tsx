@@ -62,7 +62,7 @@ export default function Contact() {
             <motion.p initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="eyebrow mb-6 flex items-center gap-3 text-teal-600">
               <span className="h-px w-10 bg-teal-500" /> Contact
             </motion.p>
-            <h1 className="font-display text-4xl font-semibold leading-[1.04] text-navy-900 sm:text-5xl lg:text-6xl">
+            <h1 className="font-display text-4xl font-semibold leading-[1.04] text-navy-900 sm:text-[2.75rem] lg:text-5xl">
               <AnimatedText text="Helpful support" trigger="mount" delay={0.4} /><br />
               <span className="text-teal-600"><AnimatedText text="for your business." trigger="mount" delay={0.6} /></span>
             </h1>
@@ -70,14 +70,14 @@ export default function Contact() {
               Please share what you need. Our team will listen carefully and guide you through the next step.
             </motion.p>
 
-            <motion.ul initial="hidden" animate="visible" variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 1 } } }} className="mt-12 space-y-5">
+            <motion.ul initial="hidden" animate="visible" variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 1 } } }} className="mt-8 grid gap-x-6 gap-y-5 sm:grid-cols-2">
               {[
                 { icon: Mail, label: 'Email', value: site.contact.email, href: `mailto:${site.contact.email}` },
                 { icon: Phone, label: 'Phone', value: site.contact.phone, href: `tel:${site.contact.phone}` },
                 { icon: MapPin, label: 'Address', value: site.contact.address },
                 { icon: Clock, label: 'Hours', value: site.contact.hours },
               ].map(({ icon: Icon, label, value, href }) => (
-                <motion.li key={label} variants={fadeUp} className="flex items-start gap-4">
+                <motion.li key={label} variants={fadeUp} className={`flex items-start gap-3 ${label === 'Address' || label === 'Hours' ? 'sm:col-span-2' : ''}`}>
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-navy-900 text-white"><Icon className="h-4 w-4" /></span>
                   <span><span className="eyebrow block text-[0.6rem] text-ink-400">{label}</span>{href ? <a href={href} className="font-display font-semibold text-navy-900 hover:text-teal-600">{value}</a> : <span className="font-display font-semibold text-navy-900">{value}</span>}</span>
                 </motion.li>
