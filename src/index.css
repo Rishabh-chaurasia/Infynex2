@@ -370,9 +370,9 @@ body {
   :root { --nav-h: 72px; }
   .container-x { max-width: 1240px; }
   .source-hero {
-    height: calc(100svh - 68px);
-    min-height: 670px !important;
-    max-height: 730px;
+    height: 100svh;
+    min-height: 720px !important;
+    max-height: 780px;
   }
   .source-hero-content { padding-top: 5.25rem; padding-bottom: 2rem; }
   .source-hero-content h1 { font-size: clamp(2.8rem, 4.35vw, 3.8rem); }
@@ -390,8 +390,16 @@ body {
 @media (min-width: 1450px) and (max-width: 1920px) and (max-height: 1100px) {
   .source-hero {
     height: calc(100svh - var(--nav-h));
-    min-height: 680px !important;
-    max-height: 720px;
+    min-height: 760px !important;
+    max-height: 810px;
+  }
+}
+
+/* Extra depth for wider 16-inch laptop displays. */
+@media (min-width: 1680px) and (max-width: 1920px) and (max-height: 1200px) {
+  .source-hero {
+    min-height: 820px !important;
+    max-height: 880px;
   }
 }
 
