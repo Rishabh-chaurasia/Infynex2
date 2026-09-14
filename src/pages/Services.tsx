@@ -47,7 +47,7 @@ export default function Services() {
             <span className="text-teal-700"><AnimatedText text="business and workplace." trigger="mount" delay={0.7} /></span>
           </h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1, duration: 0.8, ease: EASE }} className="mt-8 max-w-xl rounded-2xl border border-teal-500/20 bg-white/75 p-5 text-lg font-semibold leading-relaxed text-navy-700 shadow-sm backdrop-blur">
-            Choose a service to see what we provide and how our team works.
+            Explore our service portfolio, delivery capabilities and structured approach to supporting your operations.
           </motion.p>
         </motion.div>
         <ScrollIndicator />
@@ -72,7 +72,7 @@ export default function Services() {
         ))}
       </section>
 
-      <CTASection title="Find the right service for your business." text="Share what you are looking for and our team will guide you to a suitable option." image={images.workspace} />
+      <CTASection title="The right service framework for your business." text="Share your operational requirements and our team will recommend a clear, practical service approach." image={images.workspace} />
     </>
   )
 }

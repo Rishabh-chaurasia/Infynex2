@@ -35,9 +35,6 @@ import solarInverter from '../assets/generated-services/solar-inverter.webp'
 import b2bMeetingNew from '../assets/generated-services/b2b-meeting.webp'
 import b2cAdvisor from '../assets/generated-services/b2c-advisor.webp'
 import aboutStrategy from '../assets/generated-services/about-strategy.webp'
-import aboutTeamNew from '../assets/generated-services/about-team.webp'
-import aboutPlanning from '../assets/generated-services/about-planning.webp'
-import aboutHandover from '../assets/generated-services/about-handover.webp'
 import amcMaintainNew from '../assets/generated-services/amc-maintain.webp'
 import amcRackNew from '../assets/generated-services/amc-rack.webp'
 import amcAuditNew from '../assets/generated-services/amc-audit.webp'
@@ -52,6 +49,10 @@ import blogSolar from '../assets/blog-real/solar-installation.jpg'
 import blogSupport from '../assets/blog-real/it-support.jpg'
 import blogCloud from '../assets/blog-real/cloud-server.jpg'
 import blogHardware from '../assets/blog-real/office-hardware.jpg'
+import aboutBusinessTechnologyIllustration from '../assets/about-business-technology-illustration.png'
+import aboutServicePlanningIllustration from '../assets/about-service-planning-illustration.png'
+import aboutPrinciplesIllustration from '../assets/about-principles-illustration.png'
+import aboutLeadershipIllustration from '../assets/about-leadership-illustration.png'
 
 /**
  * Local, content-reviewed imagery. People shown in workplace and field-service
@@ -70,11 +71,11 @@ export const images = {
   building: handover,
   workspace: planning,
   desk: rollout,
-  aboutHeroTeam: aboutStrategy,
-  aboutHeroService: aboutTeamNew,
-  aboutPrinciples: aboutPlanning,
-  aboutLeadership: aboutHandover,
-  aboutCta: aboutTeamNew,
+  aboutHeroTeam: aboutBusinessTechnologyIllustration,
+  aboutHeroService: aboutServicePlanningIllustration,
+  aboutPrinciples: aboutPrinciplesIllustration,
+  aboutLeadership: aboutLeadershipIllustration,
+  aboutCta: aboutBusinessTechnologyIllustration,
 
   // AMC
   amcHero: amcMaintainNew,

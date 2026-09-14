@@ -6,15 +6,15 @@ import CTASection from '../components/ui/CTASection'
 import usePageTitle from '../hooks/usePageTitle'
 
 const serviceCtas: Record<string, { title: string; text: string }> = {
-  amc: { title: 'Keep your systems running with dependable AMC support.', text: 'Share your equipment and site details, and we will prepare a clear maintenance plan.' },
-  hardware: { title: 'The right hardware, selected and supported with care.', text: 'Share your requirement or current inventory, and our team will suggest practical options.' },
-  'it-infra': { title: 'Build reliable IT infrastructure for your workplace.', text: 'Share your sites and applications, and we will outline a clear and practical approach.' },
-  'cloud-server': { title: 'Move forward with secure and manageable cloud services.', text: 'Tell us about your current setup, and our team will explain a suitable migration plan.' },
-  'tele-services': { title: 'Support your customers with a trained calling team.', text: 'Share your call volumes and process, and we will recommend a suitable team structure.' },
-  'robotic-duct-cleaning': { title: 'Keep your air ducts clean with documented robotic service.', text: 'Share your building details, and we will arrange an inspection and cleaning plan.' },
-  'technical-support': { title: 'Reliable technical support for your team and workplace.', text: 'Share your locations and support needs, and we will suggest the right coverage.' },
-  'vehicle-vendor': { title: 'We can help you build your company fleet.', text: 'Simply share how many vehicles you need. Our team will explain the available options, costs and delivery process clearly.' },
-  solar: { title: 'Take a practical step towards clean energy.', text: 'Share your site details, and our team will guide you through survey, design and installation.' },
+  amc: { title: 'Dependable AMC coverage for consistent system performance.', text: 'Provide your equipment and site details to receive a clearly defined maintenance plan.' },
+  hardware: { title: 'Business hardware selected, deployed and supported with care.', text: 'Provide your requirements or current inventory for practical, specification-led recommendations.' },
+  'it-infra': { title: 'Reliable IT infrastructure engineered for your workplace.', text: 'Provide your site and application requirements for a clear infrastructure delivery plan.' },
+  'cloud-server': { title: 'Secure, scalable and manageable cloud environments.', text: 'Provide your current environment details for a structured migration and management plan.' },
+  'tele-services': { title: 'Professional customer communication delivered by trained teams.', text: 'Provide your call volumes and operating process for a suitable team and workflow recommendation.' },
+  'robotic-duct-cleaning': { title: 'Documented robotic duct cleaning for cleaner ventilation systems.', text: 'Provide your building details for a structured inspection and cleaning plan.' },
+  'technical-support': { title: 'Responsive technical support for teams and workplaces.', text: 'Provide your locations and support requirements for an appropriate coverage model.' },
+  'vehicle-vendor': { title: 'A structured vehicle supply solution for your business fleet.', text: 'Provide the required vehicle types and quantities for clear options, commercial terms and delivery planning.' },
+  solar: { title: 'Professionally designed solar systems for dependable clean energy.', text: 'Provide your site details for a structured survey, design, installation and maintenance plan.' },
 }
 
 export default function ServiceDetail() {
@@ -49,8 +49,8 @@ export default function ServiceDetail() {
       <section className="container-x py-14 md:py-20">
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_.9fr]">
           <div>
-            <p className="eyebrow text-teal-600">How we help</p>
-            <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold text-navy-900 md:text-4xl">{service.slug === 'it-infra' ? 'Infrastructure engineered for performance and growth.' : 'Practical support for your business.'}</h2>
+            <p className="eyebrow text-teal-600">Service overview</p>
+            <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold text-navy-900 md:text-4xl">{service.slug === 'it-infra' ? 'Infrastructure engineered for performance and growth.' : 'Professional services aligned with your operations.'}</h2>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-600 md:text-lg">{service.overview}</p>
             <ul className="mt-7 grid gap-3 sm:grid-cols-2">
               {service.highlights.map((item) => <li key={item} className="flex gap-3 rounded-xl bg-ivory-100 p-3 text-sm text-navy-900"><Check className="mt-0.5 h-4 w-4 shrink-0 text-teal-600" />{item}</li>)}
@@ -63,7 +63,7 @@ export default function ServiceDetail() {
       <section className="bg-ivory-100 py-14 md:py-20">
         <div className="container-x grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <p className="eyebrow text-teal-600">What we provide</p>
+            <p className="eyebrow text-teal-600">Core capabilities</p>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {service.capabilities.map((item) => <article key={item.title} className="rounded-2xl bg-white p-5 shadow-sm"><h3 className="font-display text-lg font-semibold text-navy-900">{item.title}</h3><p className="mt-2 text-sm leading-relaxed text-ink-600">{item.text}</p></article>)}
             </div>

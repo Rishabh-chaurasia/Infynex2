@@ -40,7 +40,7 @@ export default function About() {
       <section ref={heroRef} className="about-page-hero relative min-h-[100svh] overflow-hidden bg-ivory-50">
         <div aria-hidden className="absolute inset-0 grid-lines" />
         <div className="about-page-hero-inner container-x relative grid min-h-[100svh] items-center gap-10 pb-16 pt-28 lg:grid-cols-[1.05fr_.95fr] lg:gap-16 lg:pb-20 lg:pt-32">
-          <div>
+          <div className="about-page-hero-copy">
             <motion.p initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="eyebrow mb-6 flex items-center gap-3 text-teal-600">
               <span className="h-px w-10 bg-teal-500" /> About {site.shortName}
             </motion.p>
@@ -54,10 +54,10 @@ export default function About() {
             </motion.p>
           </div>
           <div className="about-page-hero-media relative min-h-[430px] sm:min-h-[500px] lg:min-h-[540px]">
-            <motion.div style={{ x: leftX, y: imgY }} initial={{ opacity: 0, y: 60 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 1.2, ease: EASE }} className="absolute left-0 top-4 w-[72%]">
+            <motion.div style={{ x: leftX, y: imgY }} initial={{ opacity: 0, y: 60 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 1.2, ease: EASE }} className="about-page-hero-primary absolute left-0 top-4 w-[72%]">
               <ImageReveal src={images.aboutHeroTeam} alt="Indian technology leadership team in discussion" className="aspect-[4/3] rounded-3xl shadow-2xl" direction="left" delay={0.6} />
             </motion.div>
-            <motion.div style={{ x: rightX }} initial={{ opacity: 0, y: 60 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.05, duration: 1.2, ease: EASE }} className="absolute bottom-0 right-0 w-[58%]">
+            <motion.div style={{ x: rightX }} initial={{ opacity: 0, y: 60 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.05, duration: 1.2, ease: EASE }} className="about-page-hero-secondary absolute bottom-0 right-0 w-[58%]">
               <ImageReveal src={images.aboutHeroService} alt="Indian infrastructure engineers in a server room" className="aspect-[3/4] rounded-3xl border-4 border-white shadow-2xl" direction="up" delay={0.8} />
             </motion.div>
           </div>

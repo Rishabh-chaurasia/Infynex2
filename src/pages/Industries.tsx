@@ -18,10 +18,10 @@ export default function Industries() {
       <header className="container-x source-industries-header">
         <motion.span initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: EASE }} className="eyebrow text-teal-600">Industries</motion.span>
         <motion.h1 initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.12, ease: EASE }}>
-          Services that fit<br /><em>your business.</em>
+          Services thoughtfully aligned<br /><em>with your industry.</em>
         </motion.h1>
         <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.3, ease: EASE }} className="source-industries-header-bottom">
-          <p>We adjust our services for your workplace, people and schedule.</p>
+          <p>Our team carefully adapts each service to your operating environment, priorities and schedule.</p>
         </motion.div>
         <motion.div initial={{ opacity: 0, scale: .85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .8, delay: .45, ease: EASE }} className="source-industries-icons" aria-hidden="true">
           <Building2 /><Factory /><BriefcaseBusiness />
@@ -53,13 +53,13 @@ export default function Industries() {
                   return service ? <Link key={slug} to={service.path}>{service.title}<ArrowUpRight size={12} /></Link> : null
                 })}
               </div>
-              <Link className="source-industry-link" to="/contact">Discuss your site <ArrowUpRight size={17} /></Link>
+              <Link className="source-industry-link" to="/contact">Service consultation <ArrowUpRight size={17} /></Link>
             </div>
           </motion.article>
         ))}
       </section>
 
-      <CTASection title="Tell us about your workplace." text="We will suggest the services that fit your site and schedule." image={industries[1].image} compact />
+      <CTASection title="Practical support for every operating environment." text="Our team will carefully review your requirements and recommend services aligned with your site, priorities and schedule." image={industries[1].image} compact />
     </div>
   )
 }
