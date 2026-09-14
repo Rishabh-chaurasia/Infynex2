@@ -192,6 +192,13 @@ body {
 }
 @media (max-width: 1023px) {
   .site-light [class*="min-h-[100svh]"] { min-height: auto; }
+  .site-light .service-hero .container-x { min-height: auto; }
+  .site-light .service-hero-offset-media {
+    position: relative;
+    height: min(62svh, 34rem);
+    min-height: 22rem;
+  }
+  .site-light .service-hero-offset-media + .container-x { padding-top: 3rem; }
   .site-light section[class*="pt-40"] { padding-top: 8rem; }
   .site-light section[class*="py-24"],
   .site-light section[class*="md:py-32"],
@@ -200,6 +207,9 @@ body {
 @media (max-width: 767px) {
   .container-x { padding-inline: clamp(1rem, 5vw, 1.5rem); }
   .site-light h1 { overflow-wrap: anywhere; }
+  .site-light p,
+  .site-light address,
+  .site-light a { overflow-wrap: anywhere; }
   .site-light section[class*="py-24"],
   .site-light section[class*="py-20"],
   .site-light section[class*="py-16"],
@@ -214,6 +224,10 @@ body {
   .service-hero-actions > div,
   .service-hero-actions a { width: 100%; }
   .connected-hub .hub-detail { padding: 1.1rem; }
+  .source-hero-image { object-position: 64% center; }
+  .source-hero-content { padding-bottom: 1.25rem; }
+  .service-hero-copy { transform: none !important; opacity: 1 !important; }
+  .service-hero [class*="aspect-[4/5]"] { max-height: 34rem; }
 }
 @media (max-width: 479px) {
   .site-light h1 { font-size: clamp(2.35rem, 11vw, 3.15rem) !important; line-height: 1.04 !important; }
@@ -224,6 +238,24 @@ body {
   .connected-hub .hub-service-node span { font-size: .78rem; }
   .connected-hub .hub-detail > span:last-child { white-space: normal; }
   .source-industry-photo { height: 220px; }
+  .source-hero { min-height: 43rem; }
+  .source-hero-content { padding-top: 6.75rem; }
+  .source-hero-content > span { margin-bottom: 1rem; }
+  .source-hero-content > p { margin-top: 1rem; line-height: 1.6; }
+  .source-hero-content > div:nth-last-child(2) { margin-bottom: 1rem; }
+  .connected-hub { min-height: auto; }
+}
+
+/* Compact laptop screens (common 13–14 inch viewports). */
+@media (min-width: 1024px) and (max-width: 1440px) and (max-height: 850px) {
+  .source-hero { min-height: max(620px, calc(100svh - 68px)); }
+  .source-hero-content { padding-top: 7rem; padding-bottom: 1.25rem; }
+  .source-hero-content > span { margin-bottom: 1rem; }
+  .source-hero-content > p { margin-top: 1rem; line-height: 1.65; }
+  .source-hero-content > div { margin-top: 1.25rem; margin-bottom: 1.25rem; }
+  .connected-hub { min-height: 620px; }
+  .site-light section[class*="py-24"],
+  .site-light section[class*="md:py-32"] { padding-top: 4rem; padding-bottom: 4rem; }
 }
 
 h1, h2, h3, h4, .font-display {
