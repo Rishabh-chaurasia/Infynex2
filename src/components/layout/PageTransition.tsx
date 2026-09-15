@@ -11,6 +11,7 @@ export default function PageTransition({ children }: { children: ReactNode }) {
   return (
     <motion.div initial="initial" animate="enter" exit="exit" className="relative">
       <motion.div
+        className="route-transition-content"
         variants={{
           initial: { opacity: 0, y: 30 },
           enter: { opacity: 1, y: 0, transition: { duration: 0.9, ease: EASE, delay: 0.3 } },
@@ -23,7 +24,7 @@ export default function PageTransition({ children }: { children: ReactNode }) {
       {/* Exit curtain — rises from the bottom */}
       <motion.div
         aria-hidden
-        className="pointer-events-none fixed inset-0 z-[80] bg-navy-900"
+        className="route-transition-curtain pointer-events-none fixed inset-0 z-[80] bg-navy-900"
         style={{ transformOrigin: 'bottom' }}
         variants={{
           initial: { scaleY: 0 },
@@ -34,7 +35,7 @@ export default function PageTransition({ children }: { children: ReactNode }) {
       {/* Enter curtains — lift away toward the top */}
       <motion.div
         aria-hidden
-        className="pointer-events-none fixed inset-0 z-[81] bg-navy-900"
+        className="route-transition-curtain pointer-events-none fixed inset-0 z-[81] bg-navy-900"
         style={{ transformOrigin: 'top' }}
         variants={{
           initial: { scaleY: 1 },
@@ -44,7 +45,7 @@ export default function PageTransition({ children }: { children: ReactNode }) {
       />
       <motion.div
         aria-hidden
-        className="pointer-events-none fixed inset-0 z-[80] bg-teal-500"
+        className="route-transition-curtain pointer-events-none fixed inset-0 z-[80] bg-teal-500"
         style={{ transformOrigin: 'top' }}
         variants={{
           initial: { scaleY: 1 },

@@ -34,7 +34,7 @@ const NotFound = lazyWithRetry(() => import('./pages/NotFound'))
 const ServiceDetail = lazyWithRetry(() => import('./pages/ServiceDetail'))
 
 function Fallback() {
-  return <div className="min-h-screen bg-navy-900" aria-hidden />
+  return <div className="route-fallback min-h-screen bg-navy-900" aria-hidden />
 }
 
 export default function App() {
