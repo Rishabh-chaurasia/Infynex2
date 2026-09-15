@@ -767,6 +767,18 @@ img {
   background: linear-gradient(145deg, #ffffff, #e6eaffea);
   transform: translateY(-10px);
 }
+.source-industries-icons { display: none; }
+
+.connected-hub .container-x > div.relative.mx-auto > svg {
+  transform: scale(.78);
+  transform-origin: 50% 48%;
+}
+
+.site-footer > .container-x {
+  min-height: clamp(350px, 48svh, 520px);
+  padding-top: clamp(3.5rem, 6vw, 5rem);
+  padding-bottom: clamp(3.5rem, 6vw, 5rem);
+}
 .source-industries-header h1 {
   max-width: 990px;
   margin-bottom: 16px;
@@ -946,8 +958,6 @@ img {
 
   .source-industries-header { padding-top: 1.5rem; padding-bottom: 1.5rem; }
   .source-industries-header h1 { font-size: 3rem; margin-bottom: .8rem; }
-  .source-industries-icons { display: none; }
-
   .blog-page-hero { padding-top: calc(var(--nav-h) + 2rem); padding-bottom: 3rem; }
   .blog-page-hero h1 { max-width: 44rem; font-size: 4rem; }
   .blog-hero-emoji { right: 6rem; width: 10rem; }
@@ -960,15 +970,6 @@ img {
   .contact-social-actions { margin-top: 1.5rem !important; }
 
   .connected-hub { min-height: 610px; }
-  .connected-hub .container-x > div.relative.mx-auto > svg {
-    transform: scale(.78);
-    transform-origin: 50% 48%;
-  }
-  .site-footer > .container-x {
-    min-height: 350px;
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
-  }
   .service-detail-hero { min-height: 610px !important; }
   .service-hero .container-x { min-height: 610px; }
 
