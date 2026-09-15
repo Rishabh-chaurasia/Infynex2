@@ -135,14 +135,14 @@ export function BlogPreview() {
           {[0, 1].map((copy) => (
             <div key={copy} className="flex shrink-0 gap-5 pr-5" aria-hidden={copy === 1 ? 'true' : undefined}>
               {posts.map((post, i) => (
-                <article key={`${copy}-${post.slug}`} onMouseEnter={pauseSlideshow} onMouseLeave={resumeSlideshow} className="group grid w-[20rem] shrink-0 grid-cols-[6.5rem_1fr] overflow-hidden rounded-2xl bg-white text-navy-950 shadow-xl sm:w-[24rem] sm:grid-cols-[8rem_1fr]" aria-hidden={copy === 1 ? 'true' : undefined}>
+                <Link to={`/blog/${post.slug}`} tabIndex={copy === 1 ? -1 : undefined} key={`${copy}-${post.slug}`} onMouseEnter={pauseSlideshow} onMouseLeave={resumeSlideshow} className="group grid w-[20rem] shrink-0 cursor-pointer grid-cols-[6.5rem_1fr] overflow-hidden rounded-2xl bg-white text-navy-950 shadow-xl sm:w-[24rem] sm:grid-cols-[8rem_1fr]" aria-hidden={copy === 1 ? 'true' : undefined}>
                   <img src={post.image} alt="" className="h-full min-h-44 w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="flex min-w-0 flex-col p-5">
                     <span className="w-fit rounded-full px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.16em] text-white" style={{ backgroundColor: blogColours[i % blogColours.length] }}>{post.category}</span>
                     <h3 className="mt-4 line-clamp-3 font-display text-lg font-semibold leading-tight">{post.title}</h3>
-                    <Link to={`/blog/${post.slug}`} tabIndex={copy === 1 ? -1 : undefined} className="mt-auto inline-flex w-fit items-center gap-1 pt-4 text-xs font-semibold" style={{ color: blogColours[i % blogColours.length] }}>Read article <ArrowUpRight className="h-3.5 w-3.5" /></Link>
+                    <span className="mt-auto inline-flex w-fit items-center gap-1 pt-4 text-xs font-semibold" style={{ color: blogColours[i % blogColours.length] }}>Read article <ArrowUpRight className="h-3.5 w-3.5" /></span>
                   </div>
-                </article>
+                </Link>
               ))}
             </div>
           ))}

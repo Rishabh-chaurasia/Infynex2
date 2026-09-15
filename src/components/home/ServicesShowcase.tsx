@@ -85,7 +85,7 @@ export function ServiceShowcase() {
               {featured.map((service, index) => {
                 const Icon = service.icon
                 return (
-              <article key={`${copy}-${service.slug}`} onMouseEnter={pauseSlideshow} onMouseLeave={resumeSlideshow} className="group relative h-full w-[82vw] max-w-[690px] shrink-0 overflow-hidden rounded-[2rem] bg-navy-900 sm:w-[62vw] lg:w-[38vw] xl:w-[36vw]" data-cursor="hover" aria-hidden={copy === 1 ? 'true' : undefined}>
+              <Link to={service.path} tabIndex={copy === 1 ? -1 : undefined} key={`${copy}-${service.slug}`} onMouseEnter={pauseSlideshow} onMouseLeave={resumeSlideshow} className="group relative h-full w-[82vw] max-w-[690px] shrink-0 cursor-pointer overflow-hidden rounded-[2rem] bg-navy-900 sm:w-[62vw] lg:w-[38vw] xl:w-[36vw]" data-cursor="hover" aria-hidden={copy === 1 ? 'true' : undefined}>
                 <SmartImage src={service.hero} alt="" className="absolute inset-0 h-full w-full object-cover opacity-75 transition-transform duration-[1600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent" />
                 <div className="absolute inset-0 flex flex-col justify-between p-7 sm:p-9">
@@ -96,13 +96,13 @@ export function ServiceShowcase() {
                     <p className="eyebrow inline-flex w-fit rounded-full px-3 py-1 font-bold text-navy-950" style={{ backgroundColor: headingColors[index] }}>{service.eyebrow}</p>
                     <h3 className="service-card-heading mt-2 flex min-h-[5.5rem] items-end font-display text-3xl font-semibold leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,.55)] xl:text-4xl" style={{ '--service-heading-color': headingColors[index] } as CSSProperties}>{service.title}</h3>
                     <p className="mt-3 min-h-[4.5rem] max-w-md text-sm leading-relaxed text-white/70 sm:text-base">{service.short}</p>
-                    <Link to={service.path} tabIndex={copy === 1 ? -1 : undefined} className="mt-auto inline-flex w-fit items-center gap-2 pt-5 font-display text-sm font-semibold text-white">
+                    <span className="mt-auto inline-flex w-fit items-center gap-2 pt-5 font-display text-sm font-semibold text-white">
                       View service
                       <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition-all duration-500 group-hover:rotate-45 group-hover:bg-teal-500"><ArrowUpRight className="h-4 w-4" /></span>
-                    </Link>
+                    </span>
                   </div>
                 </div>
-              </article>
+              </Link>
                 )
               })}
             </div>

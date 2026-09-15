@@ -515,6 +515,14 @@ body {
   }
 }
 
+/* Add a little more depth below the homepage hero only at 1920 × 1200. */
+@media (min-width: 1880px) and (max-width: 1920px) and (min-height: 1180px) and (max-height: 1220px) {
+  .source-hero {
+    height: calc(100svh + 80px);
+    min-height: calc(100svh + 80px) !important;
+  }
+}
+
 /* The supplied 1900 × 1200 view: keep route changes immediate and prevent the
    full-screen transition layer from reading as a failed page load. */
 @media (min-width: 1880px) and (max-width: 1920px) and (min-height: 1180px) and (max-height: 1220px),

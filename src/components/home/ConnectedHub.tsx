@@ -64,15 +64,13 @@ export default function ConnectedHub() {
           })}
 
           <Link key={`desktop-${selected.slug}`} to={selected.path} style={{ '--active-accent': accent } as CSSProperties} className={`hub-detail absolute top-1/2 z-10 hidden w-[245px] -translate-y-1/2 rounded-2xl border border-white/15 bg-[#0b2b3d]/95 px-5 py-5 text-left shadow-[inset_4px_0_var(--active-accent),0_20px_55px_rgba(0,0,0,.28)] backdrop-blur-md transition-colors hover:bg-[#10384c] lg:block ${detailSide}`}>
-            <span className="text-[.58rem] tracking-[.15em]" style={{ color: accent }}>{String(active + 1).padStart(2, '0')} / 09</span>
-            <h3 className="hub-detail-service-title mt-2 font-display text-xl font-semibold leading-tight">{selected.navTitle}</h3>
+            <h3 className="hub-detail-service-title font-display text-xl font-semibold leading-tight">{selected.navTitle}</h3>
             <p className="mt-3 text-[.82rem] leading-relaxed text-[#c5d6dd]">{selected.short}</p>
             <span className="mt-4 flex items-center gap-2 text-xs font-semibold text-[#7ee3ec]">Explore service <ArrowUpRight className="h-4 w-4" /></span>
           </Link>
         </div>
 
         <Link key={`mobile-${selected.slug}`} to={selected.path} style={{ '--active-accent': accent } as CSSProperties} className="hub-detail mx-auto grid w-full max-w-[460px] items-center gap-3 rounded-2xl border border-white/10 bg-white/[.035] px-4 py-3 shadow-[inset_4px_0_var(--active-accent)] transition-colors hover:bg-white/[.07] lg:hidden">
-          <span className="text-[.62rem] tracking-[.15em]" style={{ color: accent }}>{String(active + 1).padStart(2, '0')} / 09</span>
           <div>
             <h3 className="hub-detail-service-title font-display text-xl font-semibold">{selected.navTitle}</h3>
             <p className="mt-2 text-sm leading-relaxed text-[#b8ccd5]">{selected.short}</p>
