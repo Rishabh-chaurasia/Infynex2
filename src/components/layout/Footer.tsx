@@ -12,7 +12,7 @@ const col = {
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-navy-800/10 bg-ivory-100">
+    <footer className="site-footer relative overflow-hidden border-t border-navy-800/10 bg-ivory-100">
       <div aria-hidden className="absolute inset-0 grid-lines opacity-70" />
       <div aria-hidden className="absolute -right-40 -top-40 h-[30rem] w-[30rem] rounded-full bg-teal-400/10 blur-[120px]" />
 

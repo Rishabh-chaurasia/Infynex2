@@ -166,7 +166,7 @@ export function AboutPreview() {
   const y2 = useTransform(scrollYProgress, [0, 1], [-40 * level, 40 * level])
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-navy-950 pb-24 pt-10 text-white md:pb-32 md:pt-14">
+    <section ref={ref} className="home-about-preview relative overflow-hidden bg-navy-950 pb-24 pt-10 text-white md:pb-32 md:pt-14">
       <div aria-hidden className="absolute inset-0 grid-lines-dark opacity-40" />
       <div className="container-x grid items-center gap-16 lg:grid-cols-2">
         <div className="relative">

@@ -926,6 +926,16 @@ img {
   .about-page-hero-title { font-size: 4.2rem !important; }
   .about-page-hero-media { min-height: 430px !important; }
 
+  .home-about-preview {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    padding-top: 3.25rem;
+    padding-bottom: 3.25rem;
+  }
+  .home-about-preview > .container-x { width: 100%; gap: 4.5rem; }
+  .home-about-preview h2 { font-size: 3.25rem; }
+
   .services-directory-hero .container-x {
     min-height: 100svh;
     padding-top: calc(var(--nav-h) + 1.5rem);
@@ -936,8 +946,7 @@ img {
 
   .source-industries-header { padding-top: 1.5rem; padding-bottom: 1.5rem; }
   .source-industries-header h1 { font-size: 3rem; margin-bottom: .8rem; }
-  .source-industries-icons svg { width: 62px; height: 62px; padding: 14px; border-radius: 18px; }
-  .source-industries-icons svg:nth-child(2) { width: 70px; height: 70px; }
+  .source-industries-icons { display: none; }
 
   .blog-page-hero { padding-top: calc(var(--nav-h) + 2rem); padding-bottom: 3rem; }
   .blog-page-hero h1 { max-width: 44rem; font-size: 4rem; }
@@ -951,6 +960,15 @@ img {
   .contact-social-actions { margin-top: 1.5rem !important; }
 
   .connected-hub { min-height: 610px; }
+  .connected-hub .container-x > div.relative.mx-auto > svg {
+    transform: scale(.78);
+    transform-origin: 50% 48%;
+  }
+  .site-footer > .container-x {
+    min-height: 350px;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
   .service-detail-hero { min-height: 610px !important; }
   .service-hero .container-x { min-height: 610px; }
 

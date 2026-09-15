@@ -1,4 +1,5 @@
 import { useLocation, useOutlet } from 'react-router-dom'
+import { Suspense } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import Navbar from './Navbar'
 import Footer from './Footer'
@@ -18,7 +19,9 @@ export default function Layout() {
         onExitComplete={() => window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })}
       >
         <PageTransition key={location.pathname}>
-          <main id="main">{outlet}</main>
+          <Suspense fallback={<div className="route-fallback min-h-screen bg-ivory-50" aria-hidden />}>
+            <main id="main">{outlet}</main>
+          </Suspense>
           <Footer />
         </PageTransition>
       </AnimatePresence>
