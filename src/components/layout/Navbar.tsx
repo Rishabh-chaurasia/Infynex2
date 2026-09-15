@@ -55,7 +55,7 @@ export default function Navbar() {
         className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-500 ${solid ? 'border-teal-500/15 bg-white/90 backdrop-blur-2xl' : 'border-transparent bg-transparent'} ${scrolled || mega ? 'shadow-[0_14px_45px_-22px_rgba(11,21,51,0.3)]' : ''}`}
         onMouseLeave={() => setMega(false)}
       >
-        <div className={`container-x flex items-center justify-between transition-all duration-500 ${scrolled ? 'h-[68px]' : 'h-[88px]'}`}>
+        <div className={`container-x flex items-center justify-between transition-all duration-500 ${scrolled ? 'h-16' : 'h-20'}`}>
           <Link to="/" className="relative z-10 flex items-center" aria-label={`${site.name} home`}>
             <img src={site.logo} alt={site.name} className={`w-auto transition-all duration-500 ${scrolled ? 'h-9' : 'h-11'}`} />
           </Link>

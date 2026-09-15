@@ -25,7 +25,7 @@
 
 :root {
   color-scheme: light;
-  --nav-h: 80px;
+  --nav-h: 72px;
 }
 
 html {
@@ -924,8 +924,8 @@ img {
    Its usable browser viewport is approximately 1160–1300 × 650–760 CSS px. */
 @media (min-width: 1160px) and (max-width: 1300px) and (min-height: 650px) and (max-height: 760px) {
   .source-hero {
-    height: 100svh;
-    min-height: 100svh !important;
+    height: calc(100svh + 80px);
+    min-height: calc(100svh + 80px) !important;
     max-height: none;
   }
   .source-hero-content {
@@ -978,6 +978,11 @@ img {
   .contact-social-actions { margin-top: 1.5rem !important; }
 
   .connected-hub { min-height: 610px; }
+  .site-footer > .container-x {
+    min-height: 430px;
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
   .service-detail-hero { min-height: 610px !important; }
   .service-hero .container-x { min-height: 610px; }
 
