@@ -853,7 +853,7 @@ img {
 }
 
 .site-footer > .container-x {
-  min-height: clamp(540px, 70svh, 720px);
+  min-height: clamp(570px, 74svh, 740px);
   padding-top: clamp(5rem, 7.5vw, 7rem);
   padding-bottom: clamp(5rem, 7.5vw, 7rem);
 }
@@ -861,6 +861,7 @@ img {
 @media (min-width: 768px) {
   .connected-hub {
     padding-top: clamp(4.5rem, 8svh, 6rem) !important;
+    padding-bottom: clamp(4.5rem, 8svh, 6rem) !important;
   }
   .service-showcase-section {
     padding-top: 2rem !important;
