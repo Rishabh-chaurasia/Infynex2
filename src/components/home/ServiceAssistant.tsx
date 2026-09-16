@@ -37,7 +37,7 @@ export default function ServiceAssistant() {
   }
 
   return (
-    <div className="fixed bottom-3 right-3 z-[70] sm:bottom-7 sm:right-7">
+    <div className="service-assistant fixed bottom-3 right-3 z-[70] sm:bottom-7 sm:right-7">
       <AnimatePresence>
         {open && (
           <motion.div initial={{ opacity: 0, y: 20, scale: .96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 15, scale: .96 }} className="mb-3 flex h-[32rem] max-h-[calc(100dvh-5.5rem)] w-[calc(100vw-1.5rem)] flex-col overflow-hidden rounded-2xl border border-white/15 sm:rounded-3xl bg-navy-950 text-white shadow-[0_24px_80px_rgba(4,14,37,.38)] sm:w-96">
@@ -55,9 +55,9 @@ export default function ServiceAssistant() {
           </motion.div>
         )}
       </AnimatePresence>
-      <motion.button onClick={() => setOpen((value) => !value)} whileHover={{ scale: 1.035, y: -2 }} whileTap={{ scale: .97 }} aria-label="Open Infynex service assistant" className="group relative ml-auto flex h-14 items-center sm:h-16 gap-3 overflow-visible rounded-full bg-gradient-to-br from-teal-500 via-sky-500 to-[#486ee8] px-3 text-white shadow-[0_16px_42px_rgba(26,157,195,.42)] sm:px-4">
+      <motion.button onClick={() => setOpen((value) => !value)} whileHover={{ scale: 1.035, y: -2 }} whileTap={{ scale: .97 }} aria-label="Open Infynex service assistant" className="group relative ml-auto flex h-11 items-center sm:h-16 gap-3 overflow-visible rounded-full bg-gradient-to-br from-teal-500 via-sky-500 to-[#486ee8] px-1 text-white shadow-[0_16px_42px_rgba(26,157,195,.42)] sm:px-4">
         <span aria-hidden className="absolute inset-0 -z-10 animate-ping rounded-full bg-sky-400/25 [animation-duration:2.4s]" />
-        <span className="relative flex h-11 w-11 items-center justify-center rounded-full border border-white/25 bg-white/15 shadow-inner backdrop-blur-sm"><MessageCircle className="h-6 w-6 transition-transform duration-300 group-hover:rotate-[-8deg]" /><span className="absolute -right-0.5 -top-0.5 h-3 w-3 rounded-full border-2 border-sky-500 bg-emerald-300" /></span>
+        <span className="relative flex h-9 w-9 items-center justify-center rounded-full border border-white/25 bg-white/15 shadow-inner backdrop-blur-sm sm:h-11 sm:w-11"><MessageCircle className="h-5 w-5 transition-transform duration-300 group-hover:rotate-[-8deg] sm:h-6 sm:w-6" /><span className="absolute -right-0.5 -top-0.5 h-3 w-3 rounded-full border-2 border-sky-500 bg-emerald-300" /></span>
         <span className="hidden pr-2 text-left leading-tight sm:block"><span className="block font-display text-sm font-semibold">Ask Infynex</span><span className="mt-1 block text-[11px] text-white/75">Quick service help</span></span>
       </motion.button>
     </div>

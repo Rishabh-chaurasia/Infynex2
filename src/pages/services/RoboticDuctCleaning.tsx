@@ -59,7 +59,7 @@ function ScrollProcess() {
   }
 
   return (
-    <section ref={ref} className="robotic-process relative h-[320vh] bg-navy-950 text-white">
+    <section ref={ref} className="robotic-process relative h-[320dvh] bg-navy-950 text-white">
       <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
         <div aria-hidden className="absolute inset-0 grid-lines-dark opacity-40" />
         <div className="container-x relative">

@@ -72,7 +72,7 @@ function CloudStack() {
   }
 
   return (
-    <section ref={ref} className="relative h-[300vh] bg-navy-950 text-white">
+    <section ref={ref} className="relative h-[300dvh] bg-navy-950 text-white">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <div aria-hidden className="absolute inset-0 grid-lines-dark opacity-40" />
         <div aria-hidden className="absolute left-1/2 top-1/2 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-500/15 blur-[160px]" />

@@ -17,7 +17,7 @@ export default function CapabilityGrid({ items, dark = false, accent = '#1a9dc3'
   const wrap = {
     grid: 'grid gap-6 sm:grid-cols-2',
     stagger: 'grid gap-6 sm:grid-cols-2 [&>*:nth-child(even)]:sm:translate-y-10',
-    row: 'grid gap-6 sm:grid-cols-2 lg:grid-cols-4',
+    row: 'auto-grid',
   }[layout]
   return (
     <div className={`${wrap} perspective`}>

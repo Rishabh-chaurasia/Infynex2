@@ -34,7 +34,7 @@ export function WhyInfynex() {
             <p className="mt-4 max-w-xl text-base leading-relaxed text-white/70">Please tell us what you need. Our team will listen, explain the options clearly and help you at every step.</p>
           </div>
         </div>
-        <ol className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="auto-grid mt-5">
           {reasons.map((r) => {
             const Icon = r.icon
             return (
@@ -124,7 +124,7 @@ export function BlogPreview() {
   }, [])
 
   return (
-    <section className="relative overflow-hidden bg-navy-950 py-12 text-white md:py-16">
+    <section className="home-blog-preview relative overflow-hidden bg-navy-950 py-12 text-white md:py-16">
       <div aria-hidden className="absolute inset-0 grid-lines-dark opacity-30" />
       <div className="container-x relative flex items-end justify-between gap-6">
         <SectionHeading className="[&_.eyebrow]:!text-sm md:[&_.eyebrow]:!text-base" eyebrow="Our Blogs & News" title="Useful tips for your business." dark size="md" />
@@ -171,14 +171,14 @@ export function AboutPreview() {
             <ImageReveal src={images.office} alt="Office" className="aspect-[4/5] rounded-3xl border-4 border-navy-950" direction="right" delay={0.2} />
           </motion.div>
         </div>
-        <motion.div style={{ y: y2 }}>
+        <motion.div style={{ y: y2 }} className="relative z-10">
           <motion.p variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportOnce} className="eyebrow mb-5 text-teal-300">About Infynex</motion.p>
           <AnimatedText as="h2" text="Empowering Businesses Through Technology and Service Excellence" className="text-balance font-display text-[2rem] font-semibold leading-[1.05] md:text-[2.75rem]" />
           <motion.p variants={fadeUp} custom={3} initial="hidden" whileInView="visible" viewport={viewportOnce} className="mt-5 text-[1.075rem] leading-relaxed text-white/70">
             Infynex Technologies delivers comprehensive solutions across IT infrastructure, hardware and maintenance, AMC services, technical support and helpdesk, facilities management, energy and solar systems, mobility, robotic duct cleaning and other integrated operational services. Through a single accountable team, we help businesses operate efficiently, securely and seamlessly—ensuring reliability, business continuity and long-term performance.
           </motion.p>
           <motion.div variants={fadeUp} custom={5} initial="hidden" whileInView="visible" viewport={viewportOnce} className="mt-8">
-            <Link to="/about" className="group inline-flex items-center gap-3 font-display text-sm font-semibold">
+            <Link to="/about" className="group relative z-20 inline-flex cursor-pointer items-center gap-3 font-display text-sm font-semibold">
               <span className="flex h-12 w-12 items-center justify-center rounded-full bg-teal-500 transition-transform duration-500 group-hover:rotate-45"><ArrowUpRight className="h-5 w-5" /></span>
               Read our story
             </Link>

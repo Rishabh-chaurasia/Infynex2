@@ -49,13 +49,11 @@ export default function Navbar() {
   return (
     <>
       <motion.header
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1, ease: EASE, delay: 0.2 }}
+        initial={false}
         className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-500 ${solid ? 'border-teal-500/15 bg-white/90 backdrop-blur-2xl' : 'border-transparent bg-transparent'} ${scrolled || mega ? 'shadow-[0_14px_45px_-22px_rgba(11,21,51,0.3)]' : ''}`}
         onMouseLeave={() => setMega(false)}
       >
-        <div className={`container-x flex items-center justify-between transition-all duration-500 ${scrolled ? 'h-16' : 'h-20'}`}>
+        <div className="container-x flex items-center justify-between transition-all duration-500" style={{ height: scrolled ? 'calc(var(--nav-h) * .8)' : 'var(--nav-h)' }}>
           <Link to="/" className="relative z-10 flex items-center" aria-label={`${site.name} home`}>
             <img src={site.logo} alt={site.name} className={`w-auto transition-all duration-500 ${scrolled ? 'h-9' : 'h-11'}`} />
           </Link>
@@ -127,7 +125,7 @@ export default function Navbar() {
                     </Link>
                   </div>
                   <motion.ul
-                    className="grid grid-cols-3 gap-2"
+                    className="mega-services-grid grid gap-2"
                     initial="hidden" animate="visible"
                     variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.035, delayChildren: 0.1 } } }}
                   >
