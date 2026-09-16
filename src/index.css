@@ -151,6 +151,43 @@ body {
 }
 .services-directory-orb-a { left: 8%; top: 12%; background: #51d5e8; }
 .services-directory-orb-b { right: 8%; bottom: 0; background: #ffb35c; animation-delay: -4s; }
+.services-directory-icon-cluster {
+  width: clamp(12rem, 18vw, 18rem);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(19, 122, 154, .18);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,.9) 0 21%, rgba(111,211,238,.13) 22% 48%, transparent 49%);
+  box-shadow: 0 28px 70px rgba(19,122,154,.13), inset 0 0 0 1.5rem rgba(255,255,255,.2);
+}
+.services-directory-icon-cluster::before,
+.services-directory-icon-cluster::after {
+  content: '';
+  position: absolute;
+  inset: 15%;
+  border: 1px dashed rgba(19,122,154,.28);
+  border-radius: 50%;
+}
+.services-directory-icon-cluster::after { inset: 32%; border-style: solid; border-color: rgba(82,110,232,.2); }
+.services-directory-icon {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  width: clamp(3rem, 4.5vw, 4.25rem);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(19,122,154,.18);
+  border-radius: 1.15rem;
+  background: rgba(255,255,255,.9);
+  color: #137a9a;
+  box-shadow: 0 16px 35px rgba(11,21,51,.12);
+  backdrop-filter: blur(8px);
+}
+.services-directory-icon svg { width: 45%; height: 45%; }
+.services-directory-icon-main { left: 50%; top: 50%; width: clamp(4.5rem, 6vw, 5.5rem); color: #526ee8; transform: translate(-50%, -50%); }
+.services-directory-icon-cloud { left: 5%; top: 12%; transform: rotate(-7deg); }
+.services-directory-icon-support { right: 2%; top: 25%; transform: rotate(6deg); }
+.services-directory-icon-tools { bottom: 3%; left: 23%; transform: rotate(-5deg); }
 @keyframes services-orbit {
   from { transform: translate3d(-3%, -4%, 0) scale(.92); }
   to { transform: translate3d(8%, 7%, 0) scale(1.12); }
@@ -849,9 +886,12 @@ img {
     padding: 1.5rem !important;
   }
   .why-infynex-section {
-    min-height: calc(100svh - var(--nav-h));
-    padding-top: 1.5rem !important;
-    padding-bottom: 2rem !important;
+    min-height: auto;
+    padding-top: 1rem !important;
+    padding-bottom: 1.25rem !important;
+  }
+  .why-infynex-section .site-section-heading {
+    font-size: clamp(1.85rem, 3vw, 2.65rem) !important;
   }
   .why-infynex-section .container-x > div.grid {
     grid-template-columns: .72fr 1.28fr;
@@ -985,6 +1025,36 @@ img {
 .animate-pulse-ring { animation: pulse-ring 2.4s ease-out infinite; }
 .animate-marquee { animation: marquee 40s linear infinite; }
 
+@keyframes contact-social-icon-spin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+@keyframes contact-social-ring-pulse {
+  0% { transform: scale(.9); opacity: .7; }
+  100% { transform: scale(1.45); opacity: 0; }
+}
+.contact-social-actions a {
+  position: relative;
+  isolation: isolate;
+}
+.contact-social-actions a::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  z-index: 0;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  animation: contact-social-ring-pulse 2s ease-out infinite;
+}
+.contact-social-actions a:first-child::after { border-color: #25d366; }
+.contact-social-actions a:nth-child(2)::after { border-color: #0a66c2; }
+.contact-social-actions a svg { position: relative; z-index: 1; }
+.contact-social-actions a:hover svg,
+.contact-social-actions a:focus-visible svg {
+  animation: contact-social-icon-spin .7s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .animate-float, .animate-spin-slow, .animate-dash, .animate-scan, .animate-pulse-ring, .animate-marquee {
@@ -994,6 +1064,11 @@ img {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+  .contact-social-actions a:hover svg,
+  .contact-social-actions a:focus-visible svg {
+    animation-duration: .7s !important;
+    animation-iteration-count: infinite !important;
   }
 }
 
