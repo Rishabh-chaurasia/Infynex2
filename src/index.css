@@ -450,7 +450,7 @@ body {
 @media (min-width: 768px) {
   .source-hero {
     height: auto;
-    min-height: clamp(590px, calc(100svh - var(--nav-h) - .5rem), 850px) !important;
+    min-height: clamp(580px, calc(100svh - var(--nav-h) - 1rem), 835px) !important;
     max-height: none;
   }
   .source-hero-content {
@@ -459,7 +459,7 @@ body {
   }
   .source-hero-content h1 {
     max-width: min(750px, 59vw);
-    font-size: clamp(3rem, 4.35vw, 4.6rem);
+    font-size: clamp(2.98rem, 4.3vw, 4.55rem);
     line-height: 1.01;
   }
   .source-hero-content > span {
@@ -489,7 +489,7 @@ body {
 
   .about-page-hero,
   .about-page-hero-inner {
-    min-height: clamp(680px, 94svh, 860px) !important;
+    min-height: clamp(700px, 96svh, 885px) !important;
   }
   .about-page-hero-inner {
     gap: clamp(2rem, 4vw, 4rem);
@@ -785,23 +785,34 @@ img {
     margin-bottom: 1rem;
   }
   .service-showcase-section > div.relative.h-\[52vh\] {
-    height: min(44vh, 450px);
-    min-height: 350px;
+    height: min(46vh, 475px);
+    min-height: 370px;
   }
   .service-showcase-section .service-showcase-heading .site-section-heading {
     font-size: clamp(1.9rem, 2.8vw, 2.8rem) !important;
   }
   .home-b2b-section {
-    min-height: clamp(580px, 82svh, 720px);
-    padding-top: clamp(3rem, 6svh, 4.5rem) !important;
-    padding-bottom: clamp(3.5rem, 7svh, 5rem) !important;
+    min-height: clamp(620px, 88svh, 760px);
+    padding-top: clamp(3.5rem, 7svh, 5rem) !important;
+    padding-bottom: clamp(4rem, 8svh, 5.5rem) !important;
+  }
+  .home-b2b-section .site-section-eyebrow .eyebrow {
+    font-size: 1.125rem !important;
   }
   .about-promises-section {
-    padding-top: 2rem !important;
+    padding-top: 4rem !important;
     padding-bottom: 2.5rem !important;
   }
+  .about-promises-section > .grid {
+    align-items: start;
+  }
+  .about-promises-section ol {
+    align-self: start;
+    grid-auto-rows: 220px;
+  }
   .about-promises-section li {
-    min-height: 220px !important;
+    height: 220px;
+    min-height: 0 !important;
     padding: 1.5rem !important;
   }
   .why-infynex-section {

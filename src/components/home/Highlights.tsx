@@ -100,7 +100,7 @@ export function B2BHighlight() {
   return (
     <section className="home-b2b-section container-x pb-12 pt-0 md:pb-14 md:pt-0">
       <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
-        <SectionHeading className="[&_.eyebrow]:!text-sm md:[&_.eyebrow]:!text-base" eyebrow="B2B & B2C" title="Smart Service Solutions for Businesses and Individuals" />
+        <SectionHeading className="[&_.eyebrow]:!text-base md:[&_.eyebrow]:!text-lg" eyebrow="B2B & B2C" title="Smart Service Solutions for Businesses and Individuals" />
         <div className="relative flex rounded-full border border-navy-800/15 bg-white p-1" role="tablist">
           {(['b2b', 'b2c'] as const).map((m) => (
             <button
