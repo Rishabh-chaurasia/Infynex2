@@ -462,6 +462,28 @@ body {
     font-size: clamp(3.25rem, 4.55vw, 5rem);
     line-height: 1.02;
   }
+
+  .about-page-hero,
+  .about-page-hero-inner {
+    min-height: clamp(620px, 88svh, 820px) !important;
+  }
+  .about-page-hero-inner {
+    gap: clamp(2rem, 4vw, 4rem);
+    padding-top: calc(var(--nav-h) + 1.5rem);
+    padding-bottom: 2.5rem;
+  }
+  .about-page-hero-title {
+    font-size: clamp(3.75rem, 5.2vw, 4.8rem) !important;
+  }
+  .about-page-hero-media {
+    min-height: clamp(420px, 48vw, 480px) !important;
+  }
+
+  .services-directory-hero .container-x {
+    min-height: max(700px, 100svh);
+    padding-top: calc(var(--nav-h) + 4rem);
+    padding-bottom: 4rem;
+  }
 }
 
 h1, h2, h3, h4, .font-display {
@@ -712,9 +734,37 @@ img {
 }
 
 .site-footer > .container-x {
-  min-height: clamp(350px, 48svh, 520px);
-  padding-top: clamp(3.5rem, 6vw, 5rem);
-  padding-bottom: clamp(3.5rem, 6vw, 5rem);
+  min-height: clamp(500px, 65svh, 680px);
+  padding-top: clamp(4.5rem, 7vw, 6.5rem);
+  padding-bottom: clamp(4.5rem, 7vw, 6.5rem);
+}
+
+@media (min-width: 768px) {
+  .contact-page-layout {
+    gap: clamp(2.5rem, 5vw, 4rem) !important;
+    padding-top: calc(var(--nav-h) + 1.5rem) !important;
+    padding-bottom: 3rem !important;
+  }
+  .contact-page-title {
+    font-size: clamp(2.5rem, 3.6vw, 2.85rem) !important;
+  }
+  .contact-page-layout > div:first-child > p:nth-of-type(2) {
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+  .contact-page-layout ul {
+    margin-top: 1.5rem;
+    row-gap: 1rem;
+  }
+  .contact-page-layout .contact-social-actions {
+    margin-top: 2rem;
+  }
+  .contact-form-panel {
+    padding: clamp(2rem, 3vw, 2.5rem) !important;
+  }
+  .contact-form-panel .field textarea {
+    min-height: 7rem;
+  }
 }
 .source-industries-header h1 {
   max-width: 990px;

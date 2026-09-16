@@ -62,7 +62,7 @@ export default function Contact() {
             <motion.p initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="eyebrow mb-6 flex items-center gap-3 text-teal-600">
               <span className="h-px w-10 bg-teal-500" /> Contact
             </motion.p>
-            <h1 className="font-display text-4xl font-semibold leading-[1.04] text-navy-900 sm:text-[2.75rem] lg:text-5xl">
+            <h1 className="contact-page-title font-display text-4xl font-semibold leading-[1.04] text-navy-900 sm:text-[2.75rem] lg:text-5xl">
               <AnimatedText text="Helpful support" trigger="mount" delay={0.4} /><br />
               <span className="text-teal-600"><AnimatedText text="for your business." trigger="mount" delay={0.6} /></span>
             </h1>
@@ -92,7 +92,7 @@ export default function Contact() {
 
           {/* Form */}
           <motion.div initial={{ opacity: 0, y: 60, rotateX: 8 }} animate={{ opacity: 1, y: 0, rotateX: 0 }} transition={{ delay: 0.7, duration: 1.1, ease: EASE }} className="perspective">
-            <div className="relative rounded-[2rem] border border-navy-800/10 bg-white p-8 shadow-[0_50px_120px_-50px_rgba(11,21,51,0.4)] md:p-12">
+            <div className="contact-form-panel relative rounded-[2rem] border border-navy-800/10 bg-white p-8 shadow-[0_50px_120px_-50px_rgba(11,21,51,0.4)] md:p-12">
               <AnimatePresence mode="wait">
                 {status === 'success' ? (
                   <motion.div key="ok" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, ease: EASE }} className="flex min-h-[28rem] flex-col items-center justify-center text-center">
