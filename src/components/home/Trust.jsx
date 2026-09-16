@@ -35,8 +35,10 @@ export function WhyInfynex() {
           {reasons.map((r) => {
             const Icon = r.icon;
             return (<motion.li key={r.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-15% 0px' }} transition={{ duration: 0.9, ease: EASE }} className="group rounded-2xl border border-navy-800/10 bg-white p-4 shadow-[0_16px_50px_rgba(10,27,61,0.06)]" data-cursor="hover">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/10 text-teal-600 transition-transform duration-500 group-hover:-translate-y-1"><Icon className="h-5 w-5"/></span>
-              <h3 className="mt-3 font-display text-base font-semibold leading-snug text-navy-900">{r.title}</h3>
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-500/10 text-teal-600 transition-transform duration-500 group-hover:-translate-y-1"><Icon className="h-5 w-5"/></span>
+                <h3 className="min-w-0 font-display text-base font-semibold leading-snug text-navy-900">{r.title}</h3>
+              </div>
               <p className="mt-2 text-xs leading-relaxed text-ink-600">{r.text}</p>
             </motion.li>);
         })}

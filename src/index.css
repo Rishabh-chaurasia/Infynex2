@@ -34,6 +34,7 @@
   --step-2: clamp(1.4rem, 1.15rem + 1.2vw, 2.1rem);
   --step-3: clamp(1.8rem, 1.3rem + 2.4vw, 3rem);
   --step-4: clamp(2.25rem, 1.4rem + 4.2vw, 4.4rem);
+  --source-hero-heading-size: clamp(2.25rem, 1.2rem + 3.45vw, 4rem);
 }
 
 html {
@@ -506,7 +507,7 @@ body {
   }
   .source-hero-content h1 {
     max-width: min(750px, 59vw);
-    font-size: var(--step-4);
+    font-size: var(--source-hero-heading-size);
     line-height: 1.01;
   }
   .source-hero-content > span {
@@ -560,7 +561,7 @@ body {
 @media (min-width: 768px) and (max-width: 1199px) {
   .source-hero-content h1 {
     max-width: min(42rem, 86vw);
-    font-size: var(--step-4);
+    font-size: var(--source-hero-heading-size);
   }
   .source-hero-content > p {
     max-width: min(40rem, 82vw);
@@ -907,12 +908,12 @@ img {
     min-height: 0;
     padding: 1rem;
   }
-  .why-infynex-section ol > li > span {
+  .why-infynex-section ol > li > div > span {
     width: 2.5rem;
     height: 2.5rem;
   }
   .why-infynex-section ol > li h3 {
-    margin-top: .75rem;
+    margin-top: 0;
     font-size: 1rem;
   }
   .why-infynex-section ol > li p {
