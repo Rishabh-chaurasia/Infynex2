@@ -45,12 +45,11 @@ export default function About() {
               <span className="h-px w-10 bg-teal-500" /> About {site.shortName}
             </motion.p>
             <motion.h1 style={{ scale: titleScale, opacity: fade }} className="about-page-hero-title origin-left font-display text-[3rem] font-semibold leading-[0.98] text-navy-900 sm:text-6xl lg:text-[5.4rem]">
-              <AnimatedText text="We are here to help" trigger="mount" delay={0.4} /><br />
-              <AnimatedText text="your business" trigger="mount" delay={0.55} /><br />
-              <span className="text-teal-600"><AnimatedText text="with care." trigger="mount" delay={0.7} /></span>
+              <AnimatedText text="Supporting Your Business" trigger="mount" delay={0.4} /><br />
+              <span className="text-teal-600"><AnimatedText text="with Expertise and Care" trigger="mount" delay={0.65} /></span>
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2, duration: 0.9, ease: EASE }} className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-600">
-              Tell us what your business needs, and our team will understand your requirements and guide you through a simple, seamless process.
+              Tell us what your business needs, and our team will understand your requirements, recommend the right solutions and guide you through a simple, seamless process.
             </motion.p>
           </div>
           <div className="about-page-hero-media relative min-h-[430px] sm:min-h-[500px] lg:min-h-[540px]">
@@ -84,7 +83,7 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="container-x pb-14 pt-10 md:pb-16 md:pt-12">
+      <section className="about-promises-section container-x pb-14 pt-10 md:pb-16 md:pt-12">
         <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12">
           <div>
             <SectionHeading eyebrow="How we work" title="Four simple promises to every customer." size="md" />

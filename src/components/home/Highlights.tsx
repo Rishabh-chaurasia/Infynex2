@@ -98,7 +98,7 @@ export function B2BHighlight() {
   const Icon = content.icon
 
   return (
-    <section className="container-x pb-12 pt-0 md:pb-14 md:pt-0">
+    <section className="home-b2b-section container-x pb-12 pt-0 md:pb-14 md:pt-0">
       <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
         <SectionHeading className="[&_.eyebrow]:!text-sm md:[&_.eyebrow]:!text-base" eyebrow="B2B & B2C" title="Smart Service Solutions for Businesses and Individuals" />
         <div className="relative flex rounded-full border border-navy-800/15 bg-white p-1" role="tablist">
@@ -114,7 +114,7 @@ export function B2BHighlight() {
         </div>
       </div>
 
-      <motion.div layout className={`mt-7 grid items-center gap-5 overflow-hidden rounded-[1.6rem] p-4 transition-colors duration-700 md:grid-cols-[1.05fr_.95fr] md:p-5 ${mode === 'b2b' ? 'bg-navy-900 text-white' : 'bg-ivory-100 text-navy-900'}`}>
+      <motion.div layout className={`mt-8 grid items-center gap-6 overflow-hidden rounded-[1.8rem] p-5 transition-colors duration-700 md:grid-cols-[1.05fr_.95fr] md:p-7 ${mode === 'b2b' ? 'bg-navy-900 text-white' : 'bg-ivory-100 text-navy-900'}`}>
         <AnimatePresence mode="wait">
           <motion.div key={mode} initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 30 }} transition={{ duration: 0.5, ease: EASE }}>
             <span className={`flex h-9 w-9 items-center justify-center rounded-xl ${mode === 'b2b' ? 'bg-teal-500 text-white' : 'bg-navy-900 text-white'}`}><Icon className="h-4 w-4" /></span>
@@ -131,7 +131,7 @@ export function B2BHighlight() {
           </motion.div>
         </AnimatePresence>
         <AnimatePresence mode="wait">
-          <motion.div key={mode} initial={{ opacity: 0, scale: 1.1, clipPath: 'inset(0 0 0 100%)' }} animate={{ opacity: 1, scale: 1, clipPath: 'inset(0 0 0 0)' }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.7, ease: EASE }} className="h-56 overflow-hidden rounded-2xl sm:h-64 lg:h-60">
+          <motion.div key={mode} initial={{ opacity: 0, scale: 1.1, clipPath: 'inset(0 0 0 100%)' }} animate={{ opacity: 1, scale: 1, clipPath: 'inset(0 0 0 0)' }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.7, ease: EASE }} className="h-60 overflow-hidden rounded-2xl sm:h-72 lg:h-72">
             <SmartImage src={content.image} alt="" className="h-full w-full object-cover" />
           </motion.div>
         </AnimatePresence>

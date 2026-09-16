@@ -450,22 +450,46 @@ body {
 @media (min-width: 768px) {
   .source-hero {
     height: auto;
-    min-height: max(700px, 100svh) !important;
+    min-height: clamp(590px, calc(100svh - var(--nav-h) - .5rem), 850px) !important;
     max-height: none;
   }
   .source-hero-content {
-    padding-top: calc(var(--nav-h) + clamp(2rem, 6svh, 5rem));
-    padding-bottom: clamp(2.5rem, 6svh, 5rem);
+    padding-top: calc(var(--nav-h) + clamp(1rem, 2.5svh, 1.75rem));
+    padding-bottom: clamp(1.25rem, 2.5svh, 1.75rem);
   }
   .source-hero-content h1 {
-    max-width: min(760px, 58vw);
-    font-size: clamp(3.25rem, 4.55vw, 5rem);
-    line-height: 1.02;
+    max-width: min(750px, 59vw);
+    font-size: clamp(3rem, 4.35vw, 4.6rem);
+    line-height: 1.01;
+  }
+  .source-hero-content > span {
+    margin-bottom: .85rem;
+  }
+  .source-hero-content > p {
+    margin-top: 1rem;
+    font-size: .9rem;
+    line-height: 1.6;
+  }
+  .source-hero-content > div:nth-of-type(1) {
+    margin-top: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .source-hero-content > div:nth-of-type(1) a {
+    min-height: 3rem;
+    padding-inline: 1.5rem;
+    font-size: .875rem;
+  }
+  .source-hero-content > div:nth-of-type(2) {
+    margin-bottom: 1.25rem;
+    gap: 1rem;
+  }
+  .source-hero-content > div:nth-of-type(2) span {
+    font-size: .8rem;
   }
 
   .about-page-hero,
   .about-page-hero-inner {
-    min-height: clamp(620px, 88svh, 820px) !important;
+    min-height: clamp(680px, 94svh, 860px) !important;
   }
   .about-page-hero-inner {
     gap: clamp(2rem, 4vw, 4rem);
@@ -473,7 +497,7 @@ body {
     padding-bottom: 2.5rem;
   }
   .about-page-hero-title {
-    font-size: clamp(3.75rem, 5.2vw, 4.8rem) !important;
+    font-size: clamp(3.4rem, 4.7vw, 4.5rem) !important;
   }
   .about-page-hero-media {
     min-height: clamp(420px, 48vw, 480px) !important;
@@ -484,6 +508,16 @@ body {
     padding-top: calc(var(--nav-h) + 4rem);
     padding-bottom: 4rem;
   }
+}
+
+.site-section-heading {
+  font-family: var(--font-display) !important;
+  font-size: clamp(2rem, 3.25vw, 3.4rem) !important;
+  line-height: 1.05 !important;
+}
+.site-section-eyebrow .eyebrow {
+  font-family: var(--font-display);
+  font-size: clamp(.76rem, 1vw, .9rem) !important;
 }
 
 h1, h2, h3, h4, .font-display {
@@ -734,9 +768,71 @@ img {
 }
 
 .site-footer > .container-x {
-  min-height: clamp(500px, 65svh, 680px);
-  padding-top: clamp(4.5rem, 7vw, 6.5rem);
-  padding-bottom: clamp(4.5rem, 7vw, 6.5rem);
+  min-height: clamp(540px, 70svh, 720px);
+  padding-top: clamp(5rem, 7.5vw, 7rem);
+  padding-bottom: clamp(5rem, 7.5vw, 7rem);
+}
+
+@media (min-width: 768px) {
+  .connected-hub {
+    padding-top: clamp(4.5rem, 8svh, 6rem) !important;
+  }
+  .service-showcase-section {
+    padding-top: 2rem !important;
+    padding-bottom: 1.75rem !important;
+  }
+  .service-showcase-section > .container-x:first-of-type {
+    margin-bottom: 1rem;
+  }
+  .service-showcase-section > div.relative.h-\[52vh\] {
+    height: min(44vh, 450px);
+    min-height: 350px;
+  }
+  .service-showcase-section .service-showcase-heading .site-section-heading {
+    font-size: clamp(1.9rem, 2.8vw, 2.8rem) !important;
+  }
+  .home-b2b-section {
+    min-height: clamp(580px, 82svh, 720px);
+    padding-top: clamp(3rem, 6svh, 4.5rem) !important;
+    padding-bottom: clamp(3.5rem, 7svh, 5rem) !important;
+  }
+  .about-promises-section {
+    padding-top: 2rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+  .about-promises-section li {
+    min-height: 220px !important;
+    padding: 1.5rem !important;
+  }
+  .why-infynex-section {
+    min-height: calc(100svh - var(--nav-h));
+    padding-top: 1.5rem !important;
+    padding-bottom: 2rem !important;
+  }
+  .why-infynex-section .container-x > div.grid {
+    grid-template-columns: .72fr 1.28fr;
+  }
+  .why-infynex-section ol {
+    gap: .75rem;
+    margin-top: .875rem;
+  }
+  .why-infynex-section ol > li {
+    min-height: 0;
+    padding: 1rem;
+  }
+  .why-infynex-section ol > li > span {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .why-infynex-section ol > li h3 {
+    margin-top: .75rem;
+    font-size: 1rem;
+  }
+  .why-infynex-section ol > li p {
+    margin-top: .5rem;
+    font-size: .75rem;
+    line-height: 1.45;
+  }
 }
 
 @media (min-width: 768px) {

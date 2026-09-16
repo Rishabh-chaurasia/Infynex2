@@ -70,7 +70,7 @@ export function ServiceShowcase() {
   }, [])
 
   return (
-    <section className="relative overflow-hidden bg-navy-950 pb-12 pt-16 text-white md:pb-14 md:pt-20">
+    <section className="service-showcase-section relative overflow-hidden bg-navy-950 pb-12 pt-16 text-white md:pb-14 md:pt-20">
       <div aria-hidden className="absolute inset-0 grid-lines-dark opacity-60" />
       <div className="container-x relative mb-10">
         <div className="flex items-end justify-between gap-6">

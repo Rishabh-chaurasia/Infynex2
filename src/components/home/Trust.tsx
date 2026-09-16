@@ -22,7 +22,7 @@ const reasons = [
 /** Compact reasons section designed to fit in one desktop viewport. */
 export function WhyInfynex() {
   return (
-    <section className="relative overflow-hidden bg-ivory-50 pb-12 pt-0 md:pb-16 md:pt-0">
+    <section className="why-infynex-section relative overflow-hidden bg-ivory-50 pb-12 pt-0 md:pb-16 md:pt-0">
       <div aria-hidden className="absolute inset-0 grid-lines opacity-35" />
       <div className="container-x relative">
         <SectionHeading eyebrow="Why Infynex" title="Your Trusted Partner for Seamless Business Operations" size="md" className="mb-8 [&_.eyebrow]:!text-base md:[&_.eyebrow]:!text-lg" />
@@ -162,9 +162,9 @@ export function AboutPreview() {
   const y2 = useTransform(scrollYProgress, [0, 1], [-40 * level, 40 * level])
 
   return (
-    <section ref={ref} className="home-about-preview relative overflow-hidden bg-navy-950 pb-24 pt-10 text-white md:pb-32 md:pt-14">
+    <section ref={ref} className="home-about-preview relative overflow-hidden bg-navy-950 pb-20 pt-10 text-white md:pb-28 md:pt-14">
       <div aria-hidden className="absolute inset-0 grid-lines-dark opacity-40" />
-      <div className="container-x grid items-center gap-16 lg:grid-cols-2">
+      <div className="container-x grid items-center gap-12 lg:grid-cols-2 lg:gap-14">
         <div className="relative">
           <ParallaxImage src={images.team} alt="Team at work" className="aspect-[4/3] rounded-[2rem]" reveal="left" />
           <motion.div style={{ y: y1 }} className="absolute -bottom-10 -right-4 w-[45%] md:-right-8">
@@ -173,11 +173,11 @@ export function AboutPreview() {
         </div>
         <motion.div style={{ y: y2 }}>
           <motion.p variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportOnce} className="eyebrow mb-5 text-teal-300">About Infynex</motion.p>
-          <AnimatedText as="h2" text="Empowering Businesses Through Technology and Service Excellence" className="text-balance font-display text-4xl font-semibold leading-[1.05] md:text-5xl" />
-          <motion.p variants={fadeUp} custom={3} initial="hidden" whileInView="visible" viewport={viewportOnce} className="mt-6 text-lg text-white/70">
-            Infynex Technologies unites IT infrastructure, technical support, integrated operational services and solar system services under one accountable team—helping businesses operate securely, efficiently and with confidence.
+          <AnimatedText as="h2" text="Empowering Businesses Through Technology and Service Excellence" className="text-balance font-display text-[2rem] font-semibold leading-[1.05] md:text-[2.75rem]" />
+          <motion.p variants={fadeUp} custom={3} initial="hidden" whileInView="visible" viewport={viewportOnce} className="mt-5 text-[1.075rem] leading-relaxed text-white/70">
+            Infynex Technologies delivers comprehensive solutions across IT infrastructure, hardware and maintenance, AMC services, technical support and helpdesk, facilities management, energy and solar systems, mobility, robotic duct cleaning and other integrated operational services. Through a single accountable team, we help businesses operate efficiently, securely and seamlessly—ensuring reliability, business continuity and long-term performance.
           </motion.p>
-          <motion.div variants={fadeUp} custom={5} initial="hidden" whileInView="visible" viewport={viewportOnce} className="mt-10">
+          <motion.div variants={fadeUp} custom={5} initial="hidden" whileInView="visible" viewport={viewportOnce} className="mt-8">
             <Link to="/about" className="group inline-flex items-center gap-3 font-display text-sm font-semibold">
               <span className="flex h-12 w-12 items-center justify-center rounded-full bg-teal-500 transition-transform duration-500 group-hover:rotate-45"><ArrowUpRight className="h-5 w-5" /></span>
               Read our story

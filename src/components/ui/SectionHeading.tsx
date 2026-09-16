@@ -24,7 +24,7 @@ export default function SectionHeading({
     <div className={`${align === 'center' ? 'mx-auto text-center' : ''} max-w-3xl ${className}`}>
       {eyebrow && (
         <motion.div
-          className={`mb-5 flex items-center gap-3 ${align === 'center' ? 'justify-center' : ''}`}
+          className={`site-section-eyebrow mb-5 flex items-center gap-3 ${align === 'center' ? 'justify-center' : ''}`}
           initial="hidden" whileInView="visible" viewport={viewportOnce}
         >
           <motion.span variants={lineGrow} className={`h-px w-10 origin-left ${dark ? 'bg-teal-400' : 'bg-teal-500'}`} />
@@ -34,7 +34,7 @@ export default function SectionHeading({
       <AnimatedText
         as="h2"
         text={title}
-        className={`text-balance font-display font-semibold leading-[1.05] ${sizes} ${dark ? 'text-white' : 'text-navy-900'}`}
+        className={`site-section-heading text-balance font-display font-semibold leading-[1.05] ${sizes} ${dark ? 'text-white' : 'text-navy-900'}`}
       />
       {text && (
         <motion.p
