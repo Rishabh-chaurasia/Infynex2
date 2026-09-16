@@ -63,7 +63,7 @@ export default function Services() {
               <span className="h-px flex-1 bg-navy-800/10"/>
               <h2 className="font-display text-2xl font-semibold text-navy-900 md:text-3xl">{g.title}</h2>
             </motion.div>
-            <div className="auto-grid">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {g.slugs.map((slug) => {
                 const s = services.find((x) => x.slug === slug);
                 const idx = services.indexOf(s);

@@ -23,7 +23,7 @@ export default function ServiceDetail() {
         return <Navigate to="/services" replace/>;
     const cta = serviceCtas[service.slug];
     return (<>
-      <section className="service-detail-hero relative flex min-h-[520px] items-end overflow-hidden bg-navy-950 pt-24 text-white md:min-h-[620px]" style={{ '--service-accent': service.accent }}>
+      <section className="service-detail-hero relative flex min-h-[560px] items-end overflow-hidden bg-navy-950 pt-24 text-white md:min-h-[680px]" style={{ '--service-accent': service.accent }}>
         <SmartImage src={service.hero} alt={service.title} className="service-detail-hero-image absolute inset-0 h-full w-full object-cover opacity-65"/>
         <div className="service-detail-hero-overlay absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-950/55 to-navy-950/5"/>
         <div className="service-detail-hero-content container-x relative pb-14 md:pb-20">
@@ -49,7 +49,7 @@ export default function ServiceDetail() {
             <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold text-navy-900 md:text-4xl">{service.slug === 'it-infra' ? 'Infrastructure engineered for performance and growth.' : 'Professional services aligned with your operations.'}</h2>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-600 md:text-lg">{service.overview}</p>
             <ul className="mt-7 grid gap-3 sm:grid-cols-2">
-              {service.highlights.map((item) => <li key={item} className="flex gap-3 rounded-xl bg-ivory-100 p-3 text-sm text-navy-900"><Check className="mt-0.5 h-4 w-4 shrink-0 text-teal-600"/>{item}</li>)}
+              {service.highlights.map((item, index) => <li key={item} className="flex gap-3 rounded-xl bg-ivory-100 p-3 text-sm text-navy-900"><Check className="mt-0.5 h-4 w-4 shrink-0 text-teal-600"/>{index === service.highlights.length - 1 ? 'Many more' : item}</li>)}
             </ul>
           </div>
           <SmartImage src={service.gallery[0]} alt={`${service.title} service`} className="aspect-[4/3] h-full w-full rounded-[1.5rem] object-cover"/>

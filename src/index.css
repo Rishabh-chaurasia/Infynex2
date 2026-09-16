@@ -504,6 +504,7 @@ body {
   .source-hero-content {
     padding-top: calc(var(--nav-h) + clamp(1rem, 2.5svh, 1.75rem));
     padding-bottom: clamp(1.25rem, 2.5svh, 1.75rem);
+    transform: translateY(34px);
   }
   .source-hero-content h1 {
     max-width: min(750px, 59vw);
@@ -828,6 +829,7 @@ img {
 .source-industries-orb-two { bottom: 20%; left: -22%; animation-delay: -7s; }
 @keyframes source-industry-orb { to { transform: translate(65px, 55px) scale(1.15); } }
 .source-industries-header { position: relative; padding-bottom: 28px; padding-top: 32px; }
+.source-industries-header > .eyebrow { position: relative; top: -16px; }
 .source-industries-icons { position: absolute; right: clamp(2rem, 6vw, 6rem); top: 50%; display: flex; align-items: center; gap: 18px; color: #087f96; transform: translateY(-50%); }
 .source-industries-icons svg {
   width: 78px;
@@ -853,7 +855,7 @@ img {
 }
 
 .site-footer > .container-x {
-  min-height: clamp(570px, 74svh, 740px);
+  min-height: clamp(555px, 72svh, 730px);
   padding-top: clamp(5rem, 7.5vw, 7rem);
   padding-bottom: clamp(5rem, 7.5vw, 7rem);
 }

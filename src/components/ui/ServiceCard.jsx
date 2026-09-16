@@ -21,11 +21,10 @@ export default function ServiceCard({ service, index = 0, variant = 'tall' }) {
           <div aria-hidden className="absolute -right-20 -top-20 h-64 w-64 rounded-full opacity-0 blur-3xl transition-opacity duration-700 group-hover:opacity-60" style={{ background: service.accent }}/>
 
           <div className="service-card-content relative flex h-full flex-col justify-between p-6 md:p-7" style={{ transform: 'translateZ(30px)' }}>
-            <div className="service-card-meta flex items-start justify-between">
+            <div className="service-card-meta flex items-start">
               <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/15 bg-white/10 backdrop-blur-md transition-all duration-500 group-hover:rotate-[-8deg] group-hover:scale-110 group-hover:bg-white/20">
                 <Icon className="h-5 w-5 transition-transform duration-500 group-hover:scale-110"/>
               </span>
-              <span className="font-display text-xs tracking-[0.3em] text-white/50">{String(index + 1).padStart(2, '0')}</span>
             </div>
 
             <div className="service-card-copy">
