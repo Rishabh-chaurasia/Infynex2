@@ -58,6 +58,9 @@ body {
   background: #fbfdff;
 }
 .about-page-hero-inner { z-index: 1; }
+@media (min-width: 1200px) {
+  .about-page-hero-inner { transform: translateY(-16px); }
+}
 .about-page-hero-copy { position: relative; z-index: 2; }
 .about-page-hero-media { z-index: 2; }
 .about-page-hero-media,
