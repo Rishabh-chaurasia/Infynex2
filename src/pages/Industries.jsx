@@ -13,9 +13,9 @@ export default function Industries() {
       <div aria-hidden className="source-industries-orb source-industries-orb-two"/>
 
       <header className="container-x source-industries-header">
-        <motion.span initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: EASE }} className="eyebrow text-teal-600">Industries</motion.span>
+        <motion.span initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: EASE }} className="eyebrow inline-flex items-center gap-3 text-teal-600"><span className="h-px w-10 bg-teal-600"/>Industries</motion.span>
         <motion.h1 initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.12, ease: EASE }}>
-          Services Thoughtfully Aligned<br /><em>With Your Industry.</em>
+          Services Thoughtfully Aligned<br /><em>with your Industry.</em>
         </motion.h1>
         <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.3, ease: EASE }} className="source-industries-header-bottom">
           <p>Our team carefully adapts each service to your operating environment, priorities and schedule.</p>

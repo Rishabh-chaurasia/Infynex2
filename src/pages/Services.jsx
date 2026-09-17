@@ -12,9 +12,9 @@ import { EASE } from '../utils/motion';
 import usePageTitle from '../hooks/usePageTitle';
 import { useMotionLevel } from '../hooks/useMedia';
 const groups = [
-    { title: 'Infrastructure & hardware', slugs: ['it-infra', 'cloud-server', 'hardware', 'amc'] },
+    { title: 'Infrastructure & Hardware', slugs: ['it-infra', 'cloud-server', 'hardware', 'amc'] },
     { title: 'Technical Support & Helpdesk', slugs: ['technical-support', 'tele-services'] },
-    { title: 'Facilities, energy & mobility', slugs: ['robotic-duct-cleaning', 'solar', 'vehicle-vendor'] },
+    { title: 'Facilities, Energy & Mobility', slugs: ['robotic-duct-cleaning', 'solar', 'vehicle-vendor'] },
 ];
 /**
  * Service directory: a typographic hero with a live network backdrop, then
@@ -42,15 +42,15 @@ export default function Services() {
             <span className="services-directory-icon services-directory-icon-support"><Headphones /></span>
             <span className="services-directory-icon services-directory-icon-tools"><Wrench /></span>
           </motion.div>
-          <motion.p initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="eyebrow mb-6 flex w-fit items-center gap-3 rounded-full bg-gradient-to-r from-teal-600 to-[#526ee8] px-4 py-2 text-white shadow-[0_10px_28px_rgba(26,157,195,.28)]">
-            <span className="h-px w-8 bg-white/80"/> Service directory
+          <motion.p initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="eyebrow relative -top-14 mb-1 flex w-fit items-center gap-3 text-teal-700">
+            <span className="h-px w-8 bg-teal-600"/> Services
           </motion.p>
           <h1 className="max-w-4xl font-display text-5xl font-semibold leading-[1.02] md:text-7xl">
-            <AnimatedText text="Services For Your" trigger="mount" delay={0.4}/><br />
+            <AnimatedText text="Services for your" trigger="mount" delay={0.4}/><br />
             <span className="text-teal-700"><AnimatedText text="Business and Workplace" trigger="mount" delay={0.7}/></span>
           </h1>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1, duration: 0.8, ease: EASE }} className="mt-8 max-w-xl rounded-2xl border border-teal-500/20 bg-white/75 p-5 text-lg font-normal leading-relaxed text-navy-700 shadow-sm backdrop-blur">
-            Explore our service portfolio, delivery capabilities and structured approach to supporting your operations.
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1, duration: 0.8, ease: EASE }} className="services-directory-description mt-8 max-w-xl text-lg font-normal leading-relaxed text-navy-700">
+            Explore our comprehensive service portfolio, delivery capabilities and structured approach to supporting secure, efficient and dependable business operations. Our solutions are aligned with your infrastructure, workplace and long-term operational requirements.
           </motion.p>
         </motion.div>
         <ScrollIndicator />

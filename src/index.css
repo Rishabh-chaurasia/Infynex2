@@ -520,7 +520,7 @@ body {
     line-height: 1.6;
   }
   .source-hero-content > div:nth-of-type(1) {
-    margin-top: 1.25rem;
+    margin-top: 2.25rem;
     margin-bottom: 1.5rem;
   }
   .source-hero-content > div:nth-of-type(1) a {
@@ -553,7 +553,7 @@ body {
   }
 
   .services-directory-hero .container-x {
-    min-height: clamp(40rem, 92dvh, 56rem);
+    min-height: clamp(42rem, 96dvh, 58rem);
     padding-top: calc(var(--nav-h) + 4rem);
     padding-bottom: 4rem;
   }
@@ -855,7 +855,7 @@ img {
 }
 
 .site-footer > .container-x {
-  min-height: clamp(555px, 72svh, 730px);
+  min-height: clamp(590px, 77svh, 760px);
   padding-top: clamp(5rem, 7.5vw, 7rem);
   padding-bottom: clamp(5rem, 7.5vw, 7rem);
 }

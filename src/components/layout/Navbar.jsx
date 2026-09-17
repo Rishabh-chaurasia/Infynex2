@@ -38,7 +38,7 @@ export default function Navbar() {
         setOpen(false);
         window.requestAnimationFrame(() => document.getElementById('footer-contact')?.scrollIntoView({ behavior: 'smooth', block: 'center' }));
     };
-    const linkCls = ({ isActive }) => `group/nav relative rounded-full px-3.5 py-2 font-display text-sm font-semibold transition-all duration-300 ${isActive ? 'bg-teal-500/10 text-teal-700' : 'text-ink-600 hover:-translate-y-0.5 hover:bg-[#edf9fc] hover:text-teal-700'}`;
+    const linkCls = ({ isActive }) => `group/nav relative rounded-full px-3.5 py-2 font-display text-sm font-semibold transition-colors duration-300 ${isActive ? 'text-teal-700' : 'text-ink-600 hover:bg-[#edf9fc] hover:text-teal-700'}`;
     return (<>
       <motion.header initial={false} className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-500 ${solid ? 'border-teal-500/15 bg-white/90 backdrop-blur-2xl' : 'border-transparent bg-transparent'} ${scrolled || mega ? 'shadow-[0_14px_45px_-22px_rgba(11,21,51,0.3)]' : ''}`} onMouseLeave={() => setMega(false)}>
         <div className="container-x flex items-center justify-between transition-all duration-500" style={{ height: scrolled ? 'calc(var(--nav-h) * .8)' : 'var(--nav-h)' }}>
@@ -50,7 +50,7 @@ export default function Navbar() {
           <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary">
             {navLinks.map((l) => l.label === 'Services' ? (<div key={l.to} className="relative" onMouseEnter={() => setMega(true)}>
                   <NavLink to={l.to} className={linkCls} end>
-                    {({ isActive }) => (<span className="flex items-center gap-1">
+                    {({ isActive }) => (<span className="relative flex items-center gap-1">
                         {l.label}
                         <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-300 ${mega ? 'rotate-180' : ''}`}/>
                         <ActiveDot active={isActive || location.pathname.startsWith('/services')}/>
@@ -148,6 +148,6 @@ export default function Navbar() {
 }
 function ActiveDot({ active }) {
     return (<AnimatePresence>
-      {active && (<motion.span layoutId="nav-active" className="absolute -bottom-1 left-0 h-[2px] w-full rounded-full bg-teal-500" initial={{ opacity: 0, scaleX: 0 }} animate={{ opacity: 1, scaleX: 1 }} exit={{ opacity: 0, scaleX: 0 }} transition={{ duration: 0.4, ease: EASE }}/>)}
+      {active && (<motion.span className="absolute -bottom-1 left-0 h-[2px] w-full rounded-full bg-teal-500" initial={{ opacity: 0, scaleX: 0 }} animate={{ opacity: 1, scaleX: 1 }} exit={{ opacity: 0, scaleX: 0 }} transition={{ duration: 0.4, ease: EASE }}/>)}
     </AnimatePresence>);
 }

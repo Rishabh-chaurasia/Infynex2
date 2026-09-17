@@ -19,10 +19,10 @@ export default function Blog() {
           <span>💡</span>
         </motion.div>
         <motion.p initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="eyebrow mb-6 flex items-center gap-3 text-teal-600">
-          <span className="h-px w-10 bg-teal-500"/> Insights
+          <span className="h-px w-10 bg-teal-500"/> Blogs
         </motion.p>
         <h1 className="max-w-4xl font-display text-5xl font-semibold leading-[1.02] text-navy-900 md:text-7xl">
-          <AnimatedText text="Helpful Ideas For Your Business." trigger="mount" delay={0.4}/>
+          <AnimatedText text="Helpful Ideas for your Business." trigger="mount" delay={0.4}/>
         </h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 0.8, ease: EASE }} className="mt-6 max-w-xl text-lg text-ink-600">
           Read simple articles about our services and technology. We also share useful updates and real stories from our work.
