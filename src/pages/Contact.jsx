@@ -60,7 +60,7 @@ export default function Contact() {
             </motion.p>
             <h1 className="contact-page-title font-display text-4xl font-semibold leading-[1.04] text-navy-900 sm:text-[2.75rem] lg:text-5xl">
               <AnimatedText text="Helpful Support" trigger="mount" delay={0.4}/><br />
-              <span className="text-teal-600"><AnimatedText text="For Your Business." trigger="mount" delay={0.6}/></span>
+              <span className="text-teal-600"><AnimatedText text="for your Business." trigger="mount" delay={0.6}/></span>
             </h1>
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 0.8, ease: EASE }} className="mt-6 max-w-md text-lg text-ink-600">
               Please share what you need. Our team will listen carefully and guide you through the next step.
