@@ -9,6 +9,11 @@ import { services } from '../data/services';
 import { EASE, fadeUp } from '../utils/motion';
 import usePageTitle from '../hooks/usePageTitle';
 const initial = { name: '', email: '', phone: '', company: '', service: '', message: '' };
+const emailJsConfig = {
+    serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_j4yzqdi',
+    templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_j40fnoa',
+    publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'TRPPu3c3XQlyUmlGe',
+};
 function validate(f) {
     const e = {};
     if (f.name.trim().length < 2)
@@ -48,7 +53,7 @@ export default function Contact() {
         setStatus('loading');
         const selectedService = services.find((service) => service.slug === fields.service)?.title || 'Not specified';
         try {
-            await emailjs.send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, {
+            await emailjs.send(emailJsConfig.serviceId, emailJsConfig.templateId, {
                 name: fields.name,
                 from_name: fields.name,
                 email: fields.email,
@@ -58,7 +63,7 @@ export default function Contact() {
                 service: selectedService,
                 message: fields.message,
             }, {
-                publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+                publicKey: emailJsConfig.publicKey,
             });
             setStatus('success');
         }
