@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Target, ShieldCheck, CheckCircle2, Loader2 } from 'lucide-react';
 import AnimatedText from '../components/ui/AnimatedText';
@@ -25,8 +26,8 @@ function validate(f) {
  * and a network visual; right: an animated form with floating labels,
  * validation, loading and success states.
  *
- * Submission: currently simulated. Wire `submit()` to your backend / email
- * service (e.g. a form endpoint) to send real enquiries.
+ * Submissions are delivered through EmailJS using the project's Vite
+ * environment variables.
  */
 export default function Contact() {
     usePageTitle('Contact — Infynex Technologies');
@@ -45,9 +46,30 @@ export default function Contact() {
         if (Object.keys(errs).length)
             return;
         setStatus('loading');
-        // TODO: replace with a real request, e.g. fetch('/api/enquiry', { method: 'POST', body: JSON.stringify(fields) })
-        await new Promise((r) => setTimeout(r, 1400));
-        setStatus('success');
+        const selectedService = services.find((service) => service.slug === fields.service)?.title || 'Not specified';
+        try {
+            await emailjs.send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, {
+                name: fields.name,
+                from_name: fields.name,
+                email: fields.email,
+                reply_to: fields.email,
+                phone: fields.phone || 'Not provided',
+                company: fields.company || 'Not provided',
+                service: selectedService,
+                message: fields.message,
+            }, {
+                publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+            });
+            setStatus('success');
+        }
+        catch (error) {
+            console.error('EmailJS submission failed:', error);
+            setErrors((current) => ({
+                ...current,
+                form: 'We could not send your enquiry. Please try again in a moment.',
+            }));
+            setStatus('error');
+        }
     };
     return (<>
       <section className="relative overflow-hidden bg-ivory-50">
@@ -112,7 +134,7 @@ export default function Contact() {
                       <Field id="name" label="Name" fields={fields} errors={errors} set={set}/>
                       <Field id="email" label="Email" type="email" fields={fields} errors={errors} set={set}/>
                       <Field id="phone" label="Phone" type="tel" fields={fields} errors={errors} set={set}/>
-                      <Field id="company" label="Company" fields={fields} errors={errors} set={set}/>
+                      <Field id="company" label="Company/Individual" fields={fields} errors={errors} set={set}/>
                     </div>
                     <motion.div variants={fadeUp} className="field">
                       <select id="service" value={fields.service} onChange={set('service')} className="w-full border-0 border-b border-navy-800/20 bg-transparent py-3 pt-6 text-navy-900 outline-none focus:border-teal-500">
@@ -125,6 +147,7 @@ export default function Contact() {
                       <MagneticButton type="submit" disabled={status === 'loading'} className="w-full md:w-auto" icon={status !== 'loading'}>
                         {status === 'loading' ? <span className="flex items-center gap-2"><Loader2 className="h-4 w-4 animate-spin"/> Sending…</span> : 'Send Enquiry'}
                       </MagneticButton>
+                      {errors.form && <p className="mt-3 text-sm text-red-600" role="alert">{errors.form}</p>}
                     </motion.div>
                   </motion.form>)}
               </AnimatePresence>
